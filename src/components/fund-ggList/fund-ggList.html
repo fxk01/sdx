@@ -1,0 +1,13 @@
+<ul>
+  {{#each ChanPinGongGao}}
+  <li>
+    <a href="javascript:" data-id="{{id}}" class="fundNoticeHref" style="display: block; padding: 0.6rem;">
+      <p class="sdx-bull-p">{{title}}</p>
+      <div>
+        <img src="../../assets/images/product_nz.png" style="vertical-align: middle;">
+        <span style="color: gray;">&nbsp;&nbsp;&nbsp;{{create_timestamp}}&nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </a>
+  </li>
+  {{/each}}
+</ul>

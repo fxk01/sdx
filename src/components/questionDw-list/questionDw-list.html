@@ -1,0 +1,21 @@
+{{#each topiclist}}
+<div class="sdx-queDw-listDiv">
+  <p>{{title}}</p>
+  <ul class="sdx-queDw-ul35">
+    {{#each answersList}}
+    <li>
+      <span class="onRadio">
+        <span class="onSelect {{js ../gradeFs === this.grade ? 'onSelectScale1' : ''}}"></span>
+      </span>
+      <span class="sdx-queDw-nr">{{answer}}</span>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+{{/each}}
+
+<div class="sdx-queDw-btDiv">
+  <p style="margin-bottom: 0.5rem;">
+    <a href="#" class="button button-big button-fill color-gray sdx-queDw-xzPDF">下载PDF</a>
+  </p>
+</div>
