@@ -4,7 +4,6 @@
 
 'use strict';
 import './forgetPassword.less';
-import forgetPasswordHtml from '../../page/forgetPassword.html';
 import forgetPasswordTpl from './forgetPassword.tpl.html';
 import Tool from '../../utils/tool';
 import modiFyPs from '../../components/modify-ps/modify-ps.html';
@@ -15,6 +14,7 @@ import '../../components/toast/toast.css';
 import '../../components/toast/toast';
 import Validator from 'validator.tool';
 import forgetPwStore from '../../store/forgetPw_store';
+import Constant from '../../utils/constant';
 
 export default class ForgetPassword extends widget {
   constructor() {
@@ -33,10 +33,7 @@ export default class ForgetPassword extends widget {
       this.apTpl();
 
       this.pickerZjLx();
-      $$('.framework7-root').on('click', '.modifyRegLogin', () => {
-        window.location.href = `page/login.html?cid=${Tool.parseURL('cid')}`;
-        // mainView.router.loadPage(`page/login.html?cid=${Tool.parseURL('cid')}`);
-      });
+      $$('.framework7-root').on('click', '.modifyRegLogin', () => { window.location.href = `${Constant.Href_Route}login.html?cid=${Tool.parseURL('cid')}`; });
       $$('.forget').on('click', '.sdx-ps-ulTzzLx li', function() { let that = $(this); self.stInvestor(that); });
       $$('.forget').on('click', '.sdx-ps-yzm', function() { self.postYzm(); });
       $$('.forget').on('click', '.sdx-ps-bc', function() { self.validOne(); })

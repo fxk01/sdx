@@ -4,12 +4,12 @@
 
 'use strict';
 import './purchasedProducts.less';
-import purchasedProductsHtml from '../../page/purchasedProducts.html';
 import purchasedProductsTpl from './purchasedProducts.tpl.html';
 import Tool from '../../utils/tool';
 import fundProducts from '../../components/fund-products/fund-products.html';
 import chasedStore from '../../store/fundChased_stroe'
 import widget from '../../utils/widget';
+import Constant from '../../utils/constant';
 
 export default class PurchasedProducts extends widget {
   constructor() {
@@ -26,7 +26,7 @@ export default class PurchasedProducts extends widget {
     $('.purchasedProducts-page').html('').append($(_purchasedProductsTpl));
 
     this.chased();
-    $('.purHrefFund').on('click', () => { window.location.href = '/#!/page/fund.html'; });
+    $('.purHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
   }
   /*
    获取已购产品

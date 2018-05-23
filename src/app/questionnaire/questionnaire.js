@@ -10,6 +10,7 @@ import widget from '../../utils/widget';
 import questionStore from '../../store/question_store';
 import questionDwTpl from '../../components/questionDw-list/questionDw-list.html';
 import '../../components/questionDw-list/questionDw-list.less';
+import Constant from '../../utils/constant';
 
 export default class Questionnaire extends widget {
   init() {
@@ -22,7 +23,7 @@ export default class Questionnaire extends widget {
     $('.questionnaire-page').append($(_questionnaireTpl));
 
     this.postTopicListDownload();
-    $('.framework7-root').on('click', '.questionHrefFund', () => { mainView.router.loadPage('page/fund.html'); });
+    $('.framework7-root').on('click', '.questionHrefFund', () => { window.location.href = `${Constant.Href_Route}page/fund.html`; });
   }
   /*
    获取风险调查问卷列表

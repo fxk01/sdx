@@ -4,7 +4,6 @@
 
 'use strict';
 import './userInformation.less';
-import userInformationHtml from '../../page/userInformation.html';
 import userInformationTpl from './userInformation.tpl.html';
 import Tool from '../../utils/tool';
 import widget from '../../utils/widget';
@@ -12,6 +11,7 @@ import '../../components/user-info/user-info.less';
 import userInfoListTpl from '../../components/user-info/user-info.html';
 import userInfoStore from '../../store/userBasicInfo_store';
 import $$ from 'jquery';
+import Constant from '../../utils/constant';
 
 export default class UserInformation extends widget {
   constructor() {
@@ -29,7 +29,7 @@ export default class UserInformation extends widget {
     $('.userInformation-page').html('').append($(_userInformationTpl));
 
     this.userBasicInfo();
-    $$('#userInfoLink').on('click', () => { window.location.href = '/#!/page/fund.html'; });
+    $$('#userInfoLink').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
     $('.userBasicInfo').on('click', '.infoEdit', () => { this.infoEdit(); });
     $$('.userBasicInfo').on('click', '.sdx-info-bc', function() { let that = $$(this); self.preservationInfo(that); });
   }

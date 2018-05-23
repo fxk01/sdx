@@ -4,12 +4,12 @@
 
 'use strict';
 import './fundNoticeDetails.less';
-import fundNoticeDetailsHtml from '../../page/fundNoticeDetails.html';
 import fundNoticeDetailsTpl from './fundNoticeDetails.tpl.html';
 import fundBulletinDetailsTpl from '../../components/fund-bulletinDetails/fund-bulletinDetails.html';
 import Tool from '../../utils/tool';
 import widget from '../../utils/widget';
 import fundNoticeDetailsStore from '../../store/fundGgDetails_store';
+import Constant from '../../utils/constant';
 
 export default class FundNoticeDetails extends widget {
   init() {
@@ -25,7 +25,7 @@ export default class FundNoticeDetails extends widget {
     $('.fundNoticeDetails-page').append($(_fundNoticeDetailsTpl));
     this.postGgDetails();
 
-    $('.framework7-root').on('click', '.fundBulReg', () => { window.location.href = `/#!/page/fundBulletin.html?code=${Tool.parseURL('code')}`; });
+    $('.framework7-root').on('click', '.fundBulReg', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?code=${Tool.parseURL('code')}`; });
   }
   /*
    获取产品公告详情

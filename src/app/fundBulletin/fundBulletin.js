@@ -4,12 +4,12 @@
 
 'use strict';
 import './fundBulletin.less';
-import fundBulletinHtml from '../../page/fundBulletin.html';
 import fundBulletinTpl from './fundBulletin.tpl.html';
 import Tool from '../../utils/tool';
 import widget from '../../utils/widget';
 import ggListTpl from '../../components/fund-ggList/fund-ggList.html';
 import fundBulletinStore from '../../store/fund_bulletin';
+import Constant from '../../utils/constant';
 
 export default class FundBulletin extends widget {
   init() {
@@ -23,8 +23,8 @@ export default class FundBulletin extends widget {
     $('.fundBulletin-page').html('').append($(_fundBulletinTpl));
     this.noticeList();
 
-    $('.fundHrefBulReg').on('click', () => { window.location.href = `/#!/page/fundDetail.html?code=${Tool.parseURL('code')}`; });
-    $('.framework7-root').on('click', '.fundNoticeHref', function() { window.location.href = `/#!/page/fundNoticeDetails.html?code=${Tool.parseURL('code')}&id=${$(this).attr('data-id')}` });
+    $('.fundHrefBulReg').on('click', () => { window.location.href = `${Constant.Href_Route}fundDetail.html?code=${Tool.parseURL('code')}`; });
+    $('.framework7-root').on('click', '.fundNoticeHref', function() { window.location.href = `${Constant.Href_Route}fundNoticeDetails.html?code=${Tool.parseURL('code')}&id=${$(this).attr('data-id')}` });
   }
   /*
    获取公告列表

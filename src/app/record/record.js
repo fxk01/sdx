@@ -4,12 +4,12 @@
 
 'use strict';
 import './record.less';
-import recordHtml from '../../page/record.html';
 import recordTpl from './record.tpl.html';
 import Tool from '../../utils/tool';
 import widget from '../../utils/widget';
 import recordStore from '../../store/record_store';
 import recordListTpl from '../../components/fund-record/fund-record.html';
+import Constant from '../../utils/constant';
 
 export default class Record extends widget {
   constructor() {
@@ -26,7 +26,7 @@ export default class Record extends widget {
     $('.record-page').append($(_recordTpl));
 
     this.transactionRecord();
-    $('.recordHrefFund').on('click', () => { window.location.href = '/#!/page/fund.html'; });
+    $('.recordHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
   }
   /*
    获取交易记录

@@ -4,7 +4,6 @@
 
 'use strict';
 import './fundDetails.less';
-import fundDetailHtml from '../../page/fundDetail.html';
 import fundDetailTpl from './fundDetails.tpl.html';
 import Tool from '../../utils/tool';
 import widget from '../../utils/widget';
@@ -15,6 +14,7 @@ import fundProductElemTpl from '../../components/fund-productElem/fund-productEl
 import fundPerForManCe from '../../components/fund-performance/fund-performance.html';
 import fundDetailStore from '../../store/fundDetail_store';
 import highCharts from 'highcharts';
+import Constant from '../../utils/constant';
 
 export default class FundDetail extends widget {
   constructor() {
@@ -32,9 +32,9 @@ export default class FundDetail extends widget {
       $('.fundDetail-page').html('').append($(_fundDetailTpl));
       this.fundGoodInfo();
       this.productElements();
-      $('.framework7-root').on('click', '.fundDeHrefRegFund', () => { window.location.href = `/#!/page/fund.html` });
-      $('.framework7-root').on('click', '.fundHrefBul', () => { window.location.href = `/#!/page/fundBulletin.html?code=${Tool.parseURL('code')}`; });
-      $('.framework7-root').on('click', '.reservationHref', () => { window.location.href = `/#!/page/reservation.html?code=${Tool.parseURL('code')}&name=${encodeURI($('.sdx-fund-jjCpH1').text())}`; });
+      $('.framework7-root').on('click', '.fundDeHrefRegFund', () => { window.location.href = `${Constant.Href_Route}fund.html` });
+      $('.framework7-root').on('click', '.fundHrefBul', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?code=${Tool.parseURL('code')}`; });
+      $('.framework7-root').on('click', '.reservationHref', () => { window.location.href = `${Constant.Href_Route}reservation.html?code=${Tool.parseURL('code')}&name=${encodeURI($('.sdx-fund-jjCpH1').text())}`; });
     } catch (e) {
       console.log(e.message);
     }

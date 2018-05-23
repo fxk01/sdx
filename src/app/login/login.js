@@ -6,11 +6,11 @@
 import './login.less';
 import '../../components/toast/toast.css';
 import '../../components/toast/toast';
-import loginHtml from '../../page/login.html';
 import loginTpl from './login.tpl.html';
 import Tool from '../../utils/tool';
 import widget from '../../utils/widget';
 import LoginStore from '../../store/login_store';
+import Constant from '../../utils/constant';
 
 export default class Login extends widget {
   static defaultHtml = {
@@ -54,7 +54,7 @@ export default class Login extends widget {
     this.screen.on('click', '.sdx-link-login', () => { this.loginHome(); });
     this.agreementMessage();
     $('.framework7-root').on('click', '#modifyLogin', () => {
-      window.location.href = `/#!/page/forgetPassword.html?cid=${Tool.parseURL('cid')}`;
+      window.location.href = `${Constant.Href_Route}forgetPassword.html?cid=${Tool.parseURL('cid')}`;
       // mainView.router.loadPage(`page/forgetPassword.html?cid=${Tool.parseURL('cid')}`);
     });
   }
@@ -157,7 +157,8 @@ export default class Login extends widget {
             }
           }
           if(sessionStorage.getItem('company_type') === '1') {
-            mainView.router.loadPage('page/fund.html');
+            window.location.href = `${Constant.Href_Route}fund.html`
+            // mainView.router.loadPage('page/fund.html');
           }
         }
         btnActivation.removeClass('btn--waiting');

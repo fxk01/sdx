@@ -4,7 +4,6 @@
 
 'use strict';
 import './modifyPassword.less';
-import modifyPasswordHtml from '../../page/modifyPassword.html';
 import modifyPasswordTpl from './modifyPassword.tpl.html';
 import Tool from '../../utils/tool';
 import widget from '../../utils/widget';
@@ -12,6 +11,7 @@ import '../../components/user-info/user-info.less';
 import '../../components/toast/toast.css';
 import '../../components/toast/toast';
 import ModifyPassStore from '../../store/modifyPass_store';
+import Constant from '../../utils/constant';
 
 export default class ModifyPassword extends widget {
   constructor() {
@@ -27,7 +27,7 @@ export default class ModifyPassword extends widget {
     let _modifyPasswordTpl = Tool.renderTpl(modifyPasswordTpl);
     $('.modifyPassword-page').append($(_modifyPasswordTpl));
 
-    $('.modifyHrefFund').on('click', () => { window.location.href = '/#!/page/fund.html'; });
+    $('.modifyHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
     $('#savePass').on('click', () => { this.savePassword(); });
   }
   /*

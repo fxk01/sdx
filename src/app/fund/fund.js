@@ -4,7 +4,6 @@
 
 'use strict';
 import './fund.less';
-import fundHtml from '../../page/fund.html'
 import fundTpl from './fund.tpl.html';
 import Tool from '../../utils/tool';
 import widget from '../../utils/widget'
@@ -15,6 +14,7 @@ import fundInfoList from '../../components/fund-infoList/fund-infoList.html';
 import userFdInformation from '../../components/user-fd-information/user-fd-information.html';
 import fundAsset from '../../components/fund-asset/fund-asset.html';
 import highCharts from 'highcharts';
+import Constant from '../../utils/constant';
 import $$ from 'jquery';
 
 export default class Fund extends widget {
@@ -34,8 +34,6 @@ export default class Fund extends widget {
     }
     this.apTpl();
 
-    myApp.initPullToRefresh($('.pullFundHome'));
-    myApp.initPullToRefresh($('.pullFund'));
     this.fundHomeData();
     this.fundListContent();
     $('.showHdAssets').on('click', (e) => { this.showAssets(e); });
@@ -49,12 +47,12 @@ export default class Fund extends widget {
         }
       });
     });
-    $$('.framework7-root').on('click', '.questionHref', () => { mainView.router.loadPage('page/questionnaire.html'); });
-    $$('.framework7-root').on('click', '.hrefYgCp', () => { window.location.href = `/#!/page/purchasedProducts.html`; });
-    $$('.framework7-root').on('click', '.hrefJyJl', () => { window.location.href = `/#!/page/record.html`; });
-    $$('.framework7-root').on('click', '.hrefJbXx', () => { window.location.href = `/#!/page/userInformation.html`; });
-    $$('.framework7-root').on('click', '.hrefXgMm', () => { window.location.href = `/#!/page/modifyPassword.html`; });
-    $$('.framework7-root').on('click', '.hrefTsJy', () => { window.location.href = `/#!/page/complaint.html`; });
+    $$('.framework7-root').on('click', '.questionHref', () => { window.location.href = `${Constant.Href_Route}questionnaire.html` });
+    $$('.framework7-root').on('click', '.hrefYgCp', () => { window.location.href = `${Constant.Href_Route}purchasedProducts.html`; });
+    $$('.framework7-root').on('click', '.hrefJyJl', () => { window.location.href = `${Constant.Href_Route}record.html`; });
+    $$('.framework7-root').on('click', '.hrefJbXx', () => { window.location.href = `${Constant.Href_Route}userInformation.html`; });
+    $$('.framework7-root').on('click', '.hrefXgMm', () => { window.location.href = `${Constant.Href_Route}modifyPassword.html`; });
+    $$('.framework7-root').on('click', '.hrefTsJy', () => { window.location.href = `${Constant.Href_Route}complaint.html`; });
   }
   apTpl() {
     let _idCard = sessionStorage.getItem('idCard');
@@ -300,6 +298,6 @@ export default class Fund extends widget {
    */
   openData(itemSelf) {
     sessionStorage.setItem('chanPinId', itemSelf.attr('data-chanpinid'));
-    window.location.href = `/#!/page/fundDetail.html?code=${itemSelf.attr('data-chanpincode')}`;
+    window.location.href = `${Constant.Href_Route}fundDetail.html?code=${itemSelf.attr('data-chanpincode')}`;
   }
 };

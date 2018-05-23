@@ -4,11 +4,11 @@
 
 'use strict';
 import './reservation.less';
-import reservationHtml from '../../page/reservation.html';
 import reservationTpl from './reservation.tpl.html';
 import Tool from '../../utils/tool';
 import reservationStore from '../../store/reservation_store';
 import widget from '../../utils/widget';
+import Constant from '../../utils/constant';
 
 export default class Reservation extends widget {
   init() {
@@ -26,7 +26,7 @@ export default class Reservation extends widget {
     $('.ac-sg').on('click', () => { this.clickSg(); });
     $('.ac-bz').on('click', () => { this.clickBz(); });
     $('.make').on('click', () => { this.yyMake(); });
-    $('.reHrefRegFundDe').on('click', () => { window.location.href = `/#!/page/fundDetail.html?code=${Tool.parseURL('code')}`; })
+    $('.reHrefRegFundDe').on('click', () => { window.location.href = `${Constant.Href_Route}fundDetail.html?code=${Tool.parseURL('code')}`; })
   }
   clickSg() {
     let buttons = [
