@@ -2,6 +2,8 @@
  * 公共类
  */
 
+import Constant from '../../src/utils/constant';
+
 export default class widget {
   /*
    解析cid
@@ -23,7 +25,7 @@ export default class widget {
           code += String.fromCharCode(parseInt(d[i], 6));
           let StringCid = code;
           if(StringCid === '') {
-            window.location.href = `http://${window.location.host}/dist`;
+            window.location.href = `${Constant.Href_Route}main.html`;
             return false;
           } else{
             sessionStorage.setItem('cid', StringCid.substring(1));

@@ -25,14 +25,14 @@ export default class Login extends widget {
     $('.view').attr('data-page', 'login');
     let pageLeg = $('.login-page').length;
     if(pageLeg === 0) {
+      $('#root').html('');
       window.location.reload();
     }
     this.apTpl();
-
-    const _cid = page.query.cid;
-    if(_cid === undefined) {
-      window.location.href = `http://${window.location.host}`;
-    } else {
+    if(!sessionStorage.getItem('cid') && page.query.cid === undefined) {
+      window.location.href = `${Constant.Href_Route}main.html`;
+    }
+    if(!sessionStorage.getItem('cid')) {
       this.analysisCid(page);
     }
     let _loginTpl = Tool.renderTpl(loginTpl);

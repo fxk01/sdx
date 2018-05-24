@@ -12,7 +12,7 @@ export default {
       }
     }
   },
-  renderTpl(tpl, data){
+  renderTpl(tpl, data) {
     return Template7.compile(tpl)(data);
   },
   publishTime(date){

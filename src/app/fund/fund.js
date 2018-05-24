@@ -53,6 +53,7 @@ export default class Fund extends widget {
     $$('.framework7-root').on('click', '.hrefJbXx', () => { window.location.href = `${Constant.Href_Route}userInformation.html`; });
     $$('.framework7-root').on('click', '.hrefXgMm', () => { window.location.href = `${Constant.Href_Route}modifyPassword.html`; });
     $$('.framework7-root').on('click', '.hrefTsJy', () => { window.location.href = `${Constant.Href_Route}complaint.html`; });
+    $$('.framework7-root').on('click', '.hrefLoginOut', () => { self.loginOut(); });
   }
   apTpl() {
     let _idCard = sessionStorage.getItem('idCard');
@@ -62,6 +63,21 @@ export default class Fund extends widget {
     $('.userFundInformation').append(userFdInformation);
     $('.fundUser').text(sessionStorage.getItem('companyUser'));
     $('.fundIdCard').text(_idCard.substr(0,2) + '**************' + _idCard.substr(_idCard.length-2, 2));
+  }
+  /*
+   退出
+   */
+  loginOut() {
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('companyUser');
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('cardType');
+    sessionStorage.removeItem('idCard');
+    sessionStorage.removeItem('phone');
+    sessionStorage.removeItem('qTime');
+    sessionStorage.removeItem('qScore');
+    sessionStorage.removeItem('userType');
+    window.location.href = `${Constant.Href_Route}login.html`;
   }
   /*
    基金产品首页内容

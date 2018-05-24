@@ -23,7 +23,7 @@ export default class Questionnaire extends widget {
     $('.questionnaire-page').append($(_questionnaireTpl));
 
     this.postTopicListDownload();
-    $('.framework7-root').on('click', '.questionHrefFund', () => { window.location.href = `${Constant.Href_Route}page/fund.html`; });
+    $('.framework7-root').on('click', '.questionHrefFund', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
   }
   /*
    获取风险调查问卷列表
