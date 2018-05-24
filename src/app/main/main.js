@@ -55,6 +55,7 @@ export default class Main extends widget {
    选择公司
    */
   jumpLogin(e) {
+    $('.modal-main').remove();
     let _dataId = e.target.getAttribute('data-id');
     let _companyType = e.target.getAttribute('data-type');
     sessionStorage.setItem('cid', _dataId);

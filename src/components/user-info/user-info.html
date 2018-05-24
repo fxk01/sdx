@@ -6,1775 +6,1799 @@
     </div>
   </div>
   {{#js_if "this.user_type === '个人'"}}
-  <ul style="border-radius: 0 0 6px 6px; margin-bottom: 5px;">
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">姓名</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_name}}" disabled="disabled" data-gr="B_gr_name" readonly>
+  <form id="newFormUser">
+    <ul style="border-radius: 0 0 6px 6px; margin-bottom: 5px;">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">姓名</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_name}}" name="B_gr_name" disabled="disabled" data-gr="B_gr_name" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">性别</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_xb}}" disabled="disabled" data-gr="B_gr_xb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">性别</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_xb}}" name="B_gr_xb" disabled="disabled" data-gr="B_gr_xb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">年龄</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_nl}}" disabled="disabled" data-gr="B_gr_nl">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">年龄</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_nl}}" name="B_gr_nl" disabled="disabled" data-gr="B_gr_nl">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_card_type}}" disabled="disabled" data-gr="B_gr_card_type" readonly>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_card_type}}" name="B_gr_card_type" disabled="disabled" data-gr="B_gr_card_type" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件号码</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{id_card}}" disabled="disabled" data-gr="id_card" readonly>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件号码</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{id_card}}" name="id_card" disabled="disabled" data-gr="id_card" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">国籍</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_gj}}" disabled="disabled" data-gr="B_gr_gj">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">国籍</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_gj}}" name="B_gr_gj" disabled="disabled" data-gr="B_gr_gj">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">职业</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_zy}}" disabled="disabled" data-gr="B_gr_zy">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">职业</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_zy}}" name="B_gr_zy" disabled="disabled" data-gr="B_gr_zy">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">职务</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_zw}}" disabled="disabled" data-gr="B_gr_zw">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">职务</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_zw}}" name="B_gr_zw" disabled="disabled" data-gr="B_gr_zw">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">座机</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_zj}}" disabled="disabled" data-gr="B_gr_zj">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">座机</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_zj}}" name="B_gr_zj" disabled="disabled" data-gr="B_gr_zj">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">手机</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_phone}}" disabled="disabled" data-gr="B_gr_phone" readonly>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">移动电话</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_phone}}" name="B_gr_phone" disabled="disabled" data-gr="B_gr_phone" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">邮编</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_yb}}" disabled="disabled" data-gr="B_gr_yb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">邮编</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_yb}}" name="B_gr_yb" disabled="disabled" data-gr="B_gr_yb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">电子邮箱</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_email}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">电子邮箱</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_email}}" name="B_gr_email" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">住址</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{gr_dz}}" disabled="disabled" data-gr="B_gr_dz">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">住址</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{gr_dz}}" name="B_gr_dz" disabled="disabled" data-gr="B_gr_dz">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
 
-  <ul style="border-radius: 6px;">
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">金融资产不低于500万元人民币，或者最近三年个人年均收入不低于50万元人民币</div>
-      </div>
-      <div class="sdx-info-publicPrivate" data-key="B_gr_zcgm_1">
-        {{#js_if "this.gr_zcgm_1 === '否'"}}
-        <label style="padding-right: 66px;">
+    <ul style="border-radius: 6px;">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">金融资产不低于500万元人民币，或者最近三年个人年均收入不低于50万元人民币</div>
+        </div>
+        <div class="sdx-info-publicPrivate" data-key="B_gr_zcgm_1">
+          {{#js_if "this.gr_zcgm_1 === '否'"}}
+          <label style="padding-right: 66px;">
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect onSelectScale1" data-gr="否"></span>
          </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect" data-gr="是"></span>
          </span>
-          是
-        </label>
-        {{else}}
-        <label style="padding-right: 66px;">
+            是
+          </label>
+          {{else}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="是"></span>
           </span>
-          是
-        </label>
-        {{/js_if}}
-      </div>
-    </li>
-
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          私募基金或者资产管理计划投资者，最近20个交易日金融资产均不得低于人民币300万元，或者最近三年个人年均收入不低于50万元
+            是
+          </label>
+          {{/js_if}}
         </div>
-      </div>
-      <div class="sdx-info-publicPrivate" data-key="B_gr_zcgm_2">
-        {{#js_if "this.gr_zcgm_2 === '否'"}}
-        <label style="padding-right: 66px;">
+      </li>
+
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            私募基金或者资产管理计划投资者，最近20个交易日金融资产均不得低于人民币300万元，或者最近三年个人年均收入不低于50万元
+          </div>
+        </div>
+        <div class="sdx-info-publicPrivate" data-key="B_gr_zcgm_2">
+          {{#js_if "this.gr_zcgm_2 === '否'"}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect" data-gr="是"></span>
          </span>
-          是
-        </label>
-        {{else}}
-        <label style="padding-right: 66px;">
+            是
+          </label>
+          {{else}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="是"></span>
           </span>
-          是
-        </label>
-        {{/js_if}}
-      </div>
-    </li>
-
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          具有2年以上证券、基金、期货、黄金、外汇等投资经历，或者具有2年以上金融产品设计、投资、风险管理及相关工作经历，或者属于本条第（一）项规定的专业投资者的高级管理人员、获得职业资格认证的从事金融相关业务的注册会计师和律师。前款所称金融资产，是指银行存款、股票、债券、基金份额、资产管理计划、银行理财产品、信托计划、保险产品、期货及其他衍生产品等。
+            是
+          </label>
+          {{/js_if}}
         </div>
-      </div>
-      <div class="sdx-info-publicPrivate" data-key="B_gr_tzjl_1">
-        {{#js_if "this.gr_tzjl_1 === '否'"}}
-        <label style="padding-right: 66px;">
+      </li>
+
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            具有2年以上证券、基金、期货、黄金、外汇等投资经历，或者具有2年以上金融产品设计、投资、风险管理及相关工作经历，或者属于本条第（一）项规定的专业投资者的高级管理人员、获得职业资格认证的从事金融相关业务的注册会计师和律师。前款所称金融资产，是指银行存款、股票、债券、基金份额、资产管理计划、银行理财产品、信托计划、保险产品、期货及其他衍生产品等。
+          </div>
+        </div>
+        <div class="sdx-info-publicPrivate" data-key="B_gr_tzjl_1">
+          {{#js_if "this.gr_tzjl_1 === '否'"}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect" data-gr="是"></span>
           </span>
-          是
-        </label>
-        {{else}}
-        <label style="padding-right: 66px;">
+            是
+          </label>
+          {{else}}
+          <label style="padding-right: 66px;">
          <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="是"></span>
           </span>
-          是
-        </label>
-        {{/js_if}}
-      </div>
-    </li>
+            是
+          </label>
+          {{/js_if}}
+        </div>
+      </li>
 
-    <li class="sdx-info-sjGx">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          是否存在实际控制关系
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfczsjkzgx">
-            {{#js_if "this.gr_sfczsjkzgx === '否'"}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="否"></span>
+      <li class="sdx-info-sjGx">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfczsjkzgx">
+              <span class="sdx-info-spanTar">
+                是否存在实际控制关系
               </span>
-              否
-            </label>
-            <label>
-               <span style="margin-left: -35px;" class="onRadio">
-                 <span class="onSelect" data-gr="是"></span>
-               </span>
-              是
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
-               <span style="margin-left: -35px;" class="onRadio">
-                 <span class="onSelect" data-gr="否"></span>
-               </span>
-              否
-            </label>
-            <label>
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="是"></span>
-              </span>
-              是
-            </label>
-            {{/js_if}}
+              {{#js_if "this.gr_sfczsjkzgx === '否'"}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="否"></span>
+                </span>
+                否
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="是"></span>
+                </span>
+                是
+              </label>
+              {{else}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="否"></span>
+                </span>
+                否
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="是"></span>
+                </span>
+                是
+              </label>
+              {{/js_if}}
+            </div>
+
+            <div class="item-content {{#js_if 'this.gr_sfczsjkzgx === this.sf'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText sfczsjkzgx_Gr" data-key="B_gr_sfczsjkzgx_text">{{gr_sfczsjkzgx_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </li>
 
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_gr_sfczsjkzgx_text">{{gr_sfczsjkzgx_text}}</textarea>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li class="sdx-info-sjGx">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          交易的实际受益人
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfwsjsyr">
-            {{#js_if "this.gr_sfwsjsyr === '本人'"}}
-            <label style="padding-right: 66px;">
+      <li class="sdx-info-sjGx">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfwsjsyr">
+              <span class="sdx-info-spanTar">
+                交易的实际受益人
+              </span>
+              {{#js_if "this.gr_sfwsjsyr === '本人'"}}
+              <label style="padding-right: 66px;">
               <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="本人"></span>
               </span>
-              本人
-            </label>
-            <label>
-               <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="他人"></span>
-              </span>
-              他人
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="本人"></span>
-              </span>
-              本人
-            </label>
-            <label>
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="他人"></span>
-              </span>
-              他人
-            </label>
-            {{/js_if}}
-          </div>
-        </div>
-      </div>
+                本人
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="他人"></span>
+                </span>
+                他人
+              </label>
+              {{else}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="本人"></span>
+                </span>
+                本人
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="他人"></span>
+                </span>
+                他人
+              </label>
+              {{/js_if}}
+            </div>
 
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_gr_sfwsjsyr_text">{{gr_sfwsjsyr_text}}</textarea>
+            <div class="item-content {{#js_if 'this.gr_sfwsjsyr === this.tr'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText sfwsjsyr_Gr" data-key="B_gr_sfwsjsyr_text">{{gr_sfwsjsyr_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li class="sdx-info-sjGx" style="border: none;">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          是否有不良诚信记录
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfyblcxjl">
-            {{#js_if "this.gr_sfyblcxjl === '否'"}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="否"></span>
+      <li class="sdx-info-sjGx" style="border: none;">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfyblcxjl">
+              <span class="sdx-info-spanTar">
+                是否有不良诚信记录
               </span>
-              否
-            </label>
-            <label>
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="是"></span>
-              </span>
-              是
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
-             <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="否"></span>
-              </span>
-              否
-            </label>
-            <label>
-             <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="是"></span>
-              </span>
-              是
-            </label>
-            {{/js_if}}
-          </div>
-        </div>
-      </div>
+              {{#js_if "this.gr_sfyblcxjl === '否'"}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="否"></span>
+                </span>
+                否
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="是"></span>
+                </span>
+                是
+              </label>
+              {{else}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="否"></span>
+                </span>
+                否
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="是"></span>
+                </span>
+                是
+              </label>
+              {{/js_if}}
+            </div>
 
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_gr_sfyblcxjl_text">{{gr_sfyblcxjl_text}}</textarea>
+            <div class="item-content {{#js_if 'this.gr_sfyblcxjl === this.sf'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText sfyblcxjl_Gr" data-key="B_gr_sfyblcxjl_text">{{gr_sfyblcxjl_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </form>
   {{/js_if}}
 
   {{#js_if "this.user_type === '机构'"}}
-  <ul style="border-radius: 0 0 6px 6px; margin-bottom: 5px;">
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构名称</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_jgmc}}" disabled="disabled" data-gr="B_jg_jgmc" readonly>
+  <form id="newFormMechanism">
+    <ul style="border-radius: 0 0 6px 6px; margin-bottom: 5px;">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构名称</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_jgmc}}" name="B_jg_jgmc" disabled="disabled" data-gr="B_jg_jgmc" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_jglx}}" disabled="disabled" data-gr="B_jg_jglx">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" name="B_jg_jglx" value="{{jg_jglx}}" disabled="disabled" data-gr="B_jg_jglx">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构证件类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_jgzjlx}}" disabled="disabled" data-gr="B_jg_jgzjlx" readonly>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构证件类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_jgzjlx}}" name="B_jg_jgzjlx" disabled="disabled" data-gr="B_jg_jgzjlx" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构证件编号</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{id_card}}" disabled="disabled" data-gr="id_card" readonly>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构证件编号</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{id_card}}" name="id_card" disabled="disabled" data-gr="id_card" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">有效期</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_yxq}}" disabled="disabled" data-gr="B_jg_yxq">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">有效期</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_yxq}}" name="B_jg_yxq" disabled="disabled" data-gr="B_jg_yxq">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构资质证明</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_jgzzzm}}" disabled="disabled" data-gr="B_jg_jgzzzm">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构资质证明</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_jgzzzm}}" name="B_jg_jgzzzm" disabled="disabled" data-gr="B_jg_jgzzzm">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">资质证书编号</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_zjzsbh}}" disabled="disabled" data-gr="B_jg_zjzsbh">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">资质证书编号</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_zjzsbh}}" name="B_jg_zjzsbh" disabled="disabled" data-gr="B_jg_zjzsbh">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">经营范围</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_jyfw}}" disabled="disabled" data-gr="B_jg_jyfw">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">经营范围</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_jyfw}}" name="B_jg_jyfw" disabled="disabled" data-gr="B_jg_jyfw">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">注册地址</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_zcdz}}" disabled="disabled" data-gr="B_jg_zcdz">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">注册地址</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_zcdz}}" name="B_jg_zcdz" disabled="disabled" data-gr="B_jg_zcdz">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">办公地址</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_bgdz}}" disabled="disabled" data-gr="B_jg_bgdz">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">办公地址</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_bgdz}}" name="B_jg_bgdz" disabled="disabled" data-gr="B_jg_bgdz">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">注册资本</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_zczb}}" disabled="disabled" data-gr="B_jg_zczb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">注册资本</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_zczb}}" name="B_jg_zczb" disabled="disabled" data-gr="B_jg_zczb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">控股股东或实际控制人</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_sjkzr}}" disabled="disabled" data-gr="B_jg_sjkzr">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">控股股东或实际控制人</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_sjkzr}}" name="B_jg_sjkzr" disabled="disabled" data-gr="B_jg_sjkzr">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dcdcdc;">法定代表或负责人</div>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">姓名</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frxm}}" disabled="disabled" data-gr="B_jg_frxm">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dcdcdc;">法定代表或负责人</div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">性别</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frxb}}" disabled="disabled" data-gr="B_jg_frxb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">姓名</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frxm}}" name="B_jg_frxm" disabled="disabled" data-gr="B_jg_frxm">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">年龄</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frnl}}" disabled="disabled" data-gr="B_jg_frnl">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">性别</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frxb}}" name="B_jg_frxb" disabled="disabled" data-gr="B_jg_frxb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frzjlx}}" disabled="disabled" data-gr="B_jg_frzjlx">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">年龄</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frnl}}" name="B_jg_frnl" disabled="disabled" data-gr="B_jg_frnl">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件号码</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frzjhm}}" disabled="disabled" data-gr="B_jg_frzjhm">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frzjlx}}" name="B_jg_frzjlx" disabled="disabled" data-gr="B_jg_frzjlx">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">职务</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frzw}}" disabled="disabled" data-gr="B_jg_frzw">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件号码</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frzjhm}}" name="B_jg_frzjhm" disabled="disabled" data-gr="B_jg_frzjhm">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">电子邮箱</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_fryx}}" disabled="disabled" data-gr="B_jg_fryx">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">职务</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frzw}}" name="B_jg_frzw" disabled="disabled" data-gr="B_jg_frzw">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件有效期</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frzjyxq}}" disabled="disabled" data-gr="B_jg_frzjyxq">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">电子邮箱</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_fryx}}" name="B_jg_fryx" disabled="disabled" data-gr="B_jg_fryx">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">座机</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_fr_zj}}" disabled="disabled" data-gr="B_jg_fr_zj">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件有效期</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frzjyxq}}" name="B_jg_frzjyxq" disabled="disabled" data-gr="B_jg_frzjyxq">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">移动电话</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frphone}}" disabled="disabled" data-gr="B_jg_frphone">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">座机</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_fr_zj}}" name="B_jg_fr_zj" disabled="disabled" data-gr="B_jg_fr_zj">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">办公邮编</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frbgyb}}" disabled="disabled" data-gr="B_jg_frbgyb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">移动电话</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frphone}}" name="B_jg_frphone" disabled="disabled" data-gr="B_jg_frphone">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">办公地址</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jg_frbgdz}}" disabled="disabled" data-gr="B_jg_frbgdz">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">办公邮编</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frbgyb}}" name="B_jg_frbgyb" disabled="disabled" data-gr="B_jg_frbgyb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dcdcdc;">指定授权经办人</div>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">姓名</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrxm}}" disabled="disabled" data-gr="B_jbrxm" readonly>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">办公地址</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jg_frbgdz}}" name="B_jg_frbgdz" disabled="disabled" data-gr="B_jg_frbgdz">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">性别</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrxb}}" disabled="disabled" data-gr="B_jbrxb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dcdcdc;">指定授权经办人</div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">年龄</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrnl}}" disabled="disabled" data-gr="B_jbrnl">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">姓名</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrxm}}" name="B_jbrxm" disabled="disabled" data-gr="B_jbrxm" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzjlx}}" disabled="disabled" data-gr="B_jbrzjlx">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">性别</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrxb}}" name="B_jbrxb" disabled="disabled" data-gr="B_jbrxb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件号码</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzjhm}}" disabled="disabled" data-gr="B_jbrzjhm">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">年龄</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrnl}}" name="B_jbrnl" disabled="disabled" data-gr="B_jbrnl">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">职务</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzw}}" disabled="disabled" data-gr="B_jbrzw">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzjlx}}" name="B_jbrzjlx" disabled="disabled" data-gr="B_jbrzjlx">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">电子邮箱</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbryx}}" disabled="disabled" data-gr="B_jbryx">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件号码</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzjhm}}" name="B_jbrzjhm" disabled="disabled" data-gr="B_jbrzjhm">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件有效期</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzjyxq}}" disabled="disabled" data-gr="B_jbrzjyxq">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">职务</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzw}}" name="B_jbrzw" disabled="disabled" data-gr="B_jbrzw">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">座机</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzj}}" disabled="disabled" data-gr="B_jbrzj">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">电子邮箱</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbryx}}" name="B_jbryx" disabled="disabled" data-gr="B_jbryx">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">移动电话</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrphone}}" disabled="disabled" data-gr="B_jbrphone" readonly>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件有效期</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzjyxq}}" name="B_jbrzjyxq" disabled="disabled" data-gr="B_jbrzjyxq">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">办公邮编</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrbgyb}}" disabled="disabled" data-gr="B_jbrbgyb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">座机</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzj}}" name="B_jbrzj" disabled="disabled" data-gr="B_jbrzj">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">办公地址</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrbgdz}}" disabled="disabled" data-gr="B_jbrbgdz">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">移动电话</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrphone}}" name="B_jbrphone" disabled="disabled" data-gr="B_jbrphone" readonly style="color: #dddddd;">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">与该机构关系</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrybjggx}}" disabled="disabled" data-gr="B_jbrybjggx">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">办公邮编</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrbgyb}}" name="B_jbrbgyb" disabled="disabled" data-gr="B_jbrbgyb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
 
-  <ul style="border-radius: 6px;">
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dcdcdc">是否满足以下条件？</div>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">办公地址</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrbgdz}}" name="B_jbrbgdz" disabled="disabled" data-gr="B_jbrbgdz">
+            </div>
+          </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          符合《证券期货投资者适当性管理办法》第八条第（一）款所规定的证券公司、期货公司、基金管理公司及其子公司、商业银行、保险公司、信托公司、财务公司；或在中国证券投资基金业协会登记或者备案的证券公司子公司、期货公司子公司、私募基金管理人；或者第（三）款所规定的合格境外机构投资者（QFII），人民币合格境外机构投资者（RQFII）；或者第（四）款的规定，最近1年末净资产不低于2000万元，最近1年末金融资金不低于1000万元，具有2年以上证券、基金、期货、黄金、外汇等投资经历。
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">与该机构关系</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrybjggx}}" name="B_jbrybjggx" disabled="disabled" data-gr="B_jbrybjggx">
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="sdx-info-publicPrivate" data-key="B_jg_jglx_1">
-        {{#js_if "this.jg_jglx_1 === '否'"}}
-        <label style="padding-right: 66px;">
+      </li>
+    </ul>
+
+    <ul style="border-radius: 6px;">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dcdcdc">是否满足以下条件？</div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            符合《证券期货投资者适当性管理办法》第八条第（一）款所规定的证券公司、期货公司、基金管理公司及其子公司、商业银行、保险公司、信托公司、财务公司；或在中国证券投资基金业协会登记或者备案的证券公司子公司、期货公司子公司、私募基金管理人；或者第（三）款所规定的合格境外机构投资者（QFII），人民币合格境外机构投资者（RQFII）；或者第（四）款的规定，最近1年末净资产不低于2000万元，最近1年末金融资金不低于1000万元，具有2年以上证券、基金、期货、黄金、外汇等投资经历。
+          </div>
+        </div>
+        <div class="sdx-info-publicPrivate" data-key="B_jg_jglx_1">
+          {{#js_if "this.jg_jglx_1 === '否'"}}
+          <label style="padding-right: 66px;">
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect onSelectScale1" data-gr="否"></span>
          </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect" data-gr="是"></span>
          </span>
-          是
-        </label>
-        {{else}}
-        <label style="padding-right: 66px;">
+            是
+          </label>
+          {{else}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="是"></span>
           </span>
-          是
-        </label>
-        {{/js_if}}
-      </div>
-    </li>
-
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          *私募基金或者资产管理计划投资者，最近三个月月末资产均超过（含）人名币1000万元
+            是
+          </label>
+          {{/js_if}}
         </div>
-      </div>
-      <div class="sdx-info-publicPrivate" data-key="B_jg_zcgm_1">
-        {{#js_if "this.jg_zcgm_1 === '否'"}}
-        <label style="padding-right: 66px;">
+      </li>
+
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            *私募基金或者资产管理计划投资者，最近三个月月末资产均超过（含）人名币1000万元
+          </div>
+        </div>
+        <div class="sdx-info-publicPrivate" data-key="B_jg_zcgm_1">
+          {{#js_if "this.jg_zcgm_1 === '否'"}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect" data-gr="是"></span>
          </span>
-          是
-        </label>
-        {{else}}
-        <label style="padding-right: 66px;">
+            是
+          </label>
+          {{else}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="是"></span>
           </span>
-          是
-        </label>
-        {{/js_if}}
-      </div>
-    </li>
+            是
+          </label>
+          {{/js_if}}
+        </div>
+      </li>
 
-    <li class="sdx-info-sjGx">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          是否存在实际控制关系
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfczsjkzgx">
-            {{#js_if "this.sfczsjkzgx === '否'"}}
-            <label style="padding-right: 66px;">
+      <li class="sdx-info-sjGx">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfczsjkzgx">
+              <span class="sdx-info-spanTar">
+                是否存在实际控制关系
+              </span>
+              {{#js_if "this.sfczsjkzgx === '否'"}}
+              <label style="padding-right: 66px;">
               <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="否"></span>
               </span>
-              否
-            </label>
-            <label>
+                否
+              </label>
+              <label>
                <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect" data-gr="是"></span>
               </span>
-              是
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
+                是
+              </label>
+              {{else}}
+              <label style="padding-right: 66px;">
               <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect" data-gr="否"></span>
               </span>
-              否
-            </label>
-            <label>
+                否
+              </label>
+              <label>
               <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="是"></span>
               </span>
-              是
-            </label>
-            {{/js_if}}
+                是
+              </label>
+              {{/js_if}}
+            </div>
+
+            <div class="item-content {{#js_if 'this.sfczsjkzgx === this.sf'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText sfczsjkzgx_Jg" data-key="B_sfczsjkzgx_text">{{sfczsjkzgx_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </li>
 
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_sfczsjkzgx_text">{{sfczsjkzgx_text}}</textarea>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li class="sdx-info-sjGx">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          交易的实际受益人
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfwsjsyr">
-            {{#js_if "this.sfwsjsyr === '本机构'"}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
+      <li class="sdx-info-sjGx">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfwsjsyr">
+              <span class="sdx-info-spanTar">
+                交易的实际受益人
+              </span>
+              {{#js_if "this.sfwsjsyr === '本机构'"}}
+              <label style="padding-right: 15px; margin-right: 12px;">
+              <span style="margin-left: -22px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="本机构"></span>
               </span>
-              本机构
-            </label>
-            <label>
-               <span style="margin-left: -35px;" class="onRadio">
+                本机构
+              </label>
+              <label>
+               <span style="margin-left: -22px;" class="onRadio">
                 <span class="onSelect" data-gr="其他机构或个人"></span>
               </span>
-              其他机构或个人
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
+                其他机构或个人
+              </label>
+              {{else}}
+              <label style="padding-right: 15px; margin-right: 12px;">
+              <span style="margin-left: -22px;" class="onRadio">
                 <span class="onSelect" data-gr="本机构"></span>
               </span>
-              本机构
-            </label>
-            <label>
-              <span style="margin-left: -35px;" class="onRadio">
+                本机构
+              </label>
+              <label>
+              <span style="margin-left: -22px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="其他机构或个人"></span>
               </span>
-              其他机构或个人
-            </label>
-            {{/js_if}}
+                其他机构或个人
+              </label>
+              {{/js_if}}
+            </div>
+
+            <div class="item-content {{#js_if 'this.sfwsjsyr === this.bjg'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText sfwsjsyr_Jg" data-key="B_sfwsjsyr_text">{{sfwsjsyr_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </li>
 
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_sfwsjsyr_text">{{sfwsjsyr_text}}</textarea>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li class="sdx-info-sjGx" style="border: none;">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          是否有不良诚信记录
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfyblcxjl">
-            {{#js_if "this.sfyblcxjl === '否'"}}
-            <label style="padding-right: 66px;">
+      <li class="sdx-info-sjGx" style="border: none;">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfyblcxjl">
+              <span class="sdx-info-spanTar">
+                是否有不良诚信记录
+              </span>
+              {{#js_if "this.sfyblcxjl === '否'"}}
+              <label style="padding-right: 66px;">
               <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="否"></span>
               </span>
-              否
-            </label>
-            <label>
+                否
+              </label>
+              <label>
               <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect" data-gr="是"></span>
               </span>
-              是
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
+                是
+              </label>
+              {{else}}
+              <label style="padding-right: 66px;">
              <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect" data-gr="否"></span>
               </span>
-              否
-            </label>
-            <label>
+                否
+              </label>
+              <label>
              <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="是"></span>
               </span>
-              是
-            </label>
-            {{/js_if}}
-          </div>
-        </div>
-      </div>
+                是
+              </label>
+              {{/js_if}}
+            </div>
 
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_sfyblcxjl_text">{{sfyblcxjl_text}}</textarea>
+            <div class="item-content {{#js_if 'this.sfyblcxjl === this.sf'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText sfyblcxjl_Jg" data-key="B_sfyblcxjl_text">{{sfyblcxjl_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </form>
   {{/js_if}}
 
   {{#js_if "this.user_type === '产品'"}}
-  <ul style="border-radius: 0 0 6px 6px; margin-bottom: 5px;">
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品名称</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cpmc}}" disabled="disabled" data-gr="B_gr_name">
+  <form id="newProduct">
+    <ul style="border-radius: 0 0 6px 6px; margin-bottom: 5px;">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品名称</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cpmc}}" disabled="disabled" data-gr="B_gr_name">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cplx}}" disabled="disabled" data-gr="B_gr_xb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cplx}}" disabled="disabled" data-gr="B_gr_xb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品备案机构</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cpbajg}}" disabled="disabled" data-gr="B_gr_nl">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品备案机构</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cpbajg}}" disabled="disabled" data-gr="B_gr_nl">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">成立时间</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cpclsj}}" disabled="disabled" data-gr="B_gr_card_type">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">成立时间</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cpclsj}}" disabled="disabled" data-gr="B_gr_card_type">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">备案时间</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cpbasj}}" disabled="disabled" data-gr="id_card">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">备案时间</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cpbasj}}" disabled="disabled" data-gr="id_card">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品备案编号</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{id_card}}" disabled="disabled" data-gr="B_gr_gj">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品备案编号</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{id_card}}" disabled="disabled" data-gr="B_gr_gj">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品存续期</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cpcxq}}" disabled="disabled" data-gr="B_gr_zy">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品存续期</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cpcxq}}" disabled="disabled" data-gr="B_gr_zy">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品类别</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cplb}}" disabled="disabled" data-gr="B_gr_zw">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品类别</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cplb}}" disabled="disabled" data-gr="B_gr_zw">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品规模</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cpgm}}" disabled="disabled" data-gr="B_gr_zj">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品规模</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cpgm}}" disabled="disabled" data-gr="B_gr_zj">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品管理人</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cpglr}}" disabled="disabled" data-gr="B_gr_phone">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品管理人</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cpglr}}" disabled="disabled" data-gr="B_gr_phone">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">产品托管人</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_cptgr}}" disabled="disabled" data-gr="B_gr_yb">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">产品托管人</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_cptgr}}" disabled="disabled" data-gr="B_gr_yb">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dfdfdf;">指定授权经办人</div>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">姓名</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrxm}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dfdfdf;">指定授权经办人</div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">性别</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrxb}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">姓名</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrxm}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">年龄</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrnl}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">性别</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrxb}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzjlx}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">年龄</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrnl}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件号码</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzjhm}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzjlx}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">职务</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzw}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件号码</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzjhm}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">电子邮箱</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbryx}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">职务</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzw}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">证件有效期</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzjyxq}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">电子邮箱</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbryx}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">座机</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrzj}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">证件有效期</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzjyxq}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">移动电话</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrphone}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">座机</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrzj}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">办公邮编</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrbgyb}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">移动电话</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrphone}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">办公地址</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{jbrbgdz}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">办公邮编</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrbgyb}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">管理人名称</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_glrmc}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">办公地址</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{jbrbgdz}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_jglx}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">管理人名称</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_glrmc}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构证件类型</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_jgzjlx}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_jglx}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构证件编号</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_jgzjbh}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构证件类型</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_jgzjlx}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">有效期</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_yxq}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构证件编号</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_jgzjbh}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">机构资质证明</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_jgzzzm}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">有效期</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_yxq}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">资质证书编号</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_zzzsbh}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">机构资质证明</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_jgzzzm}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">经营范围</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_jyfw}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">资质证书编号</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_zzzsbh}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">注册地址</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_zcdz}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">经营范围</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_jyfw}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">办公地址</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_bgdz}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">注册地址</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_zcdz}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">注册资本</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_zczb}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">办公地址</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_bgdz}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label">控股股东或实际控制人</div>
-          <div class="item-input">
-            <input type="text" placeholder="" value="{{cp_sjkzr}}" disabled="disabled" data-gr="B_gr_email">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">注册资本</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_zczb}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
 
-  <ul style="border-radius: 6px;">
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-inner">
-          <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dcdcdc">是否满足以下条件？</div>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">控股股东或实际控制人</div>
+            <div class="item-input">
+              <input type="text" placeholder="" value="{{cp_sjkzr}}" disabled="disabled" data-gr="B_gr_email">
+            </div>
+          </div>
         </div>
-      </div>
-    </li>
+      </li>
+    </ul>
 
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          为《证券期货投资者适当性管理办法》第八条第（一）款机构面向投资者发行的证券公司资产管理产品、基金管理公司及其子公司产品、期货公司资产管理产品、银行理财产品、保险产品、信托产品、经行业协会备案的私募基金，及第（一）款所规定机构发行的其他理财产品；或者为第（三）款所规定的社会保障基金、企业年金等养老基金、慈善基金等社会公益基金
+    <ul style="border-radius: 6px;">
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label" style="width: 100%; border-bottom: 1px solid #dcdcdc">是否满足以下条件？</div>
+          </div>
         </div>
-      </div>
-      <div class="sdx-info-publicPrivate" data-key="B_gr_zcgm_1">
-        {{#js_if "this.cp_cplx_1 === '否'"}}
-        <label style="padding-right: 66px;">
+      </li>
+
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            为《证券期货投资者适当性管理办法》第八条第（一）款机构面向投资者发行的证券公司资产管理产品、基金管理公司及其子公司产品、期货公司资产管理产品、银行理财产品、保险产品、信托产品、经行业协会备案的私募基金，及第（一）款所规定机构发行的其他理财产品；或者为第（三）款所规定的社会保障基金、企业年金等养老基金、慈善基金等社会公益基金
+          </div>
+        </div>
+        <div class="sdx-info-publicPrivate" data-key="B_gr_zcgm_1">
+          {{#js_if "this.cp_cplx_1 === '否'"}}
+          <label style="padding-right: 66px;">
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect onSelectScale1" data-gr="否"></span>
          </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect" data-gr="是"></span>
          </span>
-          是
-        </label>
-        {{else}}
-        <label style="padding-right: 66px;">
+            是
+          </label>
+          {{else}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="是"></span>
           </span>
-          是
-        </label>
-        {{/js_if}}
-      </div>
-    </li>
-
-    <li>
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          *私募基金或者资产管理计划投资者，最近三个月月末资产均超过（含）人名币1000万元
+            是
+          </label>
+          {{/js_if}}
         </div>
-      </div>
-      <div class="sdx-info-publicPrivate" data-key="B_gr_zcgm_2">
-        {{#js_if "this.cp_zcgm_1 === '否'"}}
-        <label style="padding-right: 66px;">
+      </li>
+
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            *私募基金或者资产管理计划投资者，最近三个月月末资产均超过（含）人名币1000万元
+          </div>
+        </div>
+        <div class="sdx-info-publicPrivate" data-key="B_gr_zcgm_2">
+          {{#js_if "this.cp_zcgm_1 === '否'"}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
          <span style="margin-left: -35px;" class="onRadio">
            <span class="onSelect" data-gr="是"></span>
          </span>
-          是
-        </label>
-        {{else}}
-        <label style="padding-right: 66px;">
+            是
+          </label>
+          {{else}}
+          <label style="padding-right: 66px;">
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect" data-gr="否"></span>
           </span>
-          否
-        </label>
-        <label>
+            否
+          </label>
+          <label>
           <span style="margin-left: -35px;" class="onRadio">
             <span class="onSelect onSelectScale1" data-gr="是"></span>
           </span>
-          是
-        </label>
-        {{/js_if}}
-      </div>
-    </li>
+            是
+          </label>
+          {{/js_if}}
+        </div>
+      </li>
 
-    <li class="sdx-info-sjGx">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          是否存在实际控制关系
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfwsjsyr">
-            {{#js_if "this.sfczsjkzgx === '否'"}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="否"></span>
+      <li class="sdx-info-sjGx">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfwsjsyr">
+              <span class="sdx-info-spanTar">
+                是否存在实际控制关系
               </span>
-              否
-            </label>
-            <label>
-               <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="是"></span>
-              </span>
-              是
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="否"></span>
-              </span>
-              否
-            </label>
-            <label>
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="是"></span>
-              </span>
-              是
-            </label>
-            {{/js_if}}
+              {{#js_if "this.sfczsjkzgx === '否'"}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="否"></span>
+                </span>
+                否
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="是"></span>
+                </span>
+                是
+              </label>
+              {{else}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="否"></span>
+                </span>
+                否
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="是"></span>
+                </span>
+                是
+              </label>
+              {{/js_if}}
+            </div>
+
+            <div class="item-content {{#js_if 'this.sfczsjkzgx === this.sf'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText" data-key="B_sfczsjkzgx_text">{{sfczsjkzgx_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </li>
 
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_sfczsjkzgx_text">{{sfczsjkzgx_text}}</textarea>
+      <li class="sdx-info-sjGx">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfwsjsyr">
+              <span class="sdx-info-spanTar">
+                交易的实际受益人
+              </span>
+              {{#js_if "this.sfwsjsyr === '本人'"}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="本人"></span>
+                </span>
+                本人
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="他人"></span>
+                </span>
+                他人
+              </label>
+              {{else}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="本人"></span>
+                </span>
+                本人
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="他人"></span>
+                </span>
+                他人
+              </label>
+              {{/js_if}}
+            </div>
+
+            <div class="item-content {{#js_if 'this.sfwsjsyr === this.br'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText" data-key="B_sfwsjsyr_text">{{sfwsjsyr_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
 
-    <li class="sdx-info-sjGx">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          交易的实际受益人
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfwsjsyr">
-            {{#js_if "this.sfwsjsyr === '本人'"}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="本人"></span>
+      <li class="sdx-info-sjGx" style="border: none;">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-title label co323232">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfyblcxjl">
+              <span class="sdx-info-spanTar">
+                是否有不良诚信记录
               </span>
-              本人
-            </label>
-            <label>
-               <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="他人"></span>
-              </span>
-              他人
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="本人"></span>
-              </span>
-              本人
-            </label>
-            <label>
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="他人"></span>
-              </span>
-              他人
-            </label>
-            {{/js_if}}
+              {{#js_if "this.sfyblcxjl === '否'"}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="否"></span>
+                </span>
+                否
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="是"></span>
+                </span>
+                是
+              </label>
+              {{else}}
+              <label style="padding-right: 66px;">
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="否"></span>
+                </span>
+                否
+              </label>
+              <label>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="是"></span>
+                </span>
+                是
+              </label>
+              {{/js_if}}
+            </div>
+
+            <div class="item-content {{#js_if 'this.sfyblcxjl === this.sf'}}textAraNone{{/js_if}}">
+              <div class="item-media"><i class="icon icon-form-comment"></i></div>
+              <div class="item-inner sdx-inner">
+                <div class="item-input">
+                  <textarea disabled="disabled" class="textareaText" data-key="B_sfyblcxjl_text">{{sfyblcxjl_text}}</textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_sfwsjsyr_text">{{sfwsjsyr_text}}</textarea>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li class="sdx-info-sjGx" style="border: none;">
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-name"></i></div>
-        <div class="item-title label co323232">
-          是否有不良诚信记录
-          <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_gr_sfyblcxjl">
-            {{#js_if "this.sfyblcxjl === '否'"}}
-            <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="否"></span>
-              </span>
-              否
-            </label>
-            <label>
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="是"></span>
-              </span>
-              是
-            </label>
-            {{else}}
-            <label style="padding-right: 66px;">
-             <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="否"></span>
-              </span>
-              否
-            </label>
-            <label>
-             <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="是"></span>
-              </span>
-              是
-            </label>
-            {{/js_if}}
-          </div>
-        </div>
-      </div>
-
-      <div class="item-content">
-        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-        <div class="item-inner sdx-inner">
-          <div class="item-input">
-            <textarea disabled="disabled" class="textareaText" data-key="B_sfyblcxjl_text">{{sfyblcxjl_text}}</textarea>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </form>
   {{/js_if}}
 </div>
 
-<p style="margin: 0.2666667rem; display: none;" class="sdx-info-bc"><a href="#" class="button button-big button-fill color-gray" style="background: #2843a9; border: 1px solid #2843a9;">保存</a></p>
-<p style="margin: 0.2666667rem;"><a href="#" class="button button-fill button-big color-yellow" style="background: #0fb2fe; border: 1px solid #0fb2fe;">下载PDF</a></p>
+<p style="margin: 0.2666667rem; display: none;" class="sdx-info-bc"><a href="javascript:" class="button button-big button-fill color-gray" style="background: #2843a9; border: 1px solid #2843a9;">保存</a></p>
+<p style="margin: 0.2666667rem;"><a href="javascript:" class="button button-fill button-big color-yellow" style="background: #0fb2fe; border: 1px solid #0fb2fe;">下载PDF</a></p>

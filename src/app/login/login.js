@@ -53,10 +53,7 @@ export default class Login extends widget {
     this.screen = $('.login-screen');
     this.screen.on('click', '.sdx-link-login', () => { this.loginHome(); });
     this.agreementMessage();
-    $('.framework7-root').on('click', '#modifyLogin', () => {
-      window.location.href = `${Constant.Href_Route}forgetPassword.html?cid=${Tool.parseURL('cid')}`;
-      // mainView.router.loadPage(`page/forgetPassword.html?cid=${Tool.parseURL('cid')}`);
-    });
+    $('.framework7-root').on('click', '#modifyLogin', () => { window.location.href = `${Constant.Href_Route}forgetPassword.html?cid=${Tool.parseURL('cid')}`; });
   }
   apTpl() {
     let _loginTpl = Tool.renderTpl(loginTpl);
@@ -156,10 +153,7 @@ export default class Login extends widget {
               sessionStorage.setItem(key, res[key]);
             }
           }
-          if(sessionStorage.getItem('company_type') === '1') {
-            window.location.href = `${Constant.Href_Route}fund.html`
-            // mainView.router.loadPage('page/fund.html');
-          }
+          if(sessionStorage.getItem('company_type') === '1') { window.location.href = `${Constant.Href_Route}fund.html` }
         }
         btnActivation.removeClass('btn--waiting');
         btnActivation.addClass('btn--activate');

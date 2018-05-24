@@ -26,7 +26,13 @@ export default class Fund extends widget {
 
   init(page) {
     let self = this;
-
+    if(sessionStorage.getItem('cid')) {
+      if(sessionStorage.getItem('idCard') === undefined || sessionStorage.getItem('idCard') === null) {
+        window.location.href = `${Constant.Href_Route}login.html`;
+      }
+    } else {
+      window.location.href = `${Constant.Href_Route}main.html`;
+    }
     $('.view').attr('data-page', 'fund');
     let pageLeg = $('.fund-page').length;
     if(pageLeg === 0) {

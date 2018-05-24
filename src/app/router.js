@@ -21,6 +21,7 @@ import {
 } from './page';
 import Main from './main/main';
 import Utils from '../utils/tool';
+import Constant from '../utils/constant';
 
 export default {
   init() {
@@ -58,11 +59,6 @@ export default {
     }
     if(sessionStorage.getItem('userType') === '产品') {
       window.registerUserType = 'cp'
-    }
-    myApp.closeModal('.modal-main');
-    myApp.closeModal('.modal-login');
-    if(page.name !== null) {
-      myApp.closeModal('.login-screen');
     }
     switch (page.name) {
       case 'main':
