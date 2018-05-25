@@ -20,7 +20,7 @@
           <div class="item-inner">
             <div class="item-title label">性别</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_xb}}" name="B_gr_xb"  data-gr="B_gr_xb">
+              <input type="text" placeholder="" name="B_gr_xb"  data-gr="B_gr_xb">
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
           <div class="item-inner">
             <div class="item-title label">年龄</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_nl}}" name="B_gr_nl"  data-gr="B_gr_nl">
+              <input type="text" placeholder="" name="B_gr_nl"  data-gr="B_gr_nl">
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <div class="item-inner">
             <div class="item-title label">证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_card_type}}" name="B_gr_card_type"  data-gr="B_gr_card_type" >
+              <input type="text" placeholder="" name="B_gr_card_type"  data-gr="B_gr_card_type" >
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@
           <div class="item-inner">
             <div class="item-title label">证件号码</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{id_card}}" name="id_card"  data-gr="id_card" >
+              <input type="text" placeholder="" name="id_card"  data-gr="id_card" >
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@
           <div class="item-inner">
             <div class="item-title label">国籍</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_gj}}" name="B_gr_gj"  data-gr="B_gr_gj">
+              <input type="text" placeholder="" name="B_gr_gj" data-gr="B_gr_gj">
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@
           <div class="item-inner">
             <div class="item-title label">职业</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_zy}}" name="B_gr_zy"  data-gr="B_gr_zy">
+              <input type="text" placeholder="" name="B_gr_zy" data-gr="B_gr_zy">
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
           <div class="item-inner">
             <div class="item-title label">职务</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_zw}}" name="B_gr_zw"  data-gr="B_gr_zw">
+              <input type="text" placeholder="" name="B_gr_zw"  data-gr="B_gr_zw">
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
           <div class="item-inner">
             <div class="item-title label">座机</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_zj}}" name="B_gr_zj"  data-gr="B_gr_zj">
+              <input type="text" placeholder="" name="B_gr_zj" data-gr="B_gr_zj">
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@
           <div class="item-inner">
             <div class="item-title label">移动电话</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_phone}}" name="B_gr_phone"  data-gr="B_gr_phone" >
+              <input type="text" placeholder="" name="B_gr_phone" data-gr="B_gr_phone" >
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@
           <div class="item-inner">
             <div class="item-title label">邮编</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_yb}}" name="B_gr_yb"  data-gr="B_gr_yb">
+              <input type="text" placeholder="" name="B_gr_yb" data-gr="B_gr_yb">
             </div>
           </div>
         </div>
@@ -140,7 +140,7 @@
           <div class="item-inner">
             <div class="item-title label">电子邮箱</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_email}}" name="B_gr_email"  data-gr="B_gr_email">
+              <input type="text" placeholder="" name="B_gr_email" data-gr="B_gr_email">
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@
           <div class="item-inner">
             <div class="item-title label">住址</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{gr_dz}}" name="B_gr_dz"  data-gr="B_gr_dz">
+              <input type="text" placeholder="" name="B_gr_dz" data-gr="B_gr_dz">
             </div>
           </div>
         </div>
@@ -280,7 +280,6 @@
               <span class="sdx-info-spanTar">
                 是否存在实际控制关系
               </span>
-              {{#js_if "this.gr_sfczsjkzgx === '否'"}}
               <label style="padding-right: 66px;">
                 <span style="margin-left: -35px;" class="onRadio">
                   <span class="onSelect onSelectScale1" data-gr="否"></span>
@@ -293,20 +292,6 @@
                 </span>
                 是
               </label>
-              {{else}}
-              <label style="padding-right: 66px;">
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect" data-gr="否"></span>
-                </span>
-                否
-              </label>
-              <label>
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect onSelectScale1" data-gr="是"></span>
-                </span>
-                是
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.gr_sfczsjkzgx === this.sf'}}textAraNone{{/js_if}}">
@@ -329,11 +314,10 @@
               <span class="sdx-info-spanTar">
                 交易的实际受益人
               </span>
-              {{#js_if "this.gr_sfwsjsyr === '本人'"}}
               <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="本人"></span>
-              </span>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="本人"></span>
+                </span>
                 本人
               </label>
               <label>
@@ -342,20 +326,6 @@
                 </span>
                 他人
               </label>
-              {{else}}
-              <label style="padding-right: 66px;">
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect" data-gr="本人"></span>
-                </span>
-                本人
-              </label>
-              <label>
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect onSelectScale1" data-gr="他人"></span>
-                </span>
-                他人
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.gr_sfwsjsyr === this.tr'}}textAraNone{{/js_if}}">
@@ -378,7 +348,6 @@
               <span class="sdx-info-spanTar">
                 是否有不良诚信记录
               </span>
-              {{#js_if "this.gr_sfyblcxjl === '否'"}}
               <label style="padding-right: 66px;">
                 <span style="margin-left: -35px;" class="onRadio">
                   <span class="onSelect onSelectScale1" data-gr="否"></span>
@@ -391,20 +360,6 @@
                 </span>
                 是
               </label>
-              {{else}}
-              <label style="padding-right: 66px;">
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect" data-gr="否"></span>
-                </span>
-                否
-              </label>
-              <label>
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect onSelectScale1" data-gr="是"></span>
-                </span>
-                是
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.gr_sfyblcxjl === this.sf'}}textAraNone{{/js_if}}">
@@ -431,7 +386,7 @@
           <div class="item-inner">
             <div class="item-title label">机构名称</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_jgmc}}" name="B_jg_jgmc"  data-gr="B_jg_jgmc" >
+              <input type="text" placeholder="" name="B_jg_jgmc" data-gr="B_jg_jgmc">
             </div>
           </div>
         </div>
@@ -443,7 +398,7 @@
           <div class="item-inner">
             <div class="item-title label">机构类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="B_jg_jglx" value="{{jg_jglx}}"  data-gr="B_jg_jglx">
+              <input type="text" placeholder="" name="B_jg_jglx" data-gr="B_jg_jglx">
             </div>
           </div>
         </div>
@@ -455,7 +410,7 @@
           <div class="item-inner">
             <div class="item-title label">机构证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_jgzjlx}}" name="B_jg_jgzjlx"  data-gr="B_jg_jgzjlx" >
+              <input type="text" placeholder="" name="B_jg_jgzjlx"  data-gr="B_jg_jgzjlx" >
             </div>
           </div>
         </div>
@@ -467,7 +422,7 @@
           <div class="item-inner">
             <div class="item-title label">机构证件编号</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{id_card}}" name="id_card"  data-gr="id_card" >
+              <input type="text" placeholder="" name="id_card"  data-gr="id_card" >
             </div>
           </div>
         </div>
@@ -479,7 +434,7 @@
           <div class="item-inner">
             <div class="item-title label">有效期</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_yxq}}" name="B_jg_yxq"  data-gr="B_jg_yxq">
+              <input type="text" placeholder="" name="B_jg_yxq"  data-gr="B_jg_yxq">
             </div>
           </div>
         </div>
@@ -491,7 +446,7 @@
           <div class="item-inner">
             <div class="item-title label">机构资质证明</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_jgzzzm}}" name="B_jg_jgzzzm"  data-gr="B_jg_jgzzzm">
+              <input type="text" placeholder="" name="B_jg_jgzzzm"  data-gr="B_jg_jgzzzm">
             </div>
           </div>
         </div>
@@ -503,7 +458,7 @@
           <div class="item-inner">
             <div class="item-title label">资质证书编号</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_zjzsbh}}" name="B_jg_zjzsbh"  data-gr="B_jg_zjzsbh">
+              <input type="text" placeholder="" name="B_jg_zjzsbh"  data-gr="B_jg_zjzsbh">
             </div>
           </div>
         </div>
@@ -515,7 +470,7 @@
           <div class="item-inner">
             <div class="item-title label">经营范围</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_jyfw}}" name="B_jg_jyfw"  data-gr="B_jg_jyfw">
+              <input type="text" placeholder="" name="B_jg_jyfw"  data-gr="B_jg_jyfw">
             </div>
           </div>
         </div>
@@ -527,7 +482,7 @@
           <div class="item-inner">
             <div class="item-title label">注册地址</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_zcdz}}" name="B_jg_zcdz"  data-gr="B_jg_zcdz">
+              <input type="text" placeholder="" name="B_jg_zcdz"  data-gr="B_jg_zcdz">
             </div>
           </div>
         </div>
@@ -539,7 +494,7 @@
           <div class="item-inner">
             <div class="item-title label">办公地址</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_bgdz}}" name="B_jg_bgdz"  data-gr="B_jg_bgdz">
+              <input type="text" placeholder="" name="B_jg_bgdz" data-gr="B_jg_bgdz">
             </div>
           </div>
         </div>
@@ -551,7 +506,7 @@
           <div class="item-inner">
             <div class="item-title label">注册资本</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_zczb}}" name="B_jg_zczb"  data-gr="B_jg_zczb">
+              <input type="text" placeholder="" name="B_jg_zczb" data-gr="B_jg_zczb">
             </div>
           </div>
         </div>
@@ -563,7 +518,7 @@
           <div class="item-inner">
             <div class="item-title label">控股股东或实际控制人</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_sjkzr}}" name="B_jg_sjkzr"  data-gr="B_jg_sjkzr">
+              <input type="text" placeholder="" name="B_jg_sjkzr" data-gr="B_jg_sjkzr">
             </div>
           </div>
         </div>
@@ -584,7 +539,7 @@
           <div class="item-inner">
             <div class="item-title label">姓名</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frxm}}" name="B_jg_frxm"  data-gr="B_jg_frxm">
+              <input type="text" placeholder="" name="B_jg_frxm" data-gr="B_jg_frxm">
             </div>
           </div>
         </div>
@@ -596,7 +551,7 @@
           <div class="item-inner">
             <div class="item-title label">性别</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frxb}}" name="B_jg_frxb"  data-gr="B_jg_frxb">
+              <input type="text" placeholder="" name="B_jg_frxb" data-gr="B_jg_frxb">
             </div>
           </div>
         </div>
@@ -608,7 +563,7 @@
           <div class="item-inner">
             <div class="item-title label">年龄</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frnl}}" name="B_jg_frnl"  data-gr="B_jg_frnl">
+              <input type="text" placeholder="" name="B_jg_frnl" data-gr="B_jg_frnl">
             </div>
           </div>
         </div>
@@ -620,7 +575,7 @@
           <div class="item-inner">
             <div class="item-title label">证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frzjlx}}" name="B_jg_frzjlx"  data-gr="B_jg_frzjlx">
+              <input type="text" placeholder="" name="B_jg_frzjlx" data-gr="B_jg_frzjlx">
             </div>
           </div>
         </div>
@@ -632,7 +587,7 @@
           <div class="item-inner">
             <div class="item-title label">证件号码</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frzjhm}}" name="B_jg_frzjhm"  data-gr="B_jg_frzjhm">
+              <input type="text" placeholder="" name="B_jg_frzjhm" data-gr="B_jg_frzjhm">
             </div>
           </div>
         </div>
@@ -644,7 +599,7 @@
           <div class="item-inner">
             <div class="item-title label">职务</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frzw}}" name="B_jg_frzw"  data-gr="B_jg_frzw">
+              <input type="text" placeholder="" name="B_jg_frzw" data-gr="B_jg_frzw">
             </div>
           </div>
         </div>
@@ -656,7 +611,7 @@
           <div class="item-inner">
             <div class="item-title label">电子邮箱</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_fryx}}" name="B_jg_fryx"  data-gr="B_jg_fryx">
+              <input type="text" placeholder="" name="B_jg_fryx" data-gr="B_jg_fryx">
             </div>
           </div>
         </div>
@@ -668,7 +623,7 @@
           <div class="item-inner">
             <div class="item-title label">证件有效期</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frzjyxq}}" name="B_jg_frzjyxq"  data-gr="B_jg_frzjyxq">
+              <input type="text" placeholder="" name="B_jg_frzjyxq" data-gr="B_jg_frzjyxq">
             </div>
           </div>
         </div>
@@ -680,7 +635,7 @@
           <div class="item-inner">
             <div class="item-title label">座机</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_fr_zj}}" name="B_jg_fr_zj"  data-gr="B_jg_fr_zj">
+              <input type="text" placeholder="" name="B_jg_fr_zj" data-gr="B_jg_fr_zj">
             </div>
           </div>
         </div>
@@ -692,7 +647,7 @@
           <div class="item-inner">
             <div class="item-title label">移动电话</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frphone}}" name="B_jg_frphone"  data-gr="B_jg_frphone">
+              <input type="text" placeholder="" name="B_jg_frphone" data-gr="B_jg_frphone">
             </div>
           </div>
         </div>
@@ -704,7 +659,7 @@
           <div class="item-inner">
             <div class="item-title label">办公邮编</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frbgyb}}" name="B_jg_frbgyb"  data-gr="B_jg_frbgyb">
+              <input type="text" placeholder="" name="B_jg_frbgyb" data-gr="B_jg_frbgyb">
             </div>
           </div>
         </div>
@@ -716,7 +671,7 @@
           <div class="item-inner">
             <div class="item-title label">办公地址</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jg_frbgdz}}" name="B_jg_frbgdz"  data-gr="B_jg_frbgdz">
+              <input type="text" placeholder="" name="B_jg_frbgdz" data-gr="B_jg_frbgdz">
             </div>
           </div>
         </div>
@@ -737,7 +692,7 @@
           <div class="item-inner">
             <div class="item-title label">姓名</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrxm}}" name="B_jbrxm"  data-gr="B_jbrxm" >
+              <input type="text" placeholder="" name="B_jbrxm" data-gr="B_jbrxm" >
             </div>
           </div>
         </div>
@@ -749,7 +704,7 @@
           <div class="item-inner">
             <div class="item-title label">性别</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrxb}}" name="B_jbrxb"  data-gr="B_jbrxb">
+              <input type="text" placeholder="" name="B_jbrxb" data-gr="B_jbrxb">
             </div>
           </div>
         </div>
@@ -761,7 +716,7 @@
           <div class="item-inner">
             <div class="item-title label">年龄</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrnl}}" name="B_jbrnl"  data-gr="B_jbrnl">
+              <input type="text" placeholder="" name="B_jbrnl" data-gr="B_jbrnl">
             </div>
           </div>
         </div>
@@ -773,7 +728,7 @@
           <div class="item-inner">
             <div class="item-title label">证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzjlx}}" name="B_jbrzjlx"  data-gr="B_jbrzjlx">
+              <input type="text" placeholder="" name="B_jbrzjlx" data-gr="B_jbrzjlx">
             </div>
           </div>
         </div>
@@ -785,7 +740,7 @@
           <div class="item-inner">
             <div class="item-title label">证件号码</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzjhm}}" name="B_jbrzjhm"  data-gr="B_jbrzjhm">
+              <input type="text" placeholder="" name="B_jbrzjhm" data-gr="B_jbrzjhm">
             </div>
           </div>
         </div>
@@ -797,7 +752,7 @@
           <div class="item-inner">
             <div class="item-title label">职务</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzw}}" name="B_jbrzw"  data-gr="B_jbrzw">
+              <input type="text" placeholder="" name="B_jbrzw" data-gr="B_jbrzw">
             </div>
           </div>
         </div>
@@ -809,7 +764,7 @@
           <div class="item-inner">
             <div class="item-title label">电子邮箱</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbryx}}" name="B_jbryx"  data-gr="B_jbryx">
+              <input type="text" placeholder="" name="B_jbryx" data-gr="B_jbryx">
             </div>
           </div>
         </div>
@@ -821,7 +776,7 @@
           <div class="item-inner">
             <div class="item-title label">证件有效期</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzjyxq}}" name="B_jbrzjyxq"  data-gr="B_jbrzjyxq">
+              <input type="text" placeholder="" name="B_jbrzjyxq" data-gr="B_jbrzjyxq">
             </div>
           </div>
         </div>
@@ -833,7 +788,7 @@
           <div class="item-inner">
             <div class="item-title label">座机</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzj}}" name="B_jbrzj"  data-gr="B_jbrzj">
+              <input type="text" placeholder="" name="B_jbrzj" data-gr="B_jbrzj">
             </div>
           </div>
         </div>
@@ -845,7 +800,7 @@
           <div class="item-inner">
             <div class="item-title label">移动电话</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrphone}}" name="B_jbrphone"  data-gr="B_jbrphone" >
+              <input type="text" placeholder="" name="B_jbrphone" data-gr="B_jbrphone" >
             </div>
           </div>
         </div>
@@ -857,7 +812,7 @@
           <div class="item-inner">
             <div class="item-title label">办公邮编</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrbgyb}}" name="B_jbrbgyb"  data-gr="B_jbrbgyb">
+              <input type="text" placeholder="" name="B_jbrbgyb" data-gr="B_jbrbgyb">
             </div>
           </div>
         </div>
@@ -869,7 +824,7 @@
           <div class="item-inner">
             <div class="item-title label">办公地址</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrbgdz}}" name="B_jbrbgdz"  data-gr="B_jbrbgdz">
+              <input type="text" placeholder="" name="B_jbrbgdz" data-gr="B_jbrbgdz">
             </div>
           </div>
         </div>
@@ -881,7 +836,7 @@
           <div class="item-inner">
             <div class="item-title label">与该机构关系</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrybjggx}}" name="B_jbrybjggx"  data-gr="B_jbrybjggx">
+              <input type="text" placeholder="" name="B_jbrybjggx" data-gr="B_jbrybjggx">
             </div>
           </div>
         </div>
@@ -1133,7 +1088,7 @@
           <div class="item-inner">
             <div class="item-title label">产品名称</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cpmc}}"  data-gr="B_cp_cpmc">
+              <input type="text" placeholder="" data-gr="B_cp_cpmc">
             </div>
           </div>
         </div>
@@ -1145,7 +1100,7 @@
           <div class="item-inner">
             <div class="item-title label">产品类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cplx}}"  data-gr="B_cp_cplx">
+              <input type="text" placeholder="" data-gr="B_cp_cplx">
             </div>
           </div>
         </div>
@@ -1157,7 +1112,7 @@
           <div class="item-inner">
             <div class="item-title label">产品备案机构</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cpbajg}}"  data-gr="B_cp_cpbajg">
+              <input type="text" placeholder="" data-gr="B_cp_cpbajg">
             </div>
           </div>
         </div>
@@ -1169,7 +1124,7 @@
           <div class="item-inner">
             <div class="item-title label">成立时间</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cpclsj}}"  data-gr="B_cp_cpclsj">
+              <input type="text" placeholder="" data-gr="B_cp_cpclsj">
             </div>
           </div>
         </div>
@@ -1181,7 +1136,7 @@
           <div class="item-inner">
             <div class="item-title label">备案时间</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cpbasj}}"  data-gr="B_cp_cpbasj">
+              <input type="text" placeholder="" data-gr="B_cp_cpbasj">
             </div>
           </div>
         </div>
@@ -1193,7 +1148,7 @@
           <div class="item-inner">
             <div class="item-title label">产品备案编号</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{id_card}}"  data-gr="id_card" >
+              <input type="text" placeholder="" data-gr="id_card" >
             </div>
           </div>
         </div>
@@ -1205,7 +1160,7 @@
           <div class="item-inner">
             <div class="item-title label">产品存续期</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cpcxq}}"  data-gr="B_cp_cpcxq">
+              <input type="text" placeholder="" data-gr="B_cp_cpcxq">
             </div>
           </div>
         </div>
@@ -1217,7 +1172,7 @@
           <div class="item-inner">
             <div class="item-title label">产品类别</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cplb}}"  data-gr="B_cp_cplb">
+              <input type="text" placeholder="" data-gr="B_cp_cplb">
             </div>
           </div>
         </div>
@@ -1229,7 +1184,7 @@
           <div class="item-inner">
             <div class="item-title label">产品规模</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cpgm}}"  data-gr="B_cp_cpgm">
+              <input type="text" placeholder="" data-gr="B_cp_cpgm">
             </div>
           </div>
         </div>
@@ -1241,7 +1196,7 @@
           <div class="item-inner">
             <div class="item-title label">产品管理人</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cpglr}}"  data-gr="B_cp_cpglr">
+              <input type="text" placeholder="" data-gr="B_cp_cpglr">
             </div>
           </div>
         </div>
@@ -1253,7 +1208,7 @@
           <div class="item-inner">
             <div class="item-title label">产品托管人</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_cptgr}}"  data-gr="B_cp_cptgr">
+              <input type="text" placeholder="" data-gr="B_cp_cptgr">
             </div>
           </div>
         </div>
@@ -1274,7 +1229,7 @@
           <div class="item-inner">
             <div class="item-title label">姓名</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrxm}}"  data-gr="B_jbrxm" >
+              <input type="text" placeholder="" data-gr="B_jbrxm" >
             </div>
           </div>
         </div>
@@ -1286,7 +1241,7 @@
           <div class="item-inner">
             <div class="item-title label">性别</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrxb}}"  data-gr="B_jbrxb">
+              <input type="text" placeholder="" data-gr="B_jbrxb">
             </div>
           </div>
         </div>
@@ -1298,7 +1253,7 @@
           <div class="item-inner">
             <div class="item-title label">年龄</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrnl}}"  data-gr="B_jbrnl">
+              <input type="text" placeholder="" data-gr="B_jbrnl">
             </div>
           </div>
         </div>
@@ -1310,7 +1265,7 @@
           <div class="item-inner">
             <div class="item-title label">证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzjlx}}"  data-gr="B_jbrzjlx">
+              <input type="text" placeholder="" data-gr="B_jbrzjlx">
             </div>
           </div>
         </div>
@@ -1322,7 +1277,7 @@
           <div class="item-inner">
             <div class="item-title label">证件号码</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzjhm}}"  data-gr="B_jbrzjhm">
+              <input type="text" placeholder="" data-gr="B_jbrzjhm">
             </div>
           </div>
         </div>
@@ -1334,7 +1289,7 @@
           <div class="item-inner">
             <div class="item-title label">职务</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzw}}"  data-gr="B_jbrzw">
+              <input type="text" placeholder="" data-gr="B_jbrzw">
             </div>
           </div>
         </div>
@@ -1346,7 +1301,7 @@
           <div class="item-inner">
             <div class="item-title label">电子邮箱</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbryx}}"  data-gr="B_jbryx">
+              <input type="text" placeholder="" data-gr="B_jbryx">
             </div>
           </div>
         </div>
@@ -1358,7 +1313,7 @@
           <div class="item-inner">
             <div class="item-title label">证件有效期</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzjyxq}}"  data-gr="B_jbrzjyxq">
+              <input type="text" placeholder="" data-gr="B_jbrzjyxq">
             </div>
           </div>
         </div>
@@ -1370,7 +1325,7 @@
           <div class="item-inner">
             <div class="item-title label">座机</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrzj}}"  data-gr="B_jbrzj">
+              <input type="text" placeholder="" data-gr="B_jbrzj">
             </div>
           </div>
         </div>
@@ -1382,7 +1337,7 @@
           <div class="item-inner">
             <div class="item-title label">移动电话</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrphone}}"  data-gr="B_jbrphone" >
+              <input type="text" placeholder="" data-gr="B_jbrphone" >
             </div>
           </div>
         </div>
@@ -1394,7 +1349,7 @@
           <div class="item-inner">
             <div class="item-title label">办公邮编</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrbgyb}}"  data-gr="B_jbrbgyb">
+              <input type="text" placeholder="" data-gr="B_jbrbgyb">
             </div>
           </div>
         </div>
@@ -1406,7 +1361,7 @@
           <div class="item-inner">
             <div class="item-title label">办公地址</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{jbrbgdz}}"  data-gr="B_jbrbgdz">
+              <input type="text" placeholder="" data-gr="B_jbrbgdz">
             </div>
           </div>
         </div>
@@ -1418,7 +1373,7 @@
           <div class="item-inner">
             <div class="item-title label">管理人名称</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_glrmc}}"  data-gr="B_cp_glrmc" >
+              <input type="text" placeholder="" data-gr="B_cp_glrmc" >
             </div>
           </div>
         </div>
@@ -1430,7 +1385,7 @@
           <div class="item-inner">
             <div class="item-title label">机构类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_jglx}}"  data-gr="B_cp_jglx">
+              <input type="text" placeholder="" data-gr="B_cp_jglx">
             </div>
           </div>
         </div>
@@ -1442,7 +1397,7 @@
           <div class="item-inner">
             <div class="item-title label">机构证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_jgzjlx}}"  data-gr="B_cp_jgzjlx">
+              <input type="text" placeholder="" data-gr="B_cp_jgzjlx">
             </div>
           </div>
         </div>
@@ -1454,7 +1409,7 @@
           <div class="item-inner">
             <div class="item-title label">机构证件编号</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_jgzjbh}}"  data-gr="B_cp_jgzjbh">
+              <input type="text" placeholder="" data-gr="B_cp_jgzjbh">
             </div>
           </div>
         </div>
@@ -1466,7 +1421,7 @@
           <div class="item-inner">
             <div class="item-title label">有效期</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_yxq}}"  data-gr="B_cp_yxq">
+              <input type="text" placeholder="" data-gr="B_cp_yxq">
             </div>
           </div>
         </div>
@@ -1478,7 +1433,7 @@
           <div class="item-inner">
             <div class="item-title label">机构资质证明</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_jgzzzm}}"  data-gr="B_cp_jgzzzm">
+              <input type="text" placeholder="" data-gr="B_cp_jgzzzm">
             </div>
           </div>
         </div>
@@ -1490,7 +1445,7 @@
           <div class="item-inner">
             <div class="item-title label">资质证书编号</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_zzzsbh}}"  data-gr="B_cp_zzzsbh">
+              <input type="text" placeholder="" data-gr="B_cp_zzzsbh">
             </div>
           </div>
         </div>
@@ -1502,7 +1457,7 @@
           <div class="item-inner">
             <div class="item-title label">经营范围</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_jyfw}}"  data-gr="B_cp_jyfw">
+              <input type="text" placeholder="" data-gr="B_cp_jyfw">
             </div>
           </div>
         </div>
@@ -1514,7 +1469,7 @@
           <div class="item-inner">
             <div class="item-title label">注册地址</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_zcdz}}"  data-gr="B_cp_zcdz">
+              <input type="text" placeholder="" data-gr="B_cp_zcdz">
             </div>
           </div>
         </div>
@@ -1526,7 +1481,7 @@
           <div class="item-inner">
             <div class="item-title label">办公地址</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_bgdz}}"  data-gr="B_cp_bgdz">
+              <input type="text" placeholder="" data-gr="B_cp_bgdz">
             </div>
           </div>
         </div>
@@ -1538,7 +1493,7 @@
           <div class="item-inner">
             <div class="item-title label">注册资本</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_zczb}}"  data-gr="B_cp_zczb">
+              <input type="text" placeholder="" data-gr="B_cp_zczb">
             </div>
           </div>
         </div>
@@ -1550,7 +1505,7 @@
           <div class="item-inner">
             <div class="item-title label">控股股东或实际控制人</div>
             <div class="item-input">
-              <input type="text" placeholder="" value="{{cp_sjkzr}}"  data-gr="B_cp_sjkzr">
+              <input type="text" placeholder="" data-gr="B_cp_sjkzr">
             </div>
           </div>
         </div>
