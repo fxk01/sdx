@@ -53,6 +53,7 @@ export default class UserInformation extends widget {
       let json = res;
       json['yongHuJbxx'].sf = '否';
       json['yongHuJbxx'].br = '他人';
+      json['yongHuJbxx'].br2 = '本人';
       json['yongHuJbxx'].tr = '他人';
       json['yongHuJbxx'].bjg = '本机构';
       let _userInfoListTpl = Tool.renderTpl(userInfoListTpl, json['yongHuJbxx']);
@@ -305,8 +306,7 @@ export default class UserInformation extends widget {
         name: 'B_jbrybjggx',
         display: '与该机构关系不能为空',
         rules: 'required'
-      }
-      ], function(obj) {
+      }], function(obj) {
         const sfyblcxjl_JDom = $('.sfyblcxjl_Jg');
         const sfwsjsyr_JgDom = $('.sfwsjsyr_Jg');
         const sfczsjkzgx_JgDom = $('.sfczsjkzgx_Jg');
@@ -346,7 +346,183 @@ export default class UserInformation extends widget {
     }
 
     if(window.registerUserType === 'cp') {
-
+      validator = new Validator('newProduct', [{
+        name: 'B_cp_cpmc',
+        display: '产品名称不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cplx',
+        display: '产品类型不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cpbajg',
+        display: '产品备案机构不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cpclsj',
+        display: '成立时间不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cpbasj',
+        display: '备案时间不能为空',
+        rules: 'required'
+      }, {
+        name: 'id_card',
+        display: '产品备案编号不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cpcxq',
+        display: '产品存续期不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cplb',
+        display: '产品类别不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cpgm',
+        display: '产品规模不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cpglr',
+        display: '产品管理人不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_cptgr',
+        display: '产品托管人不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrxm',
+        display: '姓名不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrxb',
+        display: '性别不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrnl',
+        display: '年龄不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrzjlx',
+        display: '证件类型不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrzjhm',
+        display: '证件号码不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrzw',
+        display: '职务不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbryx',
+        display: '电子邮箱不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrzjyxq',
+        display: '证件有效期不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrzj',
+        display: '座机不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrphone',
+        display: '移动电话不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrbgyb',
+        display: '办公邮编不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_jbrbgdz',
+        display: '办公地址不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_glrmc',
+        display: '管理人名称不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_jglx',
+        display: '机构类型不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_jgzjlx',
+        display: '机构证件类型不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_jgzjbh',
+        display: '机构证件编号不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_yxq',
+        display: '有效期不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_jgzzzm',
+        display: '机构资质证明不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_zzzsbh',
+        display: '资质证书编号不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_jyfw',
+        display: '经营范围不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_zcdz',
+        display: '注册地址不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_bgdz',
+        display: '办公地址不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_zczb',
+        display: '注册资本不能为空',
+        rules: 'required'
+      }, {
+        name: 'B_cp_sjkzr',
+        display: '控股股东或实际控制人不能为空',
+        rules: 'required'
+      }], function(obj) {
+        const sfyblcxjl_cpDom = $('.sfyblcxjl_cp');
+        const sfwsjsyr_cpDom = $('.sfwsjsyr_cp');
+        const sfczsjkzgx_cpDom = $('.sfczsjkzgx_cp');
+        if(sfyblcxjl_cpDom.parents('.textAraNone').length === 0 && sfyblcxjl_cpDom[0].value.length < 1) {
+          let toast = myApp.toast('', `<div>是否有不良诚信记录必填</div>`, options);
+          toast.show();
+          self.stateSave = false;
+          return false;
+        }
+        if(sfwsjsyr_cpDom.parents('.textAraNone').length === 0 && sfwsjsyr_cpDom[0].value.length < 1) {
+          let toast = myApp.toast('', `<div>交易的实际受益人必填</div>`, options);
+          toast.show();
+          self.stateSave = false;
+          return false;
+        }
+        if(sfczsjkzgx_cpDom.parents('.textAraNone').length === 0 && sfczsjkzgx_cpDom[0].value.length < 1) {
+          let toast = myApp.toast('', `<div>是否存在实际控制关系必填</div>`, options);
+          toast.show();
+          self.stateSave = false;
+          return false;
+        }
+        self.stateSave = true;
+        if(self.stateSave) {
+          try {
+            if(obj.errors.length > 0) {
+              let toast = myApp.toast('', `<div>${obj.errors[0].message}</div>`, options);
+              toast.show();
+              self.stateSave = false;
+            } else {
+              self.stateSave = true;
+            }
+          } catch (e) {
+            console.log(e.message);
+          }
+        }
+      });
     }
     validator.validate();
     return this.stateSave;

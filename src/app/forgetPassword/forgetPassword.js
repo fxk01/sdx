@@ -33,8 +33,7 @@ export default class ForgetPassword extends widget {
       this.apTpl();
 
       this.pickerZjLx();
-      $$('.framework7-root').on('click', '.modifyRegLogin', () => { window.location.href = `${Constant.Href_Route}login.html?cid=${Tool.parseURL('cid')}`; });
-      $$('.forget').on('click', '.sdx-ps-ulTzzLx li', function() { let that = $(this); self.stInvestor(that); });
+      $$('.framework7-root').on('click', '.modifyRegLogin', () => { window.location.href = `${Constant.Href_Route}login.html`; });
       $$('.forget').on('click', '.sdx-ps-yzm', function() { self.postYzm(); });
       $$('.forget').on('click', '.sdx-ps-bc', function() { self.validOne(); })
     } catch (e) {
@@ -45,17 +44,6 @@ export default class ForgetPassword extends widget {
     let _forgetPasswordTpl = Tool.renderTpl(forgetPasswordTpl);
     $('.forgetPassword-page').html('').append($(_forgetPasswordTpl));
     $('.forget').append($(Tool.renderTpl(modiFyPs)));
-  }
-  /*
-   选择投资者类型
-   */
-  stInvestor(that) {
-    that.css({
-      'background-color': '#2745b3'
-    });
-    that.append('<div class="sdx-ps-gg"><img src="../../src/assets/images/gougou.png"></div>');
-    $$('.sdx-ps-tzZlx').fadeOut();
-    $$('.tZzOne').fadeIn();
   }
   /*
    选择证件类型

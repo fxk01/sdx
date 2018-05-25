@@ -18,10 +18,10 @@ import {
   ModifyPassword,
   ForgetPassword,
   Questionnaire,
+  Register,
 } from './page';
 import Main from './main/main';
 import Utils from '../utils/tool';
-import Constant from '../utils/constant';
 
 export default {
   init() {
@@ -102,6 +102,9 @@ export default {
         break;
       case 'questionnaire':
         new Questionnaire().init(page);
+        break;
+      case 'register':
+        new Register().init(page);
         break;
       default:
         break;

@@ -53,7 +53,8 @@ export default class Login extends widget {
     this.screen = $('.login-screen');
     this.screen.on('click', '.sdx-link-login', () => { this.loginHome(); });
     this.agreementMessage();
-    $('.framework7-root').on('click', '#modifyLogin', () => { window.location.href = `${Constant.Href_Route}forgetPassword.html?cid=${Tool.parseURL('cid')}`; });
+    $('.framework7-root').on('click', '#modifyLogin', () => { window.location.href = `${Constant.Href_Route}forgetPassword.html`; });
+    $('.framework7-root').on('click', '#registerHref', () => { window.location.href = `${Constant.Href_Route}register.html`; });
   }
   apTpl() {
     let _loginTpl = Tool.renderTpl(loginTpl);

@@ -5,7 +5,7 @@ export default {
   // /dist/#!/page/
   // /#!/page/
   SERVER_URL: 'http://192.168.50.237:8081/',
-  Href_Route: '/dist/#!/page/',
+  Href_Route: '/#!/page/',
   STATUS: {
     SUCCESS: 0,
   },

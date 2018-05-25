@@ -15,3 +15,4 @@ export { default as UserInformation } from './userInformation/userInformation';
 export { default as ModifyPassword } from './modifyPassword/modifyPassword';
 export { default as ForgetPassword } from './forgetPassword/forgetPassword';
 export { default as Questionnaire } from './questionnaire/questionnaire';
+export { default as Register } from './register/register';
