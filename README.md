@@ -30,3 +30,4 @@ https://github.com/ariya/phantomjs  无头自动化
 
 
 https://segmentfault.com/a/1190000009404727
+http://www.jq22.com/jquery-info15397
