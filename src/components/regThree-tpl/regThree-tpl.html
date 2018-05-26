@@ -1,0 +1,15 @@
+{{#each topiclist}}
+<div class="sdx-queDw-listDiv">
+  <p>{{title}}</p>
+  <ul class="sdx-queDw-ul35">
+    {{#each answersList}}
+    <li>
+      <span class="onRadioOnly">
+        <span class="onSelect {{#js_if '@index == 0'}}onSelectScale{{@index}}Only{{/js_if}}" data-grade="{{grade}}" data-grouping="{{../grouping}}"></span>
+      </span>
+      <span class="sdx-queDw-nr">{{answer}}</span>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+{{/each}}

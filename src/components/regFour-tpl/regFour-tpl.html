@@ -1,0 +1,39 @@
+{{#js_if "this.user_type === 'gr'"}}
+<div class="sdx-regFour-f">
+  <div class="sdx-regFour-div">
+    <span class="sdx-regFour-span">1、身份证正反面</span>
+    <img src="../../assets/images/write.png">
+  </div>
+</div>
+
+<div class="container">
+  <div class="page-header">
+    <h3>FormData图片上传</h3>
+    <form id="uploadForm" enctype='multipart/form-data'>
+      <div class="form-group">
+        <div class="h4">图片预览</div>
+        <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
+          <div class="fileinput-new thumbnail" style="width: 200px;height: auto;max-height:150px;">
+            <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="../../assets/images/down_arrow.png" alt="" />
+          </div>
+          <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+          <div>
+            <span class="btn btn-primary btn-file">
+              <span class="fileinput-new">选择文件</span>
+              <span class="fileinput-exists">换一张</span>
+              <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+            </span>
+            <a href="javascript:" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+          </div>
+        </div>
+      </div>
+      <button type="button" id="uploadSubmit" class="btn btn-info">提交</button>
+    </form>
+  </div>
+</div>
+
+
+{{/js_if}}
+
+
+

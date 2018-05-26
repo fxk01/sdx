@@ -14,6 +14,12 @@ import regTypeTpl from '../../components/reg_one/reg_one.html';
 import '../../components/user-info/user-info.less';
 import regTwoTpl from '../../components/regTwo-tpl/regTwo-tpl.html';
 import Validator from 'validator.tool';
+import regThreeTpl from '../../components/regThree-tpl/regThree-tpl.html';
+import '../../components/regThree-tpl/regThree-tpl.less';
+import regFourTpl from '../../components/regFour-tpl/regFour-tpl.html';
+import '../../components/regFour-tpl/regFour-tpl.less';
+import '../../components/bootstrap-fileinput/bootstrap-fileinput.css';
+import '../../components/bootstrap-fileinput/bootstrap-fileinput';
 
 export default class Record extends widget {
   constructor() {
@@ -35,9 +41,37 @@ export default class Record extends widget {
     $('.framework7-root').on('click', '.registerHrefFund', () => { window.location.href = `${Constant.Href_Route}login.html`; });
     $('.framework7-root').on('click', '.sdx-reg-yYzh', () => { window.location.href = `${Constant.Href_Route}login.html`; });
     $$('.framework7-root').on('click', '.sdx-ps-ulTzzLx li', function() { let that = $(this); self.stInvestor(that); });
+    $$('.framework7-root').on('click', '.onRadioOnly', function() { let that = $$(this); self.threeRadio(that); });
     $$('.framework7-root').on('click', '.sdx-ps-bc', function() { self.validOne(); });
     $$('.framework7-root').on('click', '.sdx-reg-two', function() { self.validTwo(); });
+    $$('.framework7-root').on('click', '.sdx-reg-Three', function() { self.validThree(); });
     $$('.framework7-root').on('click', '.sdx-ps-yzm', function() { self.postYzm(); });
+
+
+    $('#uploadSubmit').click(function () {
+      var data = new FormData($('#uploadForm')[0]);
+      $$.ajax({
+        url: 'xxx/xxx',
+        type: 'POST',
+        data: data,
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          console.log(data);
+          if(data.status){
+            console.log('upload success');
+          }else{
+            console.log(data.message);
+          }
+        },
+        error: function (data) {
+          console.log(data.status);
+        }
+      });
+    });
+
   }
   /*
    模拟复选框
@@ -55,14 +89,15 @@ export default class Record extends widget {
     });
   }
   /*
-  选择投资者类型
-  */
+   选择投资者类型
+   */
   stInvestor(that) {
     let self = this;
     that.css({
       'background-color': '#2745b3'
     });
     window.regType = that.attr('data-type');
+    window.topicType = window.regType === 'gr' ? 1 : 2;
     that.append('<div class="sdx-ps-gg"><img src="../../../src/assets/images/gougou.png"></div>');
     $$('.sdx-ps-tzZlx').fadeOut();
     $$('.sdx-reg-block').fadeIn();
@@ -76,11 +111,17 @@ export default class Record extends widget {
       user_type: window.regType,
     });
     $('.regTwoTpl').append($(_regTwoTpl));
+
+    let _regFourTpl = Tool.renderTpl(regFourTpl, {
+      user_type: window.regType,
+    });
+    $('.regFourTpl').append($(_regFourTpl));
+
     this.pickerZjLx();
     $$('.onRadio').unbind('click').click(function(e) { let that = $$(this); self.onRadio(that); });
   }
   /*
-  单选框
+   单选框
    */
   onRadio(self) {
     const has = self.parents('.sdx-info-jux').siblings('.item-content');
@@ -89,8 +130,15 @@ export default class Record extends widget {
     self.parent('label').siblings().find('.onSelect').removeClass('onSelectScale1');
   }
   /*
-  选择证件类型
-  */
+   threeRadio
+   */
+  threeRadio(self) {
+    self.find('.onSelect').addClass('onSelectScale0Only');
+    self.parent('li').siblings().find('.onSelect').removeClass('onSelectScale0Only');
+  }
+  /*
+   选择证件类型
+   */
   pickerZjLx() {
     myApp.picker({
       toolbarCloseText: '完成',
@@ -119,7 +167,7 @@ export default class Record extends widget {
     });
   }
   /*
-   验证
+   第一步验证
    */
   validOne() {
     let self = this;
@@ -187,6 +235,10 @@ export default class Record extends widget {
               } else {
                 $('.regTwo').show();
                 $('.regOne').hide();
+                $('input[name="B_gr_name"]').val($('input[name="name"]').val());
+                $('input[name="B_gr_card_type"]').val($('input[name="card_type"]').val());
+                $('input[name="id_card"]').val($('.id_cardOne').val());
+                $('input[name="B_gr_phone"]').val($('input[name="phone"]').val());
               }
             });
           }
@@ -214,7 +266,6 @@ export default class Record extends widget {
       duration: 2000,
     };
     let validator;
-    console.log(window.regType);
     if(window.regType === 'gr') {
       validator = new Validator('newFormUser', [{
         name: 'B_gr_name',
@@ -300,30 +351,44 @@ export default class Record extends widget {
                 let _val = $$(':text')[i].value;
                 hash[gr] =_val;
               }
-              console.log(hash);
-              // regStore.postRegister({
-              //   data: {
-              //     action: 'Register',
-              //     cid: sessionStorage.getItem('cid'),
-              //     registerUserType: window.registerUserType,
-              //     user_type: '个人',
-              //     id_card: 'sadsadsadsa',
-              //     card_type_A: '护照',
-              //     name_A: '李凯明',
-              //     jbr_name_A: '李凯明',
-              //     phone_A: '13564303463',
-              //     password_A: '111111',
-              //     B_sfwzytzz: 2,
-              //   }
-              // }, (res) => {
-              //   if(res.result === 'NG') {
-              //     let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
-              //     toast.show();
-              //   } else {
-              //
-              //   }
-              // });
-              self.stateSave = true;
+              let scaleLeg = $$('.onSelectScale1').length;
+              for(let j = 0; j <scaleLeg; j++) {
+                const slGr = $$('.onSelectScale1')[j].getAttribute('data-gr');
+                const key = $$('.onSelectScale1')[j].parentNode.parentNode.parentNode.getAttribute('data-key');
+                hash[key] = slGr;
+              }
+              let textArLeg = $$('.textareaText').length;
+              for(let k = 0; k < textArLeg; k++) {
+                const areaKey = $$('.textareaText')[k].getAttribute('data-key');
+                const areaValue = $$('.textareaText')[k].value;
+                hash[areaKey] = areaValue;
+              }
+              delete hash['null'];
+              regStore.postRegister({
+                data: {
+                  action: 'Register',
+                  cid: sessionStorage.getItem('cid'),
+                  registerUserType: window.regType,
+                  user_type: '个人',
+                  id_card: $('input[name="id_card"]').val(),
+                  card_type_A: $('input[name="B_gr_card_type"]').val(),
+                  name_A: $('input[name="B_gr_name"]').val(),
+                  jbr_name_A: $('input[name="B_gr_name"]').val(),
+                  phone_A: '13564303463',
+                  password_A: $('input[name="password"]').val(),
+                  B_sfwzytzz: 2,
+                  ...hash,
+                }
+              }, (res) => {
+                if(res.result === 'NG') {
+                  let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
+                  toast.show();
+                } else {
+                  $('.regThree').show();
+                  $('.regTwo').hide();
+                  self.echoTopicList();
+                }
+              });
             }
           } catch (e) {
             console.log(e.message);
@@ -484,30 +549,24 @@ export default class Record extends widget {
         if(sfyblcxjl_JDom.parents('.textAraNone').length === 0 && sfyblcxjl_JDom[0].value.length < 1) {
           let toast = myApp.toast('', `<div>是否有不良诚信记录必填</div>`, options);
           toast.show();
-          self.stateSave = false;
           return false;
         }
         if(sfwsjsyr_JgDom.parents('.textAraNone').length === 0 && sfwsjsyr_JgDom[0].value.length < 1) {
           let toast = myApp.toast('', `<div>交易的实际受益人必填</div>`, options);
           toast.show();
-          self.stateSave = false;
           return false;
         }
         if(sfczsjkzgx_JgDom.parents('.textAraNone').length === 0 && sfczsjkzgx_JgDom[0].value.length < 1) {
           let toast = myApp.toast('', `<div>是否存在实际控制关系必填</div>`, options);
           toast.show();
-          self.stateSave = false;
           return false;
         }
-        self.stateSave = true;
         if(self.stateSave) {
           try {
             if(obj.errors.length > 0) {
               let toast = myApp.toast('', `<div>${obj.errors[0].message}</div>`, options);
               toast.show();
-              self.stateSave = false;
             } else {
-              self.stateSave = true;
             }
           } catch (e) {
             console.log(e.message);
@@ -664,30 +723,25 @@ export default class Record extends widget {
         if(sfyblcxjl_cpDom.parents('.textAraNone').length === 0 && sfyblcxjl_cpDom[0].value.length < 1) {
           let toast = myApp.toast('', `<div>是否有不良诚信记录必填</div>`, options);
           toast.show();
-          self.stateSave = false;
           return false;
         }
         if(sfwsjsyr_cpDom.parents('.textAraNone').length === 0 && sfwsjsyr_cpDom[0].value.length < 1) {
           let toast = myApp.toast('', `<div>交易的实际受益人必填</div>`, options);
           toast.show();
-          self.stateSave = false;
           return false;
         }
         if(sfczsjkzgx_cpDom.parents('.textAraNone').length === 0 && sfczsjkzgx_cpDom[0].value.length < 1) {
           let toast = myApp.toast('', `<div>是否存在实际控制关系必填</div>`, options);
           toast.show();
-          self.stateSave = false;
           return false;
         }
-        self.stateSave = true;
         if(self.stateSave) {
           try {
             if(obj.errors.length > 0) {
               let toast = myApp.toast('', `<div>${obj.errors[0].message}</div>`, options);
               toast.show();
-              self.stateSave = false;
             } else {
-              self.stateSave = true;
+
             }
           } catch (e) {
             console.log(e.message);
@@ -698,8 +752,62 @@ export default class Record extends widget {
     validator.validate();
   }
   /*
-  获取手机验证码
-  */
+   第三步问卷回显
+   */
+  echoTopicList() {
+    regStore.postRegister({
+      data: {
+        action: 'TopicList',
+        cid: sessionStorage.getItem('cid'),
+        topicType: window.topicType,
+      }
+    }, (res) => {
+      if(res.result === 'NG') {
+        let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
+        toast.show();
+      } else {
+        let _regThreeTpl = Tool.renderTpl(regThreeTpl, res);
+        $('.regThreeTpl').append($(_regThreeTpl));
+      }
+    });
+  }
+  /*
+   validThree
+   */
+  validThree() {
+    let onlyLeg = $$('.onSelectScale0Only').length;
+    let _graDeArr = [];
+    let _answerList = [];
+    let sum = 0;
+    for(let k = 0; k < onlyLeg; k++) {
+      _graDeArr.push(parseInt($$('.onSelectScale0Only')[k].getAttribute('data-grade')));
+      _answerList.push(`${$$('.onSelectScale0Only')[k].getAttribute('data-grouping')+-+$$('.onSelectScale0Only')[k].getAttribute('data-grade')}`);
+    }
+    let i = _graDeArr.length;
+    while (i--) {
+      sum += parseInt(_graDeArr[i]);
+    }
+    regStore.postRetest({
+      data: {
+        action: 'Retest',
+        C_grade: sum,
+        C_answerList: _answerList.join(';'),
+        C_topicType: window.topicType,
+        cid: sessionStorage.getItem('cid'),
+        id_card: $('input[name="id_card"]').val(),
+      }
+    }, (res) => {
+      if(res.result === 'NG') {
+        let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
+        toast.show();
+      } else {
+
+      }
+    });
+  }
+  /*
+   获取手机验证码
+   */
   postYzm() {
     let options = {
       duration: 2000,
