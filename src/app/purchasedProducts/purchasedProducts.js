@@ -26,7 +26,7 @@ export default class PurchasedProducts extends widget {
     $('.purchasedProducts-page').html('').append($(_purchasedProductsTpl));
 
     this.chased();
-    $('.purHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
+    $('.purHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html?tab3=active`; });
   }
   /*
    获取已购产品

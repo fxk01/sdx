@@ -154,7 +154,11 @@ export default class Login extends widget {
               sessionStorage.setItem(key, res[key]);
             }
           }
-          if(sessionStorage.getItem('company_type') === '1') { window.location.href = `${Constant.Href_Route}fund.html` }
+          if(sessionStorage.getItem('company_type') === '1') {
+            window.location.href = `${Constant.Href_Route}fund.html`
+          } else {
+            window.location.href = `${Constant.Href_Route}stockRight.html`
+          }
         }
         btnActivation.removeClass('btn--waiting');
         btnActivation.addClass('btn--activate');

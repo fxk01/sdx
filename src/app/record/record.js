@@ -26,7 +26,7 @@ export default class Record extends widget {
     $('.record-page').append($(_recordTpl));
 
     this.transactionRecord();
-    $('.recordHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
+    $('.recordHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html?tab3=active`; });
   }
   /*
    获取交易记录

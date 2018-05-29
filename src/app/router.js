@@ -19,6 +19,7 @@ import {
   ForgetPassword,
   Questionnaire,
   Register,
+  StockRight,
 } from './page';
 import Main from './main/main';
 import Utils from '../utils/tool';
@@ -105,6 +106,9 @@ export default {
         break;
       case 'register':
         new Register().init(page);
+        break;
+      case 'stockRight':
+        new StockRight().init(page);
         break;
       default:
         break;

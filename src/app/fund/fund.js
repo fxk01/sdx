@@ -12,6 +12,7 @@ import CountUp from '../../components/countUp';
 import fundProducts from '../../components/fund-products/fund-products.html'
 import fundInfoList from '../../components/fund-infoList/fund-infoList.html';
 import userFdInformation from '../../components/user-fd-information/user-fd-information.html';
+import userFdInformation2 from '../../components/user-fd-infomation2/user-fd-information2.html';
 import fundAsset from '../../components/fund-asset/fund-asset.html';
 import highCharts from 'highcharts';
 import Constant from '../../utils/constant';
@@ -53,7 +54,8 @@ export default class Fund extends widget {
         }
       });
     });
-    $$('.framework7-root').on('click', '.questionHref', () => { window.location.href = `${Constant.Href_Route}questionnaire.html` });
+    $$('.framework7-root').on('click', '.questionHref, .retestQuestion', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}` });
+    $$('.framework7-root').on('click', '.questionHref2, .retestQuestion2', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?tab3=active&val=${_val}` });
     $$('.framework7-root').on('click', '.hrefYgCp', () => { window.location.href = `${Constant.Href_Route}purchasedProducts.html`; });
     $$('.framework7-root').on('click', '.hrefJyJl', () => { window.location.href = `${Constant.Href_Route}record.html`; });
     $$('.framework7-root').on('click', '.hrefJbXx', () => { window.location.href = `${Constant.Href_Route}userInformation.html`; });
@@ -67,8 +69,18 @@ export default class Fund extends widget {
     let _fundTpl = Tool.renderTpl(fundTpl);
     $('.fund-page').html('').append($(_fundTpl));
     $('.userFundInformation').append(userFdInformation);
+    $('.userFundInformation2').append(userFdInformation2);
     $('.fundUser').text(sessionStorage.getItem('companyUser'));
     $('.fundIdCard').text(_idCard.substr(0,2) + '**************' + _idCard.substr(_idCard.length-2, 2));
+
+    if(Tool.parseURL('tab2')) {
+      $('.tab').removeClass('active');
+      $('#tab2').addClass('active');
+    }
+    if(Tool.parseURL('tab3')) {
+      $('.tab').removeClass('active');
+      $('#tab3').addClass('active');
+    }
   }
   /*
    退出
@@ -124,6 +136,7 @@ export default class Fund extends widget {
           insertAnswerDateDom.text(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
           insertAnswerBetweenDaysDom.text(sessionStorage.getItem('betweenDays') + '天');
         }
+        sessionStorage.setItem('riskTolerance', res.assessment);
         resolve('a');
       })
     })

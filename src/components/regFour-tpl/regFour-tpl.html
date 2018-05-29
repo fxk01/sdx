@@ -1,39 +1,153 @@
 {{#js_if "this.user_type === 'gr'"}}
 <div class="sdx-regFour-f">
   <div class="sdx-regFour-div">
-    <span class="sdx-regFour-span">1、身份证正反面</span>
+    <span class="sdx-regFour-span">1、身份证正反面&nbsp;&nbsp;&nbsp;<span class="sdx-regFour-ff8">*请上传jpg、jpeg、png格式</span></span>
+    <img src="../../assets/images/write.png">
+  </div>
+</div>
+
+<div class="section">
+  <div class="article">
+    <form enctype="multipart/form-data" id="uploadFormGr1" style="display: inline-block;">
+      <div class="item">
+        <img class="addImg addImgRen" src="../../assets/images/ren2.png">
+        <input name="file" type="file" class="upload_input" data-ideType="1">
+        <div class="preBlock">
+          <img class="preview" id="preview" alt="" name="pic" width="190" height="190">
+        </div>
+        <img class="delete deleteGr1" src="../../assets/images/close.png" data-type="1">
+      </div>
+    </form>
+
+    <form enctype="multipart/form-data" id="uploadFormGr2" style="display: inline-block;">
+      <div class="item" style="margin-left: 0.2rem;">
+        <img class="addImg addImgRen" src="../../assets/images/guo2.png">
+        <input name="file" type="file" class="upload_input" data-ideType="2">
+        <div class="preBlock">
+          <img class="preview" id="preview2" alt="" name="pic" width="190" height="190">
+        </div>
+        <img class="delete deleteGr2" src="../../assets/images/close.png" data-type="1">
+      </div>
+    </form>
+
+    <div style="clear: left;"></div>
+  </div>
+</div>
+
+<div class="sdx-regFour-f" style="margin-top: 30px;">
+  <div class="sdx-regFour-div">
+    <span class="sdx-regFour-span">2、资产证明&nbsp;&nbsp;&nbsp;<span class="sdx-regFour-ff8">*请上传jpg、jpeg、png格式</span></span>
     <img src="../../assets/images/write.png">
   </div>
 </div>
 
 <div class="container">
-  <div class="page-header">
-    <h3>FormData图片上传</h3>
-    <form id="uploadForm" enctype='multipart/form-data'>
-      <div class="form-group">
-        <div class="h4">图片预览</div>
-        <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
-          <div class="fileinput-new thumbnail" style="width: 200px;height: auto;max-height:150px;">
-            <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="../../assets/images/down_arrow.png" alt="" />
-          </div>
-          <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-          <div>
-            <span class="btn btn-primary btn-file">
-              <span class="fileinput-new">选择文件</span>
-              <span class="fileinput-exists">换一张</span>
-              <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
-            </span>
-            <a href="javascript:" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
-          </div>
-        </div>
-      </div>
-      <button type="button" id="uploadSubmit" class="btn btn-info">提交</button>
-    </form>
+  <ul class="sdx-queDw-ul35">
+    <li>
+      <span class="onRadio_gr2" data-val="1">
+        <span class="onSelect_gr2"></span>
+      </span>
+      <span class="sdx-queDw-nr">金融资产不低于3300万</span>
+      <span class="sdx-regFour-dw zczmGr_1"></span>
+    </li>
+    <li>
+      <span class="onRadio_gr2" data-val="2">
+        <span class="onSelect_gr2"></span>
+      </span>
+      <span class="sdx-queDw-nr">连续三年年收入不低于50万</span>
+      <span class="sdx-regFour-dw zczmGr_2"></span>
+    </li>
+  </ul>
+
+  <img id="img1" style="width: 20%;">
+  <img src="../../assets/images/close.png" class="sdx-reg-zczmGrGb">
+</div>
+
+<div class="sdx-regFour-f" style="margin-top: 30px;">
+  <div class="sdx-regFour-div">
+    <span class="sdx-regFour-span">3、交易经历证明&nbsp;&nbsp;&nbsp;<span class="sdx-regFour-ff8">*请在PC端上传</span></span>
+    <img src="../../assets/images/write.png">
   </div>
 </div>
 
-
+<div class="sdx-regFour-f" style="margin-top: 30px;">
+  <div class="sdx-regFour-div">
+    <span class="sdx-regFour-span">4、其他证明&nbsp;&nbsp;&nbsp;<span class="sdx-regFour-ff8">*请在PC端上传</span></span>
+    <img src="../../assets/images/write.png">
+  </div>
+</div>
 {{/js_if}}
 
 
+{{#js_if "this.user_type === 'jg'"}}
+<div class="sdx-regFour-f">
+  <div class="sdx-regFour-div">
+    <span class="sdx-regFour-span">1、营业执照&nbsp;&nbsp;&nbsp;<span class="sdx-regFour-ff8">*请上传jpg、jpeg、png格式</span></span>
+    <img src="../../assets/images/write.png">
+  </div>
+</div>
 
+<div class="section">
+  <div class="article">
+    <form enctype="multipart/form-data" id="uploadFormGr1" style="display: inline-block;">
+      <div class="item" style="height: 5rem;">
+        <img class="addImg addImgRen" src="../../assets/images/yyzz.png" style="height: 5rem;">
+        <input name="file" type="file" class="upload_input" data-ideType="1">
+        <div class="preBlock" style="height: 5rem;">
+          <img class="preview" id="preview" alt="" name="pic" width="190" height="190" style="height: 5rem;">
+        </div>
+        <img class="delete deleteGr1" src="../../assets/images/close.png" data-type="1">
+      </div>
+    </form>
+
+    <div style="clear: left;"></div>
+  </div>
+</div>
+
+<div class="sdx-regFour-f" style="margin-top: 30px;">
+  <div class="sdx-regFour-div">
+    <span class="sdx-regFour-span">2、资产证明&nbsp;&nbsp;&nbsp;<span class="sdx-regFour-ff8">*请上传jpg、jpeg、png格式</span></span>
+    <img src="../../assets/images/write.png">
+  </div>
+</div>
+
+<div class="container">
+  <ul class="sdx-queDw-ul35">
+    <li>
+      <span class="onRadio_gr2" data-val="1">
+        <span class="onSelect_gr2"></span>
+      </span>
+      <span class="sdx-queDw-nr">金融资产不低于3300万</span>
+      <span class="sdx-regFour-dw zczmGr_1"></span>
+    </li>
+    <li>
+      <span class="onRadio_gr2" data-val="2">
+        <span class="onSelect_gr2"></span>
+      </span>
+      <span class="sdx-queDw-nr">连续三年年收入不低于50万</span>
+      <span class="sdx-regFour-dw zczmGr_2"></span>
+    </li>
+  </ul>
+
+  <img id="img1" style="width: 20%;">
+  <img src="../../assets/images/close.png" class="sdx-reg-zczmGrGb">
+</div>
+
+<div class="sdx-regFour-f" style="margin-top: 30px;">
+  <div class="sdx-regFour-div">
+    <span class="sdx-regFour-span">3、交易经历证明&nbsp;&nbsp;&nbsp;<span class="sdx-regFour-ff8">*请在PC端上传</span></span>
+    <img src="../../assets/images/write.png">
+  </div>
+</div>
+
+<div class="sdx-regFour-f" style="margin-top: 30px;">
+  <div class="sdx-regFour-div">
+    <span class="sdx-regFour-span">4、其他证明&nbsp;&nbsp;&nbsp;<span class="sdx-regFour-ff8">*请在PC端上传</span></span>
+    <img src="../../assets/images/write.png">
+  </div>
+</div>
+{{/js_if}}
+
+{{#js_if "this.user_type === 'cp'"}}
+<div>3</div>
+{{/js_if}}

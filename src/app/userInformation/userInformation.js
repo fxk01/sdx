@@ -33,7 +33,7 @@ export default class UserInformation extends widget {
     $('.userInformation-page').html('').append($(_userInformationTpl));
     this.userBasicInfo();
 
-    $$('#userInfoLink').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
+    $$('#userInfoLink').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html?tab3=active`; });
     $('.userBasicInfo').on('click', '.infoEdit', () => { this.infoEdit(); });
     $$('.userBasicInfo').on('click', '.sdx-info-bc', function() { let that = $$(this); self.preservationInfo(that); });
   }

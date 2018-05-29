@@ -386,7 +386,7 @@
           <div class="item-inner">
             <div class="item-title label">机构名称</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="B_jg_jgmc" data-gr="B_jg_jgmc">
+              <input type="text" placeholder="" name="B_jg_jgmc" data-gr="B_jg_jgmc" readonly style="color: #dddddd;">
             </div>
           </div>
         </div>
@@ -398,7 +398,7 @@
           <div class="item-inner">
             <div class="item-title label">机构类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="B_jg_jglx" data-gr="B_jg_jglx">
+              <input type="text" placeholder="" name="B_jg_jglx" data-gr="B_jg_jglx" id="B_jg_jglx" readonly>
             </div>
           </div>
         </div>
@@ -410,7 +410,7 @@
           <div class="item-inner">
             <div class="item-title label">机构证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="B_jg_jgzjlx"  data-gr="B_jg_jgzjlx" >
+              <input type="text" placeholder="" name="B_jg_jgzjlx"  data-gr="B_jg_jgzjlx" readonly style="color: #dddddd;">
             </div>
           </div>
         </div>
@@ -422,7 +422,7 @@
           <div class="item-inner">
             <div class="item-title label">机构证件编号</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="id_card"  data-gr="id_card" >
+              <input type="text" placeholder="" name="id_card"  data-gr="id_card" class="id_card2" readonly style="color: #dddddd;">
             </div>
           </div>
         </div>
@@ -516,7 +516,7 @@
         <div class="item-content">
           <div class="item-media"><i class="icon icon-form-name"></i></div>
           <div class="item-inner">
-            <div class="item-title label">控股股东或实际控制人</div>
+            <div class="item-title label" style="width: 44%;">控股股东或实际控制人</div>
             <div class="item-input">
               <input type="text" placeholder="" name="B_jg_sjkzr" data-gr="B_jg_sjkzr">
             </div>
@@ -575,7 +575,7 @@
           <div class="item-inner">
             <div class="item-title label">证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="B_jg_frzjlx" data-gr="B_jg_frzjlx">
+              <input type="text" placeholder="" name="B_jg_frzjlx" data-gr="B_jg_frzjlx" id="B_jg_frzjlx">
             </div>
           </div>
         </div>
@@ -692,7 +692,7 @@
           <div class="item-inner">
             <div class="item-title label">姓名</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="B_jbrxm" data-gr="B_jbrxm" >
+              <input type="text" placeholder="" name="B_jbrxm" data-gr="B_jbrxm" readonly style="color: #dddddd;">
             </div>
           </div>
         </div>
@@ -728,7 +728,7 @@
           <div class="item-inner">
             <div class="item-title label">证件类型</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="B_jbrzjlx" data-gr="B_jbrzjlx">
+              <input type="text" placeholder="" name="B_jbrzjlx" data-gr="B_jbrzjlx" id="B_jbrzjlx">
             </div>
           </div>
         </div>
@@ -800,7 +800,7 @@
           <div class="item-inner">
             <div class="item-title label">移动电话</div>
             <div class="item-input">
-              <input type="text" placeholder="" name="B_jbrphone" data-gr="B_jbrphone" >
+              <input type="text" placeholder="" name="B_jbrphone" data-gr="B_jbrphone" readonly style="color: #dddddd;">
             </div>
           </div>
         </div>
@@ -932,12 +932,11 @@
       <li class="sdx-info-sjGx">
         <div class="item-content">
           <div class="item-media"><i class="icon icon-form-name"></i></div>
-          <div class="item-title label co323232">
-            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfczsjkzgx">
+          <div class="item-title label co323232" style="width: 100%;">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfczsjkzgx" style="margin: 0;">
               <span class="sdx-info-spanTar">
                 是否存在实际控制关系
               </span>
-              {{#js_if "this.sfczsjkzgx === '否'"}}
               <label style="padding-right: 66px;">
               <span style="margin-left: -35px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="否"></span>
@@ -950,20 +949,6 @@
               </span>
                 是
               </label>
-              {{else}}
-              <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="否"></span>
-              </span>
-                否
-              </label>
-              <label>
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="是"></span>
-              </span>
-                是
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.sfczsjkzgx === this.sf'}}textAraNone{{/js_if}}">
@@ -981,12 +966,11 @@
       <li class="sdx-info-sjGx">
         <div class="item-content">
           <div class="item-media"><i class="icon icon-form-name"></i></div>
-          <div class="item-title label co323232">
-            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfwsjsyr">
+          <div class="item-title label co323232" style="width: 100%;">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfwsjsyr" style="margin: 0;">
               <span class="sdx-info-spanTar">
                 交易的实际受益人
               </span>
-              {{#js_if "this.sfwsjsyr === '本机构'"}}
               <label style="padding-right: 15px; margin-right: 12px;">
               <span style="margin-left: -22px;" class="onRadio">
                 <span class="onSelect onSelectScale1" data-gr="本机构"></span>
@@ -999,20 +983,6 @@
               </span>
                 其他机构或个人
               </label>
-              {{else}}
-              <label style="padding-right: 15px; margin-right: 12px;">
-              <span style="margin-left: -22px;" class="onRadio">
-                <span class="onSelect" data-gr="本机构"></span>
-              </span>
-                本机构
-              </label>
-              <label>
-              <span style="margin-left: -22px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="其他机构或个人"></span>
-              </span>
-                其他机构或个人
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.sfwsjsyr === this.bjg'}}textAraNone{{/js_if}}">
@@ -1030,38 +1000,23 @@
       <li class="sdx-info-sjGx" style="border: none;">
         <div class="item-content">
           <div class="item-media"><i class="icon icon-form-name"></i></div>
-          <div class="item-title label co323232">
-            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfyblcxjl">
+          <div class="item-title label co323232" style="width: 100%;">
+            <div class="sdx-info-publicPrivate sdx-info-jux" data-key="B_sfyblcxjl" style="margin: 0;">
               <span class="sdx-info-spanTar">
                 是否有不良诚信记录
               </span>
-              {{#js_if "this.sfyblcxjl === '否'"}}
               <label style="padding-right: 66px;">
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="否"></span>
-              </span>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect onSelectScale1" data-gr="否"></span>
+                </span>
                 否
               </label>
               <label>
-              <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="是"></span>
-              </span>
+                <span style="margin-left: -35px;" class="onRadio">
+                  <span class="onSelect" data-gr="是"></span>
+                </span>
                 是
               </label>
-              {{else}}
-              <label style="padding-right: 66px;">
-             <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect" data-gr="否"></span>
-              </span>
-                否
-              </label>
-              <label>
-             <span style="margin-left: -35px;" class="onRadio">
-                <span class="onSelect onSelectScale1" data-gr="是"></span>
-              </span>
-                是
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.sfyblcxjl === this.sf'}}textAraNone{{/js_if}}">
@@ -1229,7 +1184,7 @@
           <div class="item-inner">
             <div class="item-title label">姓名</div>
             <div class="item-input">
-              <input type="text" placeholder="" data-gr="B_jbrxm" >
+              <input type="text" placeholder="" data-gr="" >
             </div>
           </div>
         </div>

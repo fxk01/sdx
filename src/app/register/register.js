@@ -20,6 +20,8 @@ import regFourTpl from '../../components/regFour-tpl/regFour-tpl.html';
 import '../../components/regFour-tpl/regFour-tpl.less';
 import '../../components/bootstrap-fileinput/bootstrap-fileinput.css';
 import '../../components/bootstrap-fileinput/bootstrap-fileinput';
+import '../../components/toast/toast.css';
+import '../../components/toast/toast';
 
 export default class Record extends widget {
   constructor() {
@@ -38,20 +40,279 @@ export default class Record extends widget {
     $('.register-page').append($(_registerTpl));
 
     this.che();
-    $('.framework7-root').on('click', '.registerHrefFund', () => { window.location.href = `${Constant.Href_Route}login.html`; });
-    $('.framework7-root').on('click', '.sdx-reg-yYzh', () => { window.location.href = `${Constant.Href_Route}login.html`; });
+    this.optionsFile = {
+      duration: 2000
+    };
+
+    $$('.framework7-root').on('click', '.registerHrefFund', () => { window.location.href = `${Constant.Href_Route}login.html`; });
+    $$('.framework7-root').on('click', '.sdx-reg-yYzh', () => { window.location.href = `${Constant.Href_Route}login.html`; });
     $$('.framework7-root').on('click', '.sdx-ps-ulTzzLx li', function() { let that = $(this); self.stInvestor(that); });
     $$('.framework7-root').on('click', '.onRadioOnly', function() { let that = $$(this); self.threeRadio(that); });
     $$('.framework7-root').on('click', '.sdx-ps-bc', function() { self.validOne(); });
     $$('.framework7-root').on('click', '.sdx-reg-two', function() { self.validTwo(); });
     $$('.framework7-root').on('click', '.sdx-reg-Three', function() { self.validThree(); });
     $$('.framework7-root').on('click', '.sdx-ps-yzm', function() { self.postYzm(); });
+    $$('.framework7-root').on('click', '.onRadio_gr2', function() { let that = $$(this); self.threeRadioGr2(that); });
+    $$('.framework7-root').on('click', '#uploadSubmitGr', function() { self.dwIdNumGr(); });
+    $$('.framework7-root').on('click', '#uploadSubmitGr2', function() { self.dwIdNumGrFm(); });
+    $$('.framework7-root').on('click', '.sdx-zcGrSc', function() { $('#whole').click(); });
+    $$('.framework7-root').on('change', '#whole', function() { let that = $$(this); self.previewImg(that); });
+    $$('.framework7-root').on('click', '.sdx-reg-gb, .sdx-reg-gb2, .sdx-reg-zczmGrGb', function() { let that = $$(this); self.deletePreviewImg(that); });
+    $$('.framework7-root').on('click', '.sdx-reg-Four', function() { self.fourOver(); });
+    $$('.framework7-root').on('click', '.addImgRen', function() { $$(this).parent().find('.upload_input').click(); });
+    $$('.framework7-root').on('change', '.upload_input', function() { let that = $$(this); self.selectUploadIt(that); });
+    $$('.framework7-root').on('click', '.deleteGr1, .deleteGr2', function() { let that = $$(this); self.deletePreviewImg(that); });
+    $$('.framework7-root').on('click', '.skip', function() { self.fifthSteps(); });
+  }
+  /*
+   上传身份证正面
+   */
+  selectUploadIt(file) {
+    let self = this;
+    //H5渲染
+    function html5Reader(file, pic, addImg, deleteImg) {
+      let _type = file.attr('data-ideType');
+      let files = file[0].files[0];
+      let reader = new FileReader();
+      reader.readAsDataURL(files);
+      reader.onload = function(e){
+        pic.attr('src', this.result);
+      };
 
+      if(_type === '1') {
+        let dataFormGr1 = new FormData($('#uploadFormGr1')[0]);
+        dataFormGr1.append('id', 'WU_FILE_1');
+        dataFormGr1.append('name', files.name);
+        dataFormGr1.append('type', files.type);
+        dataFormGr1.append('lastModifiedDate', files.lastModifiedDate);
+        dataFormGr1.append('size', files.size);
 
-    $('#uploadSubmit').click(function () {
-      var data = new FormData($('#uploadForm')[0]);
+        $$.ajax({
+          url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=1&identification_type=${_type}`,
+          type: 'post',
+          data: dataFormGr1,
+          async: false,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            if(JSON.parse(data).result === 'OK') {
+              self.UserZcZczm();
+              let toast = myApp.toast('', `<div>上传成功！</div>`, this.optionsFile);
+              toast.show();
+            }
+          },
+          error: function () {
+            let toast = myApp.toast('', `<div>上传失败！</div>`, this.optionsFile);
+            toast.show();
+          }
+        });
+      } else {
+        let dataFormGr2 = new FormData($('#uploadFormGr2')[0]);
+        dataFormGr2.append("id", 'WU_FILE_1');
+        dataFormGr2.append("name", file.name);
+        dataFormGr2.append("type", file.type);
+        dataFormGr2.append("lastModifiedDate", file.lastModifiedDate);
+        dataFormGr2.append("size", file.size);
+
+        $$.ajax({
+          url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=1&identification_type=${_type}`,
+          type: 'post',
+          data: dataFormGr2,
+          async: false,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            if(JSON.parse(data).result === 'OK') {
+              self.UserZcZczm();
+              let toast = myApp.toast('', `<div>上传成功！</div>`, this.optionsFile);
+              toast.show();
+            }
+          },
+          error: function () {
+            let toast = myApp.toast('', `<div>删除成功</div>`, this.optionsFile);
+            toast.show();
+          }
+        });
+      }
+
+      addImg.hide();
+      deleteImg.show();
+    }
+
+    let pic = file.parent().find(".preview");
+    let addImg = file.parent().find(".addImg");
+    let deleteImg = file.parent().find(".delete");
+    let ext = file.val().substring(file.val().lastIndexOf(".")+1).toLowerCase();
+
+    if(ext !== 'png' && ext !== 'jpg' && ext !== 'jpeg'){
+      if (ext !== '') {
+        alert("图片的格式必须为png或者jpg或者jpeg格式！");
+      }
+      return;
+    }
+
+    let isIE = navigator.userAgent.match(/MSIE/) !== null,
+      isIE6 = navigator.userAgent.match(/MSIE 6.0/) !== null,
+      isIE10 = navigator.userAgent.match(/MSIE 10.0/) !== null;
+    if(isIE && !isIE10) {
+      file.select();
+      let reallocalpath = document.selection.createRange().text;
+      if (isIE6) {
+        pic.attr("src",reallocalpath);
+      }else{
+        pic.css("filter","progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src=\"" + reallocalpath + "\")");
+        pic.attr('src','data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+      }
+      addImg.hide();
+      deleteImg.show();
+    }else {
+      html5Reader(file, pic, addImg, deleteImg);
+    }
+  }
+  /*
+   fourOver下一步
+   */
+  fourOver() {
+    const pre = $$('#preview').attr('src');
+    const pre2 = $$('#preview2').attr('src');
+    const img1 = $$('#img1').attr('src');
+    if(pre === undefined || pre === '' || pre2 === undefined || pre2 === '') {
+      let toast = myApp.toast('', `<div>身份证正反面必传！</div>`, this.optionsFile);
+      toast.show();
+      return false;
+    }
+    if(img1 === undefined) {
+      let toast = myApp.toast('', `<div>资产证明必传！</div>`, this.optionsFile);
+      toast.show();
+      return false;
+    }
+
+    regStore.postCompanyLogBack({
+      data: {
+        action: 'companyLogBack',
+        method: 'addAuditingLog',
+        cid: sessionStorage.getItem('cid'),
+        id_card: $('input[name="id_card"]').val(),
+      }
+    }, (res) => {
+      if(res.result === 'NG') {
+        let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
+        toast.show();
+      } else {
+        this.fifthSteps(res);
+      }
+    });
+  }
+  /*
+   第五步
+   */
+  fifthSteps(json) {
+    let num = 5;
+    let self = this;
+    function registerSuccessPinTimeout() {
+      if(num > 0) {
+        $$('.Countdown').html(num + 's');
+        num--;
+        setTimeout(registerSuccessPinTimeout, 1000);
+      }else {
+        self.onAutoLogin();
+      }
+    }
+    $('.regFour').hide();
+    $('.regFive').show();
+    setTimeout(registerSuccessPinTimeout, 1000);
+    $$('.riskType').text(window.assessment);
+  }
+  /*
+   跳转登陆
+   */
+  onAutoLogin() {
+    regStore.postCompanyLogBack({
+      data: {
+        action: 'UserLogin',
+        cid: sessionStorage.getItem('cid'),
+        username: $('input[name="id_card"]').val(),
+        password: $('input[name="password"]').val(),
+      }
+    }, (res) => {
+      if(res.result === 'NG') {
+        let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
+        toast.show();
+      } else {
+        for(let key in res) {
+          if(key !== 'result') {
+            sessionStorage.setItem(key, res[key]);
+          }
+        }
+        if(sessionStorage.getItem('company_type') === '1') { window.location.href = `${Constant.Href_Route}fund.html` }
+      }
+    });
+  }
+  /*
+   删除图片
+   */
+  deletePreviewImg(self) {
+    if(self.attr('data-type') === '2') {
+      $('.sdx-reg-zczmGrGb').hide();
+      $('#img1').removeAttr('src');
+
+      $$('.zczmGr_'+window.zCzmGr+'').html('').append('<form style="display: initial;" id="uploadFormZcZmGr'+window.zCzmGr+'" enctype=\'multipart/form-data\'><span class="sdx-zcGrSc">上传<input type="file" name="file" id="whole" apture="camera"></span></form>');
+      console.log($$('.sdx-regFour-dw'))
+    }
+    let id = self.attr('data-id');
+    regStore.postdeleteUserZcZczm({
+      data: {
+        action: 'UserZcZczm',
+        method: 'deleteUserZcZczmById',
+        zczm_id: id,
+      }
+    }, (res) => {
+      if(res.result === 'OK') {
+        if(self.attr('data-type') === '1') {
+          self.parent().find('input').val('');
+          self.parent().find('img.preview').attr("src","");
+          self.parent().find('img.preview').css("filter","");
+          self.hide();
+          self.parent().find('.addImg').show();
+        }
+        let toast = myApp.toast('', `<div>删除成功</div>`, this.optionsFile);
+        toast.show();
+      } else {
+        let toast = myApp.toast('', `<div>删除失败</div>`, this.optionsFile);
+        toast.show();
+      }
+    })
+  }
+  /*
+   回显资产证明文件
+   */
+  previewImg(file) {
+    let self = this;
+    if (window.FileReader) {
+      let reader = new FileReader();
+    } else {
+      alert('您的设备不支持图片预览功能，如需该功能请升级您的设备！');
+    }
+    let preDiv = document.getElementById('wholeImg');
+    if (file[0].files.length > 0) {
+      let reader = new FileReader();
+      reader.onload = function(e) {
+        let img = document.getElementById('img1');
+        img.setAttribute('src',e.target.result);
+      };
+      reader.readAsDataURL(file[0].files[0]);
+
+      let files = $$('#whole')[0].files;
+      let data = new FormData($$('#uploadFormZcZmGr'+window.zCzmGr+'')[0]);
+      data.append('id', 'WU_FILE_1');
+      data.append('name', files[0].name);
+      data.append('type', files[0].type);
+      data.append('lastModifiedDate', files[0].lastModifiedDate);
+      data.append('size', files[0].size);
       $$.ajax({
-        url: 'xxx/xxx',
+        url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=2&identification_type=${window.zCzmGr}`,
         type: 'POST',
         data: data,
         async: false,
@@ -59,19 +320,127 @@ export default class Record extends widget {
         contentType: false,
         processData: false,
         success: function (data) {
-          console.log(data);
-          if(data.status){
-            console.log('upload success');
-          }else{
-            console.log(data.message);
+          if(JSON.parse(data).result === 'OK') {
+            self.UserZcZczm();
+            $('.sdx-reg-zczmGrGb').css({
+              display: 'inline-block'
+            });
+            let toast = myApp.toast('', `<div>上传成功</div>`, this.optionsFile);
+            toast.show();
           }
         },
         error: function (data) {
-          console.log(data.status);
+          let toast = myApp.toast('', `<div>${data.status}</div>`, this.optionsFile);
+          toast.show();
         }
       });
-    });
 
+      $$('.sdx-regFour-dw').text('');
+    }
+  }
+  /*
+   上传身份证正面
+   */
+  dwIdNumGr() {
+    let self = this;
+    let sfz1Leg = $('.thumbnailSfz1').children().length;
+    let files = $$('.fileGr')[0].files;
+    if(files.length === 0) {
+      let toast = myApp.toast('', `<div>请上传身份证正面</div>`, this.optionsFile);
+      toast.show();
+      return false;
+    }
+    let data = new FormData($$('#uploadForm')[0]);
+    data.append('id', 'WU_FILE_1');
+    data.append('name', files[0].name);
+    data.append('type', files[0].type);
+    data.append('lastModifiedDate', files[0].lastModifiedDate);
+    data.append('size', files[0].size);
+    $$.ajax({
+      url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=1&identification_type=1`,
+      type: 'POST',
+      data: data,
+      async: false,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function (data) {
+        if(JSON.parse(data).result === 'OK') {
+          self.UserZcZczm();
+          let toast = myApp.toast('', `<div>上传成功</div>`, this.optionsFile);
+          toast.show();
+        }
+      },
+      error: function (data) {
+        let toast = myApp.toast('', `<div>${data.status}</div>`, this.optionsFile);
+        toast.show();
+      }
+    });
+  }
+  /*
+   回显zczczm
+   */
+  UserZcZczm() {
+    regStore.postUserZcZczm({
+      data: {
+        action: 'UserZcZczm',
+        method: 'selectUserZcZczmByIdCard',
+        cid: sessionStorage.getItem('cid'),
+        id_card: '21321gghgh',
+      }
+    }, (res) => {
+      let json = res['userZcZczmList'];
+      for(let i = 0; i <json.length; i++) {
+        if(json[i].type === '1' && json[i]['identification_type'] === 1) {
+          $$('.deleteGr1').attr('data-id', json[i].id)
+        }
+        if(json[i].type === '1' && json[i]['identification_type'] === 2) {
+          $$('.deleteGr2').attr('data-id', json[i].id)
+        }
+        if(json[i].type === '2') {
+          $$('.sdx-reg-zczmGrGb').attr('data-id', json[i].id);
+          $$('.sdx-reg-zczmGrGb').attr('data-type', json[i].type);
+        }
+      }
+    })
+  }
+  /*
+   上传身份证反面
+   */
+  dwIdNumGrFm() {
+    let self = this;
+    let files = $$('.fileGr2')[0].files;
+    if(files.length === 0) {
+      let toast = myApp.toast('', `<div>请上传身份证反面</div>`, this.optionsFile);
+      toast.show();
+      return false;
+    }
+    let data = new FormData($$('#uploadForm2')[0]);
+    data.append('id', 'WU_FILE_1');
+    data.append('name', files[0].name);
+    data.append('type', files[0].type);
+    data.append('lastModifiedDate', files[0].lastModifiedDate);
+    data.append('size', files[0].size);
+    $$.ajax({
+      url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=1&identification_type=2`,
+      type: 'POST',
+      data: data,
+      async: false,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function (data) {
+        if(JSON.parse(data).result === 'OK') {
+          self.UserZcZczm();
+          let toast = myApp.toast('', `<div>上传成功</div>`, this.optionsFile);
+          toast.show();
+        }
+      },
+      error: function (data) {
+        let toast = myApp.toast('', `<div>${data.status}</div>`, this.optionsFile);
+        toast.show();
+      }
+    });
   }
   /*
    模拟复选框
@@ -117,8 +486,116 @@ export default class Record extends widget {
     });
     $('.regFourTpl').append($(_regFourTpl));
 
+    myApp.picker({
+      input: '#B_jg_jglx',
+      cols: [
+        {
+          textAlign: 'center',
+          values: [
+            '证券公司',
+            '证券公司子公司',
+            '银行',
+            '信托公司',
+            '基金管理公司',
+            '基金管理公司子公司',
+            '保险公司',
+            '私募基金管理人',
+            '期货公司',
+            '期货公司子公司',
+            '财务公司',
+            '其他境内金融机构',
+            '机关法人',
+            '事业单位法人',
+            '社会团体法人',
+            '非金融机构企业法人',
+            '非金融类非法人机构',
+            '境外代理人',
+            '境外金融机构',
+            '外国战略投资者',
+            '境外非金融机构',
+            '其它',
+          ]
+        }
+      ],
+      toolbarCloseText: '完成',
+      closeByOutsideClick: false,
+      onClose: function (p) {
+
+      },
+    });
+
+    myApp.picker({
+      input: '#B_jg_frzjlx',
+      cols: [
+        {
+          textAlign: 'center',
+          values: [
+            '身份证',
+            '护照',
+            '军官证',
+            '士兵证',
+            '港澳居民来往内地通行证',
+            '户口本',
+            '外国护照',
+            '其他',
+            '警官证',
+            '台胞证',
+            '外国人永久居住证',
+          ]
+        }
+      ],
+      toolbarCloseText: '完成',
+      closeByOutsideClick: false,
+      onClose: function (p) {
+
+      },
+    });
+
+    myApp.picker({
+      input: '#B_jbrzjlx',
+      cols: [
+        {
+          textAlign: 'center',
+          values: [
+            '身份证',
+            '护照',
+            '军官证',
+            '士兵证',
+            '港澳居民来往内地通行证',
+            '户口本',
+            '外国护照',
+            '其他',
+            '警官证',
+            '台胞证',
+            '外国人永久居住证',
+          ]
+        }
+      ],
+      toolbarCloseText: '完成',
+      closeByOutsideClick: false,
+      onClose: function (p) {
+
+      },
+    });
+
     this.pickerZjLx();
     $$('.onRadio').unbind('click').click(function(e) { let that = $$(this); self.onRadio(that); });
+  }
+  /*
+   资产证明个人
+   */
+  threeRadioGr2(self) {
+    window.zCzmGr = self.attr('data-val');
+    if($$('#img1').attr('src') === undefined) {
+      self.find('.onSelect_gr2').addClass('onSelectScale1');
+      self.parent('li').siblings().find('.onSelect_gr2').removeClass('onSelectScale1');
+      self.siblings('.sdx-regFour-dw').html('').append('<form style="display: initial;" id="uploadFormZcZmGr'+window.zCzmGr+'" enctype=\'multipart/form-data\'><span class="sdx-zcGrSc">上传<input type="file" name="file" id="whole" apture="camera"></span></form>');
+      self.parent('li').siblings().find('.sdx-zcGrSc').remove();
+    } else {
+      let toast = myApp.toast('', `<div>资产证明已存在，请删除后在上传</div>`, this.optionsFile);
+      toast.show();
+      return false;
+    }
   }
   /*
    单选框
@@ -249,7 +726,81 @@ export default class Record extends widget {
     }
 
     if(window.regType === 'jg') {
-
+      validator = new Validator('example_oneJg', [
+        {
+          name: 'name',
+          display: '机构名称不能为空',
+          rules: 'required'
+        }, {
+          name: 'card_type',
+          display: '机构证件类型不能为空',
+          rules: 'required'
+        }, {
+          name: 'id_card',
+          display: '机构证件编号不能为空',
+          rules: 'required'
+        }, {
+          name: 'phone',
+          display: '手机号码不能为空|手机号码格式不正确',
+          rules: 'required|is_phone'
+        }, {
+          name: 'pin',
+          display: '验证码不能为空',
+          rules: 'required'
+        }, {
+          name: 'password',
+          display: '新密码不能为空',
+          rules: 'required'
+        }, {
+          name: 'user_name',
+          display: '真实姓名不能为空',
+          rules: 'required'
+        }, {
+          name: 'rePassWorld',
+          display: '密码不一致',
+          rules: 'same(password)|required'
+        }], function(obj) {
+        try {
+          if(obj.errors.length > 0) {
+            let toast = myApp.toast('', `<div>${obj.errors[0].message}</div>`, options);
+            toast.show();
+          } else {
+            let cheLeg = $$('.checkbox').length;
+            for(let i = 0; i < cheLeg; i++) {
+              if($$('.checkbox')[i].className.indexOf('cur') < 0) {
+                let toast = myApp.toast('', `<div>${$$('.checkbox')[i].getAttribute('data-cn')}</div>`, options);
+                toast.show();
+                return false;
+              }
+            }
+            regStore.postUserZc({
+              data: {
+                action: 'UserZc',
+                method: 'selectUserZcByIdCard',
+                cid: sessionStorage.getItem('cid'),
+                pin: $('input[name="pin"]').val(),
+                phone: $('input[name="phone"]').val(),
+                id_card: $('input[name="id_card"]').val(),
+              }
+            }, (res) => {
+              if(res.result === 'NG') {
+                let toast = myApp.toast('', `<div>${res.error_message}</div>`, options);
+                toast.show();
+              } else {
+                $('.regTwo').show();
+                $('.regOne').hide();
+                $('input[name="B_jg_jgmc"]').val($('input[name="name"]').val());
+                $('input[name="B_jg_jgzjlx"]').val($('input[name="card_type"]').val());
+                $('.id_card2').val($('input[name="id_card"]').val());
+                $('input[name="B_jbrxm"]').val($('input[name="user_name"]').val());
+                $('input[name="B_jbrphone"]').val($('input[name="phone"]').val());
+              }
+            });
+          }
+        } catch (e) {
+          console.log(e.message);
+        }
+      });
     }
 
     if(window.regType === 'cp') {
@@ -567,6 +1118,51 @@ export default class Record extends widget {
               let toast = myApp.toast('', `<div>${obj.errors[0].message}</div>`, options);
               toast.show();
             } else {
+              let leg = $$(':text').length;
+              let hash = {};
+              for(let i = 0; i <leg; i++) {
+                let gr = $$(':text')[i].getAttribute('data-gr');
+                let _val = $$(':text')[i].value;
+                hash[gr] =_val;
+              }
+              let scaleLeg = $$('.onSelectScale1').length;
+              for(let j = 0; j <scaleLeg; j++) {
+                const slGr = $$('.onSelectScale1')[j].getAttribute('data-gr');
+                const key = $$('.onSelectScale1')[j].parentNode.parentNode.parentNode.getAttribute('data-key');
+                hash[key] = slGr;
+              }
+              let textArLeg = $$('.textareaText').length;
+              for(let k = 0; k < textArLeg; k++) {
+                const areaKey = $$('.textareaText')[k].getAttribute('data-key');
+                const areaValue = $$('.textareaText')[k].value;
+                hash[areaKey] = areaValue;
+              }
+              delete hash['null'];
+              regStore.postRegister({
+                data: {
+                  action: 'Register',
+                  cid: sessionStorage.getItem('cid'),
+                  registerUserType: window.regType,
+                  user_type: '机构',
+                  id_card: $('input[name="id_card"]').val(),
+                  card_type_A: $('input[name="B_jg_jgzjlx"]').val(),
+                  name_A: $('input[name="B_jg_jgmc"]').val(),
+                  jbr_name_A: $('input[name="B_jbrxm"]').val(),
+                  phone_A: '13564303463',
+                  password_A: $('input[name="password"]').val(),
+                  B_sfwzytzz: 2,
+                  ...hash,
+                }
+              }, (res) => {
+                if(res.result === 'NG') {
+                  let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
+                  toast.show();
+                } else {
+                  $('.regThree').show();
+                  $('.regTwo').hide();
+                  self.echoTopicList();
+                }
+              });
             }
           } catch (e) {
             console.log(e.message);
@@ -775,6 +1371,9 @@ export default class Record extends widget {
    validThree
    */
   validThree() {
+    let options = {
+      duration: 2000,
+    };
     let onlyLeg = $$('.onSelectScale0Only').length;
     let _graDeArr = [];
     let _answerList = [];
@@ -797,11 +1396,14 @@ export default class Record extends widget {
         id_card: $('input[name="id_card"]').val(),
       }
     }, (res) => {
+      console.log(res);
       if(res.result === 'NG') {
-        let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
+        let toast = myApp.toast('', `<div>${res.error_message}</div>`, options);
         toast.show();
       } else {
-
+        $('.regThree').hide();
+        $('.regFour').show();
+        window.assessment = res.assessment;
       }
     });
   }

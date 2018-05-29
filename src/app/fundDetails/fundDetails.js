@@ -32,7 +32,7 @@ export default class FundDetail extends widget {
       $('.fundDetail-page').html('').append($(_fundDetailTpl));
       this.fundGoodInfo();
       this.productElements();
-      $('.framework7-root').on('click', '.fundDeHrefRegFund', () => { window.location.href = `${Constant.Href_Route}fund.html` });
+      $('.framework7-root').on('click', '.fundDeHrefRegFund', () => { window.location.href = `${Constant.Href_Route}fund.html?tab2=active` });
       $('.framework7-root').on('click', '.fundHrefBul', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?code=${Tool.parseURL('code')}`; });
       $('.framework7-root').on('click', '.reservationHref', () => { window.location.href = `${Constant.Href_Route}reservation.html?code=${Tool.parseURL('code')}&name=${encodeURI($('.sdx-fund-jjCpH1').text())}`; });
     } catch (e) {

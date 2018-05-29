@@ -19,6 +19,6 @@ export default class Complaint extends widget {
     let _complaintTpl = Tool.renderTpl(complaintTpl);
     $('.complaint-page').html('').append($(_complaintTpl));
 
-    $('.comHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
+    $('.comHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html?tab3=active`; });
   }
 };

@@ -55,5 +55,34 @@ export default {
       qTime: '',
     };
     request(params, 'POST', callback);
+  },
+  postUserZcZczm(params, callback) {
+    params.path = 'data';
+    params.assign = {
+      result: false,
+      userZcZczmList: [],
+    };
+    request(params, 'POST', callback);
+  },
+  postdeleteUserZcZczm(params, callback) {
+    params.path = 'data';
+    params.assign = {
+      result: false,
+    };
+    request(params, 'POST', callback);
+  },
+  postCompanyLogBack(params, callback) {
+    params.path = 'data';
+    params.assign = {
+      result: false,
+    };
+    request(params, 'POST', callback);
+  },
+  postUserLogin(params, callback) {
+    params.path = 'data';
+    params.assign = {
+      result: false,
+    };
+    request(params, 'POST', callback);
   }
 };

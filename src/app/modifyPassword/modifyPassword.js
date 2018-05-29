@@ -27,7 +27,7 @@ export default class ModifyPassword extends widget {
     let _modifyPasswordTpl = Tool.renderTpl(modifyPasswordTpl);
     $('.modifyPassword-page').append($(_modifyPasswordTpl));
 
-    $('.modifyHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html`; });
+    $('.modifyHrefFund').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html?tab3=active`; });
     $('#savePass').on('click', () => { this.savePassword(); });
   }
   /*
