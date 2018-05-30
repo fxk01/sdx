@@ -13,6 +13,7 @@ import Constant from '../../utils/constant';
 
 export default class FundBulletin extends widget {
   init() {
+    let self = this;
     $('.view').attr('data-page', 'fundBulletin');
     let pageLeg = $('.fundBulletin-page').length;
     if(pageLeg === 0) {
@@ -23,7 +24,7 @@ export default class FundBulletin extends widget {
     $('.fundBulletin-page').html('').append($(_fundBulletinTpl));
     this.noticeList();
 
-    $('.fundHrefBulReg').on('click', () => { window.location.href = `${Constant.Href_Route}fundDetail.html?code=${Tool.parseURL('code')}`; });
+    $('.fundHrefBulReg').on('click', () => { self.fundStockDetail(`?code=${Tool.parseURL('code')}`); });
     $('.framework7-root').on('click', '.fundNoticeHref', function() { window.location.href = `${Constant.Href_Route}fundNoticeDetails.html?code=${Tool.parseURL('code')}&id=${$(this).attr('data-id')}` });
   }
   /*
@@ -46,6 +47,16 @@ export default class FundBulletin extends widget {
         }
       }, (res) => {
         let _json = res;
+        if(_json.ChanPinGongGao.length === 0) {
+          $('.rgFlagListTrue').text('本基金暂未发布信披报告').css({
+            'color': 'red',
+            'font-size': '18px',
+            'line-height': '40px',
+            'margin-top': '50px',
+            'text-align': 'center',
+          });
+          return false;
+        }
         for(let i = 0; i < _json.ChanPinGongGao.length; i++) {
           let oldTime = (new Date(_json.ChanPinGongGao[i]['create_timestamp'])).getTime();
           let da = new Date(oldTime);

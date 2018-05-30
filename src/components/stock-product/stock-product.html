@@ -1,0 +1,19 @@
+{{#each chanpin}}
+<div class="sdx-stock-prXx" data-val="" data-tx="{{jijingtouxiang_title}}" data-code="{{code}}" data-chanpinid="{{id}}">
+  <div class="sdx-stock-cpW">
+    <span class="sdx-stock-cpName">{{name}}</span>
+    <span class="sdx-stock-gxy">更新于：{{create_date}}</span>
+  </div>
+  <p class="sdx-stock-zj">资金投向：{{jijingtouxiang_title}}</p>
+</div>
+{{/each}}
+
+{{#each chanpin_list}}
+<div class="sdx-stock-prXx" data-val="active" data-tx="{{jijintouxiang_title}}" data-code="{{code}}" data-chanpinid="{{id}}">
+  <div class="sdx-stock-cpW">
+    <span class="sdx-stock-cpName">{{name}}</span>
+    <span class="sdx-stock-gxy">更新于：{{createDate}}</span>
+  </div>
+  <p class="sdx-stock-zj">资金投向：{{jijintouxiang_title}}</p>
+</div>
+{{/each}}

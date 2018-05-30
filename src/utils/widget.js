@@ -126,4 +126,33 @@ export default class widget {
   formatUnitNetWorth(v) {
     return v.toFixed(4);
   }
+  formatDate(date) {
+    let y = date.getFullYear();
+    let m = date.getMonth() + 1;
+    m = m < 10 ? '0' + m : m;
+    let d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    return y + '.' + m + '.' + d;
+  }
+  fundStockHref(data) {
+    if(sessionStorage.getItem('company_type') === '2') {
+      window.location.href = `${Constant.Href_Route}stockRight.html${data}`;
+    } else {
+      window.location.href = `${Constant.Href_Route}fund.html${data}`;
+    }
+  }
+  fundStockDetail(data) {
+    if(sessionStorage.getItem('company_type') === '2') {
+      window.location.href = `${Constant.Href_Route}stockDetail.html${data}`
+    } else {
+      window.location.href = `${Constant.Href_Route}fundDetail.html${data}`
+    }
+  }
+  fundStockName() {
+    if(sessionStorage.getItem('company_type') === '2') {
+      $('.center').text('在线投资');
+    } else {
+      $('.center').text('基金产品');
+    }
+  }
 };

@@ -26,7 +26,7 @@ export default class Questionnaire extends widget {
     $('.questionnaire-page').append($(_questionnaireTpl));
 
     this.postTopicListDownload();
-    $('.framework7-root').on('click', '.questionHrefFund', () => { window.location.href = `${Constant.Href_Route}fund.html?tab3=${Tool.parseURL('tab3') === undefined ? '' : Tool.parseURL('tab3')}`; });
+    $('.framework7-root').on('click', '.questionHrefFund', () => { const parameter = `?tab3=${Tool.parseURL('tab3') === undefined ? '' : Tool.parseURL('tab3')}`; this.fundStockHref(parameter); });
   }
   /*
    获取风险调查问卷列表

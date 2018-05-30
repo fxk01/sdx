@@ -12,6 +12,8 @@ import userFdInformation2 from '../../components/user-fd-infomation2/user-fd-inf
 import Constant from '../../utils/constant';
 import $$ from 'jquery';
 import stockRightStore from '../../store/stockRight_store';
+import homeStockProduct from '../../components/stock-product/stock-product.html';
+import '../../components/stock-product/stock-product.less';
 
 export default class StockRight extends widget {
   init(page) {
@@ -29,22 +31,21 @@ export default class StockRight extends widget {
       window.location.reload();
     }
     this.apTpl();
-
     this.fundHomeData();
-    $('.showFundGoods').on('click', (e) => { this.showGoods(e); });
-    $$('.framework7-root').on('click', '.infoListGoods .accordion-item', function() { let itemSelf = $(this); self.openData(itemSelf); });
+    this.onlineInvest();
+
     $('.pullFundHome').on('refresh', () => { this.fundHomeData(); });
     $('.pullFund').on('refresh', () => {
-
+      this.onlineInvest().then(function(str) {
+        if(str) {
+          myApp.pullToRefreshDone();
+        }
+      });
     });
-    $$('.framework7-root').on('click', '.questionHref', () => { window.location.href = `${Constant.Href_Route}questionnaire.html` });
-    $$('.framework7-root').on('click', '.questionHref2', () => { window.location.href = `${Constant.Href_Route}questionnaire.html?tab3=active` });
-    $$('.framework7-root').on('click', '.hrefYgCp', () => { window.location.href = `${Constant.Href_Route}purchasedProducts.html`; });
-    $$('.framework7-root').on('click', '.hrefJyJl', () => { window.location.href = `${Constant.Href_Route}record.html`; });
-    $$('.framework7-root').on('click', '.hrefJbXx', () => { window.location.href = `${Constant.Href_Route}userInformation.html`; });
-    $$('.framework7-root').on('click', '.hrefXgMm', () => { window.location.href = `${Constant.Href_Route}modifyPassword.html`; });
-    $$('.framework7-root').on('click', '.hrefTsJy', () => { window.location.href = `${Constant.Href_Route}complaint.html`; });
-    $$('.framework7-root').on('click', '.hrefLoginOut', () => { self.loginOut(); });
+
+    $$('.framework7-root').on('click', '.questionHref, .retestQuestion', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}` });
+    $$('.framework7-root').on('click', '.questionHref2, .retestQuestion2', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?tab3=active&val=${_val}` });
+    $$('.framework7-root').on('click', '.sdx-stock-prXx', function() { sessionStorage.setItem('chanPinId', $$(this).attr('data-chanpinid')); window.location.href = `${Constant.Href_Route}stockDetail.html?tab2=${$$(this).attr('data-val')}&code=${$$(this).attr('data-code')}` });
   }
   apTpl() {
     let _idCard = sessionStorage.getItem('idCard');
@@ -56,7 +57,7 @@ export default class StockRight extends widget {
     $('.fundUser').text(sessionStorage.getItem('companyUser'));
     $('.fundIdCard').text(_idCard.substr(0,2) + '**************' + _idCard.substr(_idCard.length-2, 2));
 
-    if(Tool.parseURL('tab2')) {
+    if(Tool.parseURL('tab2') && Tool.parseURL('tab2') !== 'undefined') {
       $('.tab').removeClass('active');
       $('#tab2').addClass('active');
     }
@@ -66,8 +67,8 @@ export default class StockRight extends widget {
     }
   }
   /*
- 退出
- */
+  退出
+   */
   loginOut() {
     sessionStorage.removeItem('userId');
     sessionStorage.removeItem('companyUser');
@@ -81,11 +82,11 @@ export default class StockRight extends widget {
     window.location.href = `${Constant.Href_Route}login.html`;
   }
   /*
-   基金产品首页内容
+   在线投资首页内容
    */
   fundHomeData() {
-    Promise.all([this.postRiskTolerance(), this.postAssetProfile()]).then(([ret1, ret2, ret3]) => {
-      if(ret3 === 'c') {
+    Promise.all([this.postRiskTolerance(), this.postAssetProfile()]).then(([ret1, ret2]) => {
+      if(ret2 === 'c') {
         myApp.pullToRefreshDone();
       }
     });
@@ -119,6 +120,7 @@ export default class StockRight extends widget {
           insertAnswerDateDom.text(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
           insertAnswerBetweenDaysDom.text(sessionStorage.getItem('betweenDays') + '天');
         }
+        sessionStorage.setItem('riskTolerance', res.assessment);
         resolve('a');
       })
     })
@@ -136,33 +138,40 @@ export default class StockRight extends widget {
           company_type: sessionStorage.getItem('company_type'),
         }
       }, (res) => {
-        let echoFundProductsTpl = Tool.renderTpl(fundProducts, res);
-        $('.tab1BlockItem').html('').append($(echoFundProductsTpl));
+        let json = res;
+        for(let i = 0; i < json.chanpin.length; i++) {
+          json.chanpin[i]['create_date'] = this.formatDate(new Date(json.chanpin[i]['create_date']));
+        }
+        let echoHomeStockProductTpl = Tool.renderTpl(homeStockProduct, json);
+        $('.tab1BlockItem').html('').append($(echoHomeStockProductTpl));
         resolve('c');
       })
     })
   }
   /*
-   显示隐藏资产已购产品信息
+   获取在线投资产品
    */
-  showGoods(e) {
-    if(this.showGood) {
-      $('.showGoodField').show();
-      $('.hideGoods').hide();
-      e.target.src = '../src/assets/images/home_openeye.png';
-      this.showGood = false;
-    } else {
-      $('.showGoodField').hide();
-      $('.hideGoods').show();
-      e.target.src = '../src/assets/images/home_closeeye.png';
-      this.showGood = true;
-    }
-  }
-  /*
-   设置openData及跳转
-   */
-  openData(itemSelf) {
-    sessionStorage.setItem('chanPinId', itemSelf.attr('data-chanpinid'));
-    window.location.href = `${Constant.Href_Route}fundDetail.html?code=${itemSelf.attr('data-chanpincode')}`;
+  onlineInvest() {
+    return new Promise((resolve) => {
+      stockRightStore.postYonghuChanpin({
+        data: {
+          action: 'ChanpinList',
+          company_type: sessionStorage.getItem('company_type'),
+          cid: sessionStorage.getItem('cid'),
+          qScore: sessionStorage.getItem('qScore'),
+          typeJudge: 1,
+          sfwzytzz: sessionStorage.getItem('sfwzytzz'),
+          idCard: sessionStorage.getItem('idCard'),
+        }
+      }, (res) => {
+        let json = res;
+        for(let i = 0; i < json.chanpin_list.length; i++) {
+          json.chanpin_list[i]['createDate'] = this.formatDate(new Date(json.chanpin_list[i]['createDate']));
+        }
+        let echoHomeStockProductTpl = Tool.renderTpl(homeStockProduct, json);
+        $('.fundTab2Accordion').html('').append($(echoHomeStockProductTpl));
+        resolve(true);
+      })
+    });
   }
 };

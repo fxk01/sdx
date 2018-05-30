@@ -1,32 +1,40 @@
 /**
- * stockRightStore
+ * stockDetailsStore
  */
 
 'use strict';
 import request from '../utils/fetch'
 
 export default {
-  postYonghuChanpin(params, callback) {
+  postChanpin(params, callback) {
     params.path = 'data';
     params.assign = {
       result: false,
-      chanpin: [],
+      chanpin: {},
     };
     request(params, 'POST', callback);
   },
-  postGetAnswer(params, callback) {
+  postChanpinFenggeyaoqiu(params, callback) {
     params.path = 'data';
     params.assign = {
       result: false,
-      assessment: '-'
+      is_rgFlag: '',
     };
     request(params, 'POST', callback);
   },
-  postChanpinList(params, callback) {
+  postChanpinYaoSu(params, callback) {
     params.path = 'data';
     params.assign = {
       result: false,
-      chanpin_list: [],
+      chanPinYaoSuList: [],
+    };
+    request(params, 'POST', callback);
+  },
+  postChanPinPiLu(params, callback) {
+    params.path = 'data';
+    params.assign = {
+      result: false,
+      ChanPinPiLu: [],
     };
     request(params, 'POST', callback);
   },

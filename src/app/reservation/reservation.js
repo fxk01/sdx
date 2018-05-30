@@ -9,6 +9,8 @@ import Tool from '../../utils/tool';
 import reservationStore from '../../store/reservation_store';
 import widget from '../../utils/widget';
 import Constant from '../../utils/constant';
+import '../../components/toast/toast.css';
+import '../../components/toast/toast';
 
 export default class Reservation extends widget {
   init() {
@@ -17,16 +19,16 @@ export default class Reservation extends widget {
     if(pageLeg === 0) {
       window.location.reload();
     }
-
     let _reservationTpl = Tool.renderTpl(reservationTpl, {
       code: Tool.parseURL('code'),
     });
     $('.reservation-page').append($(_reservationTpl));
 
+    this.fundStockName();
     $('.ac-sg').on('click', () => { this.clickSg(); });
     $('.ac-bz').on('click', () => { this.clickBz(); });
     $('.make').on('click', () => { this.yyMake(); });
-    $('.reHrefRegFundDe').on('click', () => { window.location.href = `${Constant.Href_Route}fundDetail.html?code=${Tool.parseURL('code')}`; })
+    $('.reHrefRegFundDe').on('click', () => { this.fundStockDetail(`?code=${Tool.parseURL('code')}`); })
   }
   clickSg() {
     let buttons = [
@@ -134,6 +136,15 @@ export default class Reservation extends widget {
           ]
         });
         $('.modal ').addClass('modalYy');
+      } else {
+        let options = {
+          onHide: function () {
+          },
+          duration: 2000
+        };
+
+        let toast = myApp.toast('', `<div>预约失败，接口报错</div>`, options);
+        toast.show();
       }
     })
   }

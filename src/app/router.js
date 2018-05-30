@@ -20,6 +20,8 @@ import {
   Questionnaire,
   Register,
   StockRight,
+  StockDetail,
+  LetterCoak,
 } from './page';
 import Main from './main/main';
 import Utils from '../utils/tool';
@@ -109,6 +111,12 @@ export default {
         break;
       case 'stockRight':
         new StockRight().init(page);
+        break;
+      case 'stockDetail':
+        new StockDetail().init(page);
+        break;
+      case 'letterCoak':
+        new LetterCoak().init(page);
         break;
       default:
         break;
