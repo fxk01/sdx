@@ -24,8 +24,8 @@ export default class FundBulletin extends widget {
     $('.fundBulletin-page').html('').append($(_fundBulletinTpl));
     this.noticeList();
 
-    $('.fundHrefBulReg').on('click', () => { self.fundStockDetail(`?code=${Tool.parseURL('code')}`); });
-    $('.framework7-root').on('click', '.fundNoticeHref', function() { window.location.href = `${Constant.Href_Route}fundNoticeDetails.html?code=${Tool.parseURL('code')}&id=${$(this).attr('data-id')}` });
+    $('.fundHrefBulReg').on('click', () => { self.fundStockDetail(`?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`); });
+    $('.framework7-root').on('click', '.fundNoticeHref', function() { window.location.href = `${Constant.Href_Route}fundNoticeDetails.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}&id=${$(this).attr('data-id')}` });
   }
   /*
    获取公告列表

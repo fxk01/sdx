@@ -40,11 +40,14 @@ export default class Record extends widget {
       }
     }, (res) => {
       let json = res;
-      for(let i = 0; i < json['jiaoyi'].length; i++) {
-        json['jiaoyi'][i].detail[i].date = json['jiaoyi'][i].detail[i].date.substring(0, 10).replace(/\//g , ".");
-        json['jiaoyi'][i].detail[i]['unit_net_worth'] = json['jiaoyi'][i].detail[i]['unit_net_worth'].toFixed(4);
-        json['jiaoyi'][i].detail[i]['amount'] = this.formatNumber(json['jiaoyi'][i].detail[i]['amount'], 2);
-        json['jiaoyi'][i].detail[i]['shares'] = this.formatNumber(json['jiaoyi'][i].detail[i]['shares'], 2);
+      let jyLeg = json['jiaoyi'].length;
+      for(let i = 0; i < jyLeg; i++) {
+        for(let j = 0; j < json['jiaoyi'][i].detail.length; j++) {
+          json['jiaoyi'][i].detail[j].date = json['jiaoyi'][i].detail[j].date.substring(0, 10).replace(/\//g , '.');
+          json['jiaoyi'][i].detail[j]['unit_net_worth'] = json['jiaoyi'][i].detail[j]['unit_net_worth'].toFixed(4);
+          json['jiaoyi'][i].detail[j]['amount'] = this.formatNumber(json['jiaoyi'][i].detail[j]['amount'], 2);
+          json['jiaoyi'][i].detail[j]['shares'] = this.formatNumber(json['jiaoyi'][i].detail[j]['shares'], 2);
+        }
       }
       let _recordListTpl = Tool.renderTpl(recordListTpl, json);
       $('.recordList').html('').append($(_recordListTpl));

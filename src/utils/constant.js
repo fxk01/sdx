@@ -1,5 +1,5 @@
 'use strict';
-
+console.log(window.location.host);
 export default {
   // AVATAR: require('../../assets/images/01.png'),
   // /dist/#!/page/

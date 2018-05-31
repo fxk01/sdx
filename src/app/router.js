@@ -22,6 +22,8 @@ import {
   StockRight,
   StockDetail,
   LetterCoak,
+  StockPurchasedCp,
+  StockRecord,
 } from './page';
 import Main from './main/main';
 import Utils from '../utils/tool';
@@ -117,6 +119,12 @@ export default {
         break;
       case 'letterCoak':
         new LetterCoak().init(page);
+        break;
+      case 'stockPurchasedCp':
+        new StockPurchasedCp().init(page);
+        break;
+      case 'stockRecord':
+        new StockRecord().init(page);
         break;
       default:
         break;

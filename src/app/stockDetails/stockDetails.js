@@ -25,12 +25,9 @@ export default class StockDetail extends widget {
     this.postStyle();
 
     $('.framework7-root').on('click', '.fundDeHrefRegFund', () => { window.location.href = `${Constant.Href_Route}stockRight.html?tab2=${Tool.parseURL('tab2')}` });
-    $('.framework7-root').on('click', '.fundHrefBul', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?code=${Tool.parseURL('code')}`; });
-    $('.framework7-root').on('click', '.rgFlagListTrue .cppl li', function() { window.location.href = `${Constant.Href_Route}letterCoak.html?code=${Tool.parseURL('code')}&id=${$$(this).attr('data-id')}`; });
+    $('.framework7-root').on('click', '.fundHrefBul', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`; });
+    $('.framework7-root').on('click', '.rgFlagListTrue .cppl li', function() { window.location.href = `${Constant.Href_Route}letterCoak.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}&id=${$$(this).attr('data-id')}`; });
     $('.framework7-root').on('click', '.reservationHref', () => { window.location.href = `${Constant.Href_Route}reservation.html?code=${Tool.parseURL('code')}&name=${encodeURI($('.sdx-fund-jjCpH1').text())}`; });
-
-
-
   }
   apTpl() {
     let _stockDetailsTpl = Tool.renderTpl(stockDetailsTpl);
@@ -43,7 +40,7 @@ export default class StockDetail extends widget {
     stockDetailStore.postChanpin({
       data: {
         action: 'chanpin',
-        ChanPinCode: Tool.parseURL('code'),
+        ChanPinCode: decodeURI(Tool.parseURL('code')),
         cid: sessionStorage.getItem('cid'),
         company_type: sessionStorage.getItem('company_type'),
       }
@@ -52,6 +49,10 @@ export default class StockDetail extends widget {
         $('.sdxEchoCpInfo').html(res.chanpin['jijingtouxiang_title']);
         $('.jjTxContent').html(res.chanpin['jijintouxiang_element']);
         $('.sdx-fund-jjCpH1').text(res.chanpin['name']);
+        let txImgLeg = $$('.jjTxContent').find('img');
+        for(let i = 0; i < txImgLeg.length; i++) {
+          txImgLeg[i].setAttribute('src', txImgLeg[i].getAttribute('src').replace('..', ''));
+        }
       } else {
         alert('接口报错!');
       }
@@ -65,7 +66,7 @@ export default class StockDetail extends widget {
       data: {
         action: 'ChanpinFenggeyaoqiu',
         cid: sessionStorage.getItem('cid'),
-        chanpinCode: Tool.parseURL('code'),
+        chanpinCode: decodeURI(Tool.parseURL('code')),
         tongxingzhen: sessionStorage.getItem('idCard'),
       }
     }, (res) => {
@@ -86,7 +87,7 @@ export default class StockDetail extends widget {
       data: {
         action: 'ChanpinYaoSu',
         cid: sessionStorage.getItem('cid'),
-        chanpinCode: Tool.parseURL('code'),
+        chanpinCode: decodeURI(Tool.parseURL('code')),
         company_type: sessionStorage.getItem('company_type'),
       }
     }, (res) => {
@@ -109,7 +110,7 @@ export default class StockDetail extends widget {
       data: {
         action: 'chanPinPiLu',
         cid: sessionStorage.getItem('cid'),
-        ChanPinCode: Tool.parseURL('code'),
+        ChanPinCode: decodeURI(Tool.parseURL('code')),
         readPower: this.getReadPower(),
       }
     }, (res) => {

@@ -25,7 +25,7 @@ export default class FundNoticeDetails extends widget {
     $('.fundNoticeDetails-page').append($(_fundNoticeDetailsTpl));
     this.postGgDetails();
 
-    $('.framework7-root').on('click', '.fundBulReg', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?code=${Tool.parseURL('code')}`; });
+    $('.framework7-root').on('click', '.fundBulReg', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`; });
   }
   /*
    获取产品公告详情

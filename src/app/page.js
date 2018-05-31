@@ -19,3 +19,5 @@ export { default as Register } from './register/register';
 export { default as StockRight } from './stockRight/stockRight';
 export { default as StockDetail } from './stockDetails/stockDetails';
 export { default as LetterCoak } from './letterCoak/letterCoak';
+export { default as StockPurchasedCp } from './stockPurchasedCp/stockPurchasedCp';
+export { default as StockRecord } from './stockRecord/stockRecord';

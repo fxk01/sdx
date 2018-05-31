@@ -46,6 +46,12 @@ export default class StockRight extends widget {
     $$('.framework7-root').on('click', '.questionHref, .retestQuestion', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}` });
     $$('.framework7-root').on('click', '.questionHref2, .retestQuestion2', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?tab3=active&val=${_val}` });
     $$('.framework7-root').on('click', '.sdx-stock-prXx', function() { sessionStorage.setItem('chanPinId', $$(this).attr('data-chanpinid')); window.location.href = `${Constant.Href_Route}stockDetail.html?tab2=${$$(this).attr('data-val')}&code=${$$(this).attr('data-code')}` });
+    $$('.framework7-root').on('click', '.hrefYgCp', function() { window.location.href = `${Constant.Href_Route}stockPurchasedCp.html?tab3=${$$(this).attr('data-val')}` });
+    $$('.framework7-root').on('click', '.hrefJyJl', function() { window.location.href = `${Constant.Href_Route}stockRecord.html?tab3=${$$(this).attr('data-val')}` });
+    $$('.framework7-root').on('click', '.hrefJbXx', function() { window.location.href = `${Constant.Href_Route}userInformation.html?tab3=${$$(this).attr('data-val')}`; });
+    $$('.framework7-root').on('click', '.hrefXgMm', function() { window.location.href = `${Constant.Href_Route}modifyPassword.html?tab3=${$$(this).attr('data-val')}`; });
+    $$('.framework7-root').on('click', '.hrefTsJy', function() { window.location.href = `${Constant.Href_Route}complaint.html?tab3=${$$(this).attr('data-val')}`; });
+    $$('.framework7-root').on('click', '.hrefLoginOut', () => { self.loginOut(); });
   }
   apTpl() {
     let _idCard = sessionStorage.getItem('idCard');
@@ -61,7 +67,7 @@ export default class StockRight extends widget {
       $('.tab').removeClass('active');
       $('#tab2').addClass('active');
     }
-    if(Tool.parseURL('tab3')) {
+    if(Tool.parseURL('tab3') && Tool.parseURL('tab3') !== 'undefined') {
       $('.tab').removeClass('active');
       $('#tab3').addClass('active');
     }

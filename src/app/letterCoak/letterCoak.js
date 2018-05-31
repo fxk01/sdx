@@ -25,7 +25,7 @@ export default class LetterCoak extends widget {
     $('.letterCoak-page').append($(_letterCoakTpl));
     this.postGgDetails();
 
-    $('.framework7-root').on('click', '.fundBulReg', () => { window.location.href = `${Constant.Href_Route}stockDetail.html?code=${Tool.parseURL('code')}`; });
+    $('.framework7-root').on('click', '.fundBulReg', () => { window.location.href = `${Constant.Href_Route}stockDetail.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`; });
   }
   /*
    获取信披报告详情

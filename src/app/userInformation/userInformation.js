@@ -11,7 +11,6 @@ import '../../components/user-info/user-info.less';
 import userInfoListTpl from '../../components/user-info/user-info.html';
 import userInfoStore from '../../store/userBasicInfo_store';
 import $$ from 'jquery';
-import Constant from '../../utils/constant';
 import Validator from 'validator.tool';
 import '../../components/toast/toast.css';
 import '../../components/toast/toast';
@@ -33,7 +32,7 @@ export default class UserInformation extends widget {
     $('.userInformation-page').html('').append($(_userInformationTpl));
     this.userBasicInfo();
 
-    $$('#userInfoLink').on('click', () => { window.location.href = `${Constant.Href_Route}fund.html?tab3=active`; });
+    $$('#userInfoLink').on('click', () => { this.fundStockHref('?tab3=active'); });
     $('.userBasicInfo').on('click', '.infoEdit', () => { this.infoEdit(); });
     $$('.userBasicInfo').on('click', '.sdx-info-bc', function() { let that = $$(this); self.preservationInfo(that); });
   }
