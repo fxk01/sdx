@@ -106,7 +106,7 @@ export default class Reservation extends widget {
       return false;
     }
     if(nameVal < 1) {
-      myApp.alert('请输入金额', '提示');
+      myApp.alert('预约金额不正确', '提示');
       return false;
     }
     reservationStore.postYuYueChanPin({
@@ -125,11 +125,11 @@ export default class Reservation extends widget {
     }, (res) => {
       if(res['result'] === 'OK') {
         let modal = myApp.modal({
-          title: `<div style="padding: 0.5rem 0 0.2rem 0;"><img src="../../../src/assets/images/yycg.png" style="vertical-align: middle;"><span class="content-popup-text">预约成功</span></div>`,
+          title: `<div style="padding: 0.5rem 0 0.2rem 0;"><img src="${Constant.SERVER_URL}dist/images/yycg.png" style="vertical-align: middle;"><span class="content-popup-text">预约成功</span></div>`,
           text: `<div class="set-column-pText">我们的工作人员会尽快与您联系感谢您的信任与支持</div>`,
           buttons: [
             {
-              text: `<div style="width: 100%; height: 2.5rem;"><img src="../../../src/assets/images/confirm.png"></div>`,
+              text: `<div style="width: 100%; height: 2.5rem;"><img src="${Constant.SERVER_URL}dist/images/confirm.png"></div>`,
               onClick: function () {
               }
             },
@@ -143,7 +143,7 @@ export default class Reservation extends widget {
           duration: 2000
         };
 
-        let toast = myApp.toast('', `<div>预约失败，接口报错</div>`, options);
+        let toast = myApp.toast('', `<div>预约失败，金额必须是整数</div>`, options);
         toast.show();
       }
     })

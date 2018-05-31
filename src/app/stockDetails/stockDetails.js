@@ -13,6 +13,11 @@ import ggListTpl from '../../components/fund-ggList/fund-ggList.html';
 import $$ from 'jquery';
 
 export default class StockDetail extends widget {
+  constructor() {
+    super();
+    this.lone = [];
+  }
+
   init(page) {
     $('.view').attr('data-page', 'stockDetail');
     let pageLeg = $('.stockDetail-page').length;
@@ -23,11 +28,11 @@ export default class StockDetail extends widget {
 
     this.fundInvestment();
     this.postStyle();
-
     $('.framework7-root').on('click', '.fundDeHrefRegFund', () => { window.location.href = `${Constant.Href_Route}stockRight.html?tab2=${Tool.parseURL('tab2')}` });
     $('.framework7-root').on('click', '.fundHrefBul', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`; });
     $('.framework7-root').on('click', '.rgFlagListTrue .cppl li', function() { window.location.href = `${Constant.Href_Route}letterCoak.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}&id=${$$(this).attr('data-id')}`; });
     $('.framework7-root').on('click', '.reservationHref', () => { window.location.href = `${Constant.Href_Route}reservation.html?code=${Tool.parseURL('code')}&name=${encodeURI($('.sdx-fund-jjCpH1').text())}`; });
+    $('.framework7-root').on('click', '.jjTxContent img', () => { this.myPhotoBrowserStandalone.open(); });
   }
   apTpl() {
     let _stockDetailsTpl = Tool.renderTpl(stockDetailsTpl);
@@ -51,8 +56,16 @@ export default class StockDetail extends widget {
         $('.sdx-fund-jjCpH1').text(res.chanpin['name']);
         let txImgLeg = $$('.jjTxContent').find('img');
         for(let i = 0; i < txImgLeg.length; i++) {
-          txImgLeg[i].setAttribute('src', txImgLeg[i].getAttribute('src').replace('..', ''));
+          let _url = `${Constant.SERVER_URL}` + txImgLeg[i].getAttribute('src').replace('..', '');
+          this.lone.push(_url);
+          txImgLeg[i].setAttribute('src', _url);
         }
+        this.myPhotoBrowserStandalone = myApp.photoBrowser({
+          photos: this.lone,
+          theme: 'dark',
+          type: 'standalone',
+          backLinkText: '关闭',
+        });
       } else {
         alert('接口报错!');
       }

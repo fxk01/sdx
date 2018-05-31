@@ -303,12 +303,12 @@ export default class Fund extends widget {
     if(this.show) {
       $('.showMoney').show();
       $('.hideMoney').hide();
-      e.target.src = '../src/assets/images/home_openeye.png';
+      e.target.src = `${Constant.SERVER_URL}dist/images/home_openeye.png`;
       this.show = false;
     } else {
       $('.showMoney').hide();
       $('.hideMoney').show();
-      e.target.src = '../src/assets/images/home_closeeye.png';
+      e.target.src = `${Constant.SERVER_URL}dist/images/home_closeeye.png`;
       this.show = true;
     }
   }
@@ -319,12 +319,12 @@ export default class Fund extends widget {
     if(this.showGood) {
       $('.showGoodField').show();
       $('.hideGoods').hide();
-      e.target.src = '../src/assets/images/home_openeye.png';
+      e.target.src = `${Constant.SERVER_URL}dist/images/home_openeye.png`;
       this.showGood = false;
     } else {
       $('.showGoodField').hide();
       $('.hideGoods').show();
-      e.target.src = '../src/assets/images/home_closeeye.png';
+      e.target.src = `${Constant.SERVER_URL}dist/images/home_closeeye.png`;
       this.showGood = true;
     }
   }

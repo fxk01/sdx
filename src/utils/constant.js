@@ -1,11 +1,12 @@
 'use strict';
-console.log(window.location.host);
+
 export default {
   // AVATAR: require('../../assets/images/01.png'),
   // /dist/#!/page/
   // /#!/page/
-  SERVER_URL: 'http://192.168.50.237:8081/',
-  Href_Route: '/#!/page/',
+  // `${window.location.host}/`,
+  SERVER_URL: `${window.location.host}/`,
+  Href_Route: '/dist/#!/page/',
   STATUS: {
     SUCCESS: 0,
   },
