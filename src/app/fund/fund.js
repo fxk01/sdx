@@ -62,6 +62,22 @@ export default class Fund extends widget {
     $$('.framework7-root').on('click', '.hrefXgMm', () => { window.location.href = `${Constant.Href_Route}modifyPassword.html`; });
     $$('.framework7-root').on('click', '.hrefTsJy', () => { window.location.href = `${Constant.Href_Route}complaint.html`; });
     $$('.framework7-root').on('click', '.hrefLoginOut', () => { self.loginOut(); });
+    $$('.framework7-root').on('click', '.toolbar-inner .tab-link', function() {
+      let stateObject = {};
+      let title = '';
+      let newUrl;
+      let href = $$(this).attr('href');
+      if(href === '#tab2') {
+        newUrl = `${Constant.Href_Route}fund.html?tab2=active`;
+        history.pushState(stateObject, title, newUrl);
+      } else if(href === '#tab1') {
+        newUrl = `${Constant.Href_Route}fund.html`;
+        history.pushState(stateObject, title, newUrl);
+      } else {
+        newUrl = `${Constant.Href_Route}fund.html?tab3=active`;
+        history.pushState(stateObject, title, newUrl);
+      }
+    });
   }
   apTpl() {
     let _idCard = sessionStorage.getItem('idCard');
@@ -264,6 +280,9 @@ export default class Fund extends widget {
           company_type: sessionStorage.getItem('company_type'),
         }
       }, (res) => {
+        if(res.chanpin.length === 0) {
+          $('.stockLeg0').show();
+        }
         let echoFundProductsTpl = Tool.renderTpl(fundProducts, res);
         $('.tab1BlockItem').html('').append($(echoFundProductsTpl));
         resolve('c');

@@ -48,7 +48,7 @@ export default class Questionnaire extends widget {
         json.topiclist[i].gradeFs = parseInt(json.answer[i]);
       }
       let _questionDwTpl = Tool.renderTpl(questionDwTpl, json);
-      $('.dwTopicList').append($(_questionDwTpl));
+      $('.dwTopicList').html('').append($(_questionDwTpl));
 
       $('.sdx-queDw-fs').html(sessionStorage.getItem('qScore'));
       $('.sdx-queDw-fslx').html(sessionStorage.getItem('riskTolerance'));
@@ -79,8 +79,15 @@ export default class Questionnaire extends widget {
     };
     let leg = $$('.onSelectScale1').length;
     let arr = [];
+    let _graDeArr = [];
+    let sum = 0;
     for(let i = 0; i < leg; i++) {
+      _graDeArr.push(parseInt($$('.onSelectScale1')[i].getAttribute('data-grade')));
       arr.push($$('.onSelectScale1')[i].getAttribute('data-list'));
+    }
+    let j = _graDeArr.length;
+    while (j--) {
+      sum += parseInt(_graDeArr[j]);
     }
     if(arr.length < window.topic) {
       let options = {
@@ -97,7 +104,7 @@ export default class Questionnaire extends widget {
     questionStore.postTopicList({
       data: {
         action: 'Retest',
-        C_grade: sessionStorage.getItem('qScore'),
+        C_grade: sum,
         C_answerList: arr.join(';'),
         C_topicType: sessionStorage.getItem('userType') === '个人' ? 1 : 2,
         cid: sessionStorage.getItem('cid'),
@@ -108,7 +115,10 @@ export default class Questionnaire extends widget {
         myApp.hideIndicator();
         myApp.alert(`<div><p style="font-size: 14px;">您的风险评估结果为：<span>${res.assessment}</span></p><p>您的风险问卷调查得分为<span>${res.grade}</span>分。</p></div>`, '提示', function() {
 
-        })
+        });
+        sessionStorage.setItem('qScore', res.grade);
+        sessionStorage.setItem('riskTolerance', res.assessment);
+        this.postTopicListDownload();
       } else {
         let toast = myApp.toast('', `<div>${res.error_message}</div>`, options);
         toast.show();

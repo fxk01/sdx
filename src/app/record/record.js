@@ -40,6 +40,10 @@ export default class Record extends widget {
       }
     }, (res) => {
       let json = res;
+      if(json.jiaoyi.length === 0) {
+        $('.stockLeg0').show();
+        return;
+      }
       let jyLeg = json['jiaoyi'].length;
       for(let i = 0; i < jyLeg; i++) {
         for(let j = 0; j < json['jiaoyi'][i].detail.length; j++) {

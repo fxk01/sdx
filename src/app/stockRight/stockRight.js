@@ -52,6 +52,22 @@ export default class StockRight extends widget {
     $$('.framework7-root').on('click', '.hrefXgMm', function() { window.location.href = `${Constant.Href_Route}modifyPassword.html?tab3=${$$(this).attr('data-val')}`; });
     $$('.framework7-root').on('click', '.hrefTsJy', function() { window.location.href = `${Constant.Href_Route}complaint.html?tab3=${$$(this).attr('data-val')}`; });
     $$('.framework7-root').on('click', '.hrefLoginOut', () => { self.loginOut(); });
+    $$('.framework7-root').on('click', '.toolbar-inner .tab-link', function() {
+      let stateObject = {};
+      let title = '';
+      let newUrl;
+      let href = $$(this).attr('href');
+      if(href === '#tab2') {
+        newUrl = `${Constant.Href_Route}stockRight.html?tab2=active`;
+        history.pushState(stateObject, title, newUrl);
+      } else if(href === '#tab1') {
+        newUrl = `${Constant.Href_Route}stockRight.html`;
+        history.pushState(stateObject, title, newUrl);
+      } else {
+        newUrl = `${Constant.Href_Route}stockRight.html?tab3=active`;
+        history.pushState(stateObject, title, newUrl);
+      }
+    });
   }
   apTpl() {
     let _idCard = sessionStorage.getItem('idCard');
@@ -145,6 +161,9 @@ export default class StockRight extends widget {
         }
       }, (res) => {
         let json = res;
+        if(json.chanpin.length === 0) {
+          $('.stockLeg0').show();
+        }
         for(let i = 0; i < json.chanpin.length; i++) {
           json.chanpin[i]['create_date'] = this.formatDate(new Date(json.chanpin[i]['create_date']));
         }

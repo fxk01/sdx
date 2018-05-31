@@ -40,6 +40,10 @@ export default class PurchasedProducts extends widget {
         company_type: sessionStorage.getItem('company_type'),
       }
     }, (res) => {
+      if(res.chanpin.length === 0) {
+        $('.stockLeg0').show();
+        return;
+      }
       let echoFundProductsTpl = Tool.renderTpl(fundProducts, res);
       $('.chased').html('').append($(echoFundProductsTpl));
     })

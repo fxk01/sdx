@@ -246,7 +246,7 @@ export default class Record extends widget {
             sessionStorage.setItem(key, res[key]);
           }
         }
-        if(sessionStorage.getItem('company_type') === '1') { window.location.href = `${Constant.Href_Route}fund.html` }
+        this.fundStockHref('?tab2=');
       }
     });
   }
@@ -467,7 +467,7 @@ export default class Record extends widget {
     });
     window.regType = that.attr('data-type');
     window.topicType = window.regType === 'gr' ? 1 : 2;
-    that.append('<div class="sdx-ps-gg"><img src="../../../src/assets/images/gougou.png"></div>');
+    that.append(`<div class="sdx-ps-gg"><img src="${Constant.SERVER_URL}dist/images/gougou.png"></div>`);
     $$('.sdx-ps-tzZlx').fadeOut();
     $$('.sdx-reg-block').fadeIn();
 
@@ -804,7 +804,75 @@ export default class Record extends widget {
     }
 
     if(window.regType === 'cp') {
-
+      validator = new Validator('example_oneCp', [
+        {
+          name: 'name',
+          display: '产品名称不能为空',
+          rules: 'required'
+        }, {
+          name: 'card_type',
+          display: '产品备案编号不能为空',
+          rules: 'required'
+        }, {
+          name: 'phone',
+          display: '手机号码不能为空|手机号码格式不正确',
+          rules: 'required|is_phone'
+        }, {
+          name: 'pin',
+          display: '验证码不能为空',
+          rules: 'required'
+        }, {
+          name: 'password',
+          display: '新密码不能为空',
+          rules: 'required'
+        }, {
+          name: 'user_name',
+          display: '真实姓名不能为空',
+          rules: 'required'
+        }, {
+          name: 'rePassWorld',
+          display: '密码不一致',
+          rules: 'same(password)|required'
+        }], function(obj) {
+        try {
+          if(obj.errors.length > 0) {
+            let toast = myApp.toast('', `<div>${obj.errors[0].message}</div>`, options);
+            toast.show();
+          } else {
+            let cheLeg = $$('.checkbox').length;
+            for(let i = 0; i < cheLeg; i++) {
+              if($$('.checkbox')[i].className.indexOf('cur') < 0) {
+                let toast = myApp.toast('', `<div>${$$('.checkbox')[i].getAttribute('data-cn')}</div>`, options);
+                toast.show();
+                return false;
+              }
+            }
+            regStore.postUserZc({
+              data: {
+                action: 'UserZc',
+                method: 'selectUserZcByIdCard',
+                cid: sessionStorage.getItem('cid'),
+                pin: $('input[name="pin"]').val(),
+                phone: $('input[name="phone"]').val(),
+                id_card: $('input[name="id_card"]').val(),
+              }
+            }, (res) => {
+              if(res.result === 'NG') {
+                let toast = myApp.toast('', `<div>${res.error_message}</div>`, options);
+                toast.show();
+              } else {
+                $('.regTwo').show();
+                $('.regOne').hide();
+                $('input[name="B_cp_cpmc"]').val($('input[name="name"]').val());
+                $('input[name="id_card"]').val($('input[name="card_type"]').val());
+                $('input[name="B_jbrxm"]').val($('input[name="user_name"]').val());
+              }
+            });
+          }
+        } catch (e) {
+          console.log(e.message);
+        }
+      });
     }
     validator.validate()
   }
@@ -925,7 +993,7 @@ export default class Record extends widget {
                   card_type_A: $('input[name="B_gr_card_type"]').val(),
                   name_A: $('input[name="B_gr_name"]').val(),
                   jbr_name_A: $('input[name="B_gr_name"]').val(),
-                  phone_A: '13564303463',
+                  phone_A: $('input[name="phone"]').val(),
                   password_A: $('input[name="password"]').val(),
                   B_sfwzytzz: 2,
                   ...hash,
@@ -1148,7 +1216,7 @@ export default class Record extends widget {
                   card_type_A: $('input[name="B_jg_jgzjlx"]').val(),
                   name_A: $('input[name="B_jg_jgmc"]').val(),
                   jbr_name_A: $('input[name="B_jbrxm"]').val(),
-                  phone_A: '13564303463',
+                  phone_A: $('input[name="phone"]').val(),
                   password_A: $('input[name="password"]').val(),
                   B_sfwzytzz: 2,
                   ...hash,
@@ -1337,7 +1405,51 @@ export default class Record extends widget {
               let toast = myApp.toast('', `<div>${obj.errors[0].message}</div>`, options);
               toast.show();
             } else {
-
+              let leg = $$(':text').length;
+              let hash = {};
+              for(let i = 0; i <leg; i++) {
+                let gr = $$(':text')[i].getAttribute('data-gr');
+                let _val = $$(':text')[i].value;
+                hash[gr] =_val;
+              }
+              let scaleLeg = $$('.onSelectScale1').length;
+              for(let j = 0; j <scaleLeg; j++) {
+                const slGr = $$('.onSelectScale1')[j].getAttribute('data-gr');
+                const key = $$('.onSelectScale1')[j].parentNode.parentNode.parentNode.getAttribute('data-key');
+                hash[key] = slGr;
+              }
+              let textArLeg = $$('.textareaText').length;
+              for(let k = 0; k < textArLeg; k++) {
+                const areaKey = $$('.textareaText')[k].getAttribute('data-key');
+                const areaValue = $$('.textareaText')[k].value;
+                hash[areaKey] = areaValue;
+              }
+              delete hash['null'];
+              regStore.postRegister({
+                data: {
+                  action: 'Register',
+                  cid: sessionStorage.getItem('cid'),
+                  registerUserType: window.regType,
+                  user_type: '产品',
+                  id_card: $('input[name="id_card"]').val(),
+                  card_type_A: $('input[name="id_card"]').val(),
+                  name_A: $('input[name="name"]').val(),
+                  jbr_name_A: $('input[name="user_name"]').val(),
+                  phone_A: $('input[name="phone"]').val(),
+                  password_A: $('input[name="password"]').val(),
+                  B_sfwzytzz: 2,
+                  ...hash,
+                }
+              }, (res) => {
+                if(res.result === 'NG') {
+                  let toast = myApp.toast('', `<div>${res['error_message']}</div>`, options);
+                  toast.show();
+                } else {
+                  $('.regThree').show();
+                  $('.regTwo').hide();
+                  self.echoTopicList();
+                }
+              });
             }
           } catch (e) {
             console.log(e.message);

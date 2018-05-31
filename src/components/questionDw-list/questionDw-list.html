@@ -12,7 +12,7 @@
     {{#each answersList}}
     <li>
       <span class="onRadio">
-        <span class="onSelect {{#js_if '../gradeFs === this.grade'}}onSelectScale1{{/js_if}}" data-list="{{grouping}}-{{grade}}"></span>
+        <span class="onSelect {{#js_if '../gradeFs === this.grade'}}onSelectScale1{{/js_if}}" data-list="{{grouping}}-{{grade}}" data-grade="{{grade}}"></span>
       </span>
       <span class="sdx-queDw-nr">{{answer}}</span>
     </li>

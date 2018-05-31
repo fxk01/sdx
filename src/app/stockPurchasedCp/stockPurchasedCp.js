@@ -64,6 +64,10 @@ export default class StockPurchasedCp extends widget {
         }
       }, (res) => {
         let json = res;
+        if(json.chanpin.length === 0) {
+          $('.stockPurListLeg0').show();
+          return;
+        }
         for(let i = 0; i < json.chanpin.length; i++) {
           json.chanpin[i]['create_date'] = this.formatDate(new Date(json.chanpin[i]['create_date']));
         }
