@@ -126,7 +126,7 @@
   .sdx-info-edit {
     display: inline-block;
     text-align: right;
-    width: 70%;
+    width: 55%;
     float: right;
     margin-top: 8px;
     margin-right: 10px;
@@ -142,5 +142,19 @@
   }
   .textAraNone {
     display: none;
+  }
+  .sdx-info-scRoLl {
+    height: 10rem;
+    overflow-y: scroll;
+  }
+  @media screen and (max-height: 534px) {
+    .sdx-info-scRoLl {
+      height: 9.5rem;
+    }
+  }
+  @media screen and (max-height: 481px) {
+    .sdx-info-scRoLl {
+      height: 7.5rem;
+    }
   }
 }
