@@ -10,7 +10,6 @@ import widget from '../../utils/widget';
 import questionStore from '../../store/question_store';
 import questionDwTpl from '../../components/questionDw-list/questionDw-list.html';
 import '../../components/questionDw-list/questionDw-list.less';
-import Constant from '../../utils/constant';
 import $$ from 'jquery';
 import '../../components/toast/toast.css';
 import '../../components/toast/toast';
@@ -32,6 +31,10 @@ export default class Questionnaire extends widget {
    获取风险调查问卷列表
    */
   postTopicListDownload() {
+    if(Tool.parseURL('val') === 'cxCs') {
+      $('.xz').hide();
+      $('.xyb').show();
+    }
     let self = this;
     questionStore.postTopicList({
       data: {
@@ -54,8 +57,6 @@ export default class Questionnaire extends widget {
       $('.sdx-queDw-fslx').html(sessionStorage.getItem('riskTolerance'));
 
       if(Tool.parseURL('val') === 'cxCs') {
-        $('.xz').hide();
-        $('.xyb').show();
         $$('.framework7-root').on('click', '.onRadio', function() { let that = $$(this); self.retestQuestion(that); });
         $$('.framework7-root').on('click', '.xyb', function() { self.retestQuestionRetest(); });
       }

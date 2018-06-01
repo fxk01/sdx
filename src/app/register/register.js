@@ -1483,6 +1483,7 @@ export default class Record extends widget {
    validThree
    */
   validThree() {
+    myApp.showIndicator();
     let options = {
       duration: 2000,
     };
@@ -1508,7 +1509,6 @@ export default class Record extends widget {
         id_card: $('input[name="id_card"]').val(),
       }
     }, (res) => {
-      console.log(res);
       if(res.result === 'NG') {
         let toast = myApp.toast('', `<div>${res.error_message}</div>`, options);
         toast.show();
@@ -1517,6 +1517,7 @@ export default class Record extends widget {
         $('.regFour').show();
         window.assessment = res.assessment;
       }
+      myApp.hideIndicator();
     });
   }
   /*

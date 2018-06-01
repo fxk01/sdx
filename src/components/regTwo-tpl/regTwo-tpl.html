@@ -1561,7 +1561,6 @@
               <span class="sdx-info-spanTar">
                 是否存在实际控制关系
               </span>
-              {{#js_if "this.sfczsjkzgx === '否'"}}
               <label style="padding-right: 66px;">
                 <span style="margin-left: -35px;" class="onRadio">
                   <span class="onSelect onSelectScale1" data-gr="否"></span>
@@ -1574,20 +1573,6 @@
                 </span>
                 是
               </label>
-              {{else}}
-              <label style="padding-right: 66px;">
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect" data-gr="否"></span>
-                </span>
-                否
-              </label>
-              <label>
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect onSelectScale1" data-gr="是"></span>
-                </span>
-                是
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.sfczsjkzgx === this.sf'}}textAraNone{{/js_if}}">
@@ -1610,7 +1595,6 @@
               <span class="sdx-info-spanTar">
                 交易的实际受益人
               </span>
-              {{#js_if "this.sfwsjsyr === '本人'"}}
               <label style="padding-right: 66px;">
                 <span style="margin-left: -35px;" class="onRadio">
                   <span class="onSelect onSelectScale1" data-gr="本人"></span>
@@ -1623,20 +1607,6 @@
                 </span>
                 他人
               </label>
-              {{else}}
-              <label style="padding-right: 66px;">
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect" data-gr="本人"></span>
-                </span>
-                本人
-              </label>
-              <label>
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect onSelectScale1" data-gr="他人"></span>
-                </span>
-                他人
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.sfwsjsyr === this.br2'}}textAraNone{{/js_if}}">
@@ -1659,7 +1629,6 @@
               <span class="sdx-info-spanTar">
                 是否有不良诚信记录
               </span>
-              {{#js_if "this.sfyblcxjl === '否'"}}
               <label style="padding-right: 66px;">
                 <span style="margin-left: -35px;" class="onRadio">
                   <span class="onSelect onSelectScale1" data-gr="否"></span>
@@ -1672,20 +1641,6 @@
                 </span>
                 是
               </label>
-              {{else}}
-              <label style="padding-right: 66px;">
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect" data-gr="否"></span>
-                </span>
-                否
-              </label>
-              <label>
-                <span style="margin-left: -35px;" class="onRadio">
-                  <span class="onSelect onSelectScale1" data-gr="是"></span>
-                </span>
-                是
-              </label>
-              {{/js_if}}
             </div>
 
             <div class="item-content {{#js_if 'this.sfyblcxjl === this.sf'}}textAraNone{{/js_if}}">
