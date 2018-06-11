@@ -143,6 +143,9 @@ export default class FundDetail extends widget {
       },
       tooltip: {
         valueSuffix: ' ',
+        formatter: function() {
+          return '<b>' + this.series.userOptions.name + ':</b>' + this.y + '<br><b>' + this.series.userOptions.name2 + ':</b>' + this.series.userOptions.data2[this.point.index];
+        }
       },
       credits: {
         enabled: false
@@ -162,10 +165,14 @@ export default class FundDetail extends widget {
       },
       series: [{
         name: '单位净值',
+        name2: '累计净值',
         data: companyJzArr,
+        data2: addUpArr,
       }, {
         name: '累计净值',
+        name2: '单位净值',
         data: addUpArr,
+        data2: companyJzArr,
       }],
       navigation: {
         menuItemStyle: {

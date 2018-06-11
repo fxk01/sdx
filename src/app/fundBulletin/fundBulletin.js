@@ -48,7 +48,7 @@ export default class FundBulletin extends widget {
       }, (res) => {
         let _json = res;
         if(_json.ChanPinGongGao.length === 0) {
-          $('.rgFlagListTrue').text('本基金暂未发布信披报告').css({
+          $('.rgFlagListTrue').text('本基金暂未发布产品公告').css({
             'color': 'red',
             'font-size': '18px',
             'line-height': '40px',

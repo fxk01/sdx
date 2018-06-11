@@ -99,6 +99,7 @@ export default class Reservation extends widget {
    预约提交
    */
   yyMake() {
+    let self = this;
     let shText = $('.shText').attr('data-val');
     let nameVal = $('input[name="color"]').val();
     if(shText === '0') {
@@ -131,6 +132,7 @@ export default class Reservation extends widget {
             {
               text: `<div style="width: 100%; height: 2.5rem;"><img src="${Constant.SERVER_URL}dist/images/confirm.png"></div>`,
               onClick: function () {
+                self.fundStockDetail(`?code=${Tool.parseURL('code')}`);
               }
             },
           ]
