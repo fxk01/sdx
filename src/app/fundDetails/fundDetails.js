@@ -111,7 +111,6 @@ export default class FundDetail extends widget {
       dateSFM = /\d{4}[/]\d{1,2}[/]\d{1,2}/g.exec(jz[i].date);
       _categories.push(dateSFM[0]);
     }
-
     highCharts.chart('containerJzZs', {
       chart: {
         type: 'spline'
@@ -123,13 +122,24 @@ export default class FundDetail extends widget {
         text: ' '
       },
       xAxis: {
+        // lineWidth: 0,
         tickWidth: 0,
-        type: 'datetime',
+        tickInterval: _categories.length - 1,
+        categories: _categories,
+        plotBands: [{
+          from: 4.5,
+          to: 6.5,
+        }],
         labels: {
           overflow: 'justify'
         },
-        categories: _categories,
-        tickInterval: _categories.length - 1,
+        // tickWidth: 0,
+        // type: 'datetime',
+        // labels: {
+        //   overflow: 'justify'
+        // },
+        // categories: _categories,
+        // tickInterval: _categories.length - 2,
       },
       colors: ['#438eff', '#ff7246'],
       yAxis: {
@@ -143,8 +153,19 @@ export default class FundDetail extends widget {
       },
       tooltip: {
         valueSuffix: ' ',
-        formatter: function() {
-          return '<b>' + this.series.userOptions.name + ':</b>' + this.y + '<br><b>' + this.series.userOptions.name2 + ':</b>' + this.series.userOptions.data2[this.point.index];
+        // formatter: function() {
+        //   return '<b>' + this.series.userOptions.name + ':</b>' + this.y + '<br><b>' + this.series.userOptions.name2 + ':</b>' + this.series.userOptions.data2[this.point.index];
+        // },
+        pointFormatter: function() {
+          if(this.color === '#438eff') {
+            this.color2 = '#ff7246';
+          }
+          if(this.color === '#ff7246') {
+            this.color2 = '#438eff';
+          }
+          return '<span style="color: '+this.color+'">\u25CF</span> '+
+            this.series.userOptions.name+': <b>'+ this.y +'</b><br/>' + '<span style="color: '+this.color2+'">\u25CF</span> '+
+            this.series.userOptions.name2+': <b>'+ this.series.userOptions.data2[this.index] +'</b><br/> '
         }
       },
       credits: {

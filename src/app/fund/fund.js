@@ -214,7 +214,7 @@ export default class Fund extends widget {
         }
         highCharts.chart('containerTrend', {
           chart: {
-            type: 'areaspline'
+            type: 'areaspline',
           },
           title: {
             text: ' '
@@ -222,7 +222,7 @@ export default class Fund extends widget {
           credits: {
             enabled: false
           },
-          colors: ['#e97678'],
+          colors: ['#fff2ed'],
           legend: {
             layout: 'vertical',
             align: 'left',
@@ -285,7 +285,9 @@ export default class Fund extends widget {
         }
         let echoFundProductsTpl = Tool.renderTpl(fundProducts, res);
         $('.tab1BlockItem').html('').append($(echoFundProductsTpl));
-        resolve('c');
+        setTimeout(function () {
+          resolve('c');
+        }, 3000);
       })
     })
   }
