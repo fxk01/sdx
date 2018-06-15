@@ -53,6 +53,7 @@ export default class FundDetail extends widget {
       let json = res['chanpin'];
       this.netValue = [...res['chanpin']['lishijingzhi']];
       let dateArr = [];
+      let dateArrLsJz = [];
       json['total_unit_net_worth'] = json.total_unit_net_worth.toFixed(4);
       json['create_date'] = json['create_date'].substring(0, 11).replace(/\//g, ".");
       json['unit_net_worth_date'] = json['unit_net_worth_date'].replace(/\//g, ".");
@@ -66,12 +67,20 @@ export default class FundDetail extends widget {
         json['yueshouyi'][j].year = new Date(getTime).getFullYear();
         dateArr.push(new Date(getTime).getFullYear());
       }
+
+      for(let j = 0; j < json['lishijingzhi'].length; j++) {
+        let getTime = new Date(json['lishijingzhi'][j].date).getTime();
+        json['lishijingzhi'][j].format = new Date(getTime).getFullYear() + '年' +  (new Date(getTime).getMonth() + 1) + '月';
+        json['lishijingzhi'][j].year = new Date(getTime).getFullYear();
+        dateArrLsJz.push(new Date(getTime).getFullYear());
+      }
       let formatArr = this.removeArrValue(dateArr);
+      let formatArrLsJz = this.removeArrValue(dateArrLsJz);
       $('.fundPerForManCe').html('').append($(Tool.renderTpl(fundPerForManCe, json)));
       this.productRequirements();
       this.postNetValue(json['lishijingzhi']);
       this.monthlyIncome(json['yueshouyi'], formatArr, json);
-      this.HistoricalNetVal(formatArr, json['lishijingzhi']);
+      this.HistoricalNetVal(formatArrLsJz, json['lishijingzhi']);
     })
   }
   /*
@@ -408,6 +417,10 @@ export default class FundDetail extends widget {
     if(!self.fitData && valLeg.length > 1) {
       lastArr = lastArr5;
     }
+    if(lastArr3.length > 1) {
+      lastArr3.shift();
+    }
+
     $('.historicalNetValue').html('').append($(Tool.renderTpl(HistoricalNetTpl, self.fitData ? lastArr3 : lastArr)));
 
     myApp.picker({
@@ -452,18 +465,20 @@ export default class FundDetail extends widget {
       },
     });
 
-    $('.dateMonthValue').text(_arrDate[0].month);
+    $('.dateMonthValue').text(_arrDate[_arrDate.length - 1].month);
+
     let myPickerMonth = myApp.picker({
       input: '#calendarDateMonth',
       cols: [
         {
           textAlign: 'center',
-          values: self.fitData ? hashArr2 : hashArr,
+          values: self.fitData ? self.removeArrValue(hashArr2) : hashArr,
         }
       ],
       toolbarCloseText: '完成',
       closeByOutsideClick: true,
       onClose: function (p) {
+        console.log(p);
         let _val = $('.dateYearValue').text();
         let list = [];
         _arrDate.filter((val) => {
@@ -471,7 +486,11 @@ export default class FundDetail extends widget {
             list.push(val);
           }
         });
-        $('.dateMonthValue').text(p.params.cols[0].value);
+        if(p.params.cols[0].value.length > 1) {
+          $('.dateMonthValue').text(p.params.cols[0].value[0]);
+        } else {
+          $('.dateMonthValue').text(p.params.cols[0].value);
+        }
         $('.historicalNetValue').html('').append($(Tool.renderTpl(HistoricalNetTpl, list)));
       },
     });
