@@ -1,8 +1,9 @@
-#npm install
+# 启动方式
+## npm install
 
-#npm run dev
+## npm run dev
 
-#npm run build
+## npm run build
 
 设置代理
 proxy: {
