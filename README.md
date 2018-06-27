@@ -4,7 +4,7 @@
 
 > A demo project for using Framework7 with Webpack3.0 via Babel!
 
-[Online Demo](https://hejx.herokuapp.com/f7/)
+[Online Demo](http://sdx.hefupb.com/dist/#!/page/main.html)
 
 ### Dependencies
 
@@ -77,5 +77,5 @@ npm run build
 
 ### LICENSE
 
-MIT [@Hejx](https://github.com/hejianxian/)
+MIT [@likaiming](https://github.com/fxk01/)
 
