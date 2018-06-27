@@ -222,7 +222,7 @@ export default class Fund extends widget {
           credits: {
             enabled: false
           },
-          colors: ['#fff2ed'],
+          colors: ['#d16363'],
           legend: {
             layout: 'vertical',
             align: 'left',

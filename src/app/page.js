@@ -21,3 +21,4 @@ export { default as StockDetail } from './stockDetails/stockDetails';
 export { default as LetterCoak } from './letterCoak/letterCoak';
 export { default as StockPurchasedCp } from './stockPurchasedCp/stockPurchasedCp';
 export { default as StockRecord } from './stockRecord/stockRecord';
+export { default as Certificate } from './certificate/certificate';

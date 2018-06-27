@@ -51,6 +51,7 @@ export default class StockRight extends widget {
     $$('.framework7-root').on('click', '.hrefJbXx', function() { window.location.href = `${Constant.Href_Route}userInformation.html?tab3=${$$(this).attr('data-val')}`; });
     $$('.framework7-root').on('click', '.hrefXgMm', function() { window.location.href = `${Constant.Href_Route}modifyPassword.html?tab3=${$$(this).attr('data-val')}`; });
     $$('.framework7-root').on('click', '.hrefTsJy', function() { window.location.href = `${Constant.Href_Route}complaint.html?tab3=${$$(this).attr('data-val')}`; });
+    $$('.framework7-root').on('click', '.hrefZxZm', function() { window.location.href = `${Constant.Href_Route}certificate.html?tab3=${$$(this).attr('data-val')}`; });
     $$('.framework7-root').on('click', '.hrefLoginOut', () => { self.loginOut(); });
     $$('.framework7-root').on('click', '.toolbar-inner .tab-link', function() {
       let stateObject = {};
@@ -74,6 +75,10 @@ export default class StockRight extends widget {
     myApp.closeModal('.modal-main');
     let _stockRightTpl = Tool.renderTpl(stockRightTpl);
     $('.stockRight-page').html('').append($(_stockRightTpl));
+    $$('.page-content .content-block').css({
+      'min-height': $(document.body).height()-$('.navbar').height()-$('.tabbar-labels').height(),
+      'z-index': 9999999,
+    });
     $('.userFundInformation').append(userFdInformation);
     $('.userFundInformation2').append(userFdInformation2);
     $('.fundUser').text(sessionStorage.getItem('companyUser'));
