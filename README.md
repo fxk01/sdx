@@ -1,4 +1,4 @@
-<img src="https://dn-cnode.qbox.me/FggySaifXShKXx-Rp9c5gxh6Gox0" width="200">
+<img src="http://sdx.hefupb.com/dist/images/sdx_home.gif" width="200">
 
 # framework7-webpack-demo
 
