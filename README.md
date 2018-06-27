@@ -1,4 +1,4 @@
-<img src="http://sdx.hefupb.com/dist/images/sdx_home.gif" width="200">
+<img src="http://sdx.hefupb.com/dist/images/sdx_home.gif">
 
 # framework7-webpack-demo
 
