@@ -6,6 +6,8 @@
 
 [Online Demo](http://sdx.hefupb.com/dist/#!/page/main.html)
 
+请在手机端下打开！！
+
 ### Dependencies
 
 * [Framework7](http://framework7.io/)
