@@ -2,7 +2,7 @@
 
 export default {
   // AVATAR: require('../../assets/images/01.png'),
-  // /dist/#!/page/
+  // '/dist/#!/page/',
   // /#!/page/
   // `http://${window.location.host}/`,
   // 'http://192.168.50.237:8081/'

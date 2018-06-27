@@ -433,7 +433,7 @@ export default class FundDetail extends widget {
         }
       ],
       toolbarCloseText: '完成',
-      closeByOutsideClick: true,
+      closeByOutsideClick: false,
       onClose: function(p) {
         let newYearArr = [];
         let newMonthArr = [];
@@ -476,9 +476,8 @@ export default class FundDetail extends widget {
         }
       ],
       toolbarCloseText: '完成',
-      closeByOutsideClick: true,
+      closeByOutsideClick: false,
       onClose: function (p) {
-        console.log(p);
         let _val = $('.dateYearValue').text();
         let list = [];
         _arrDate.filter((val) => {
@@ -487,9 +486,10 @@ export default class FundDetail extends widget {
           }
         });
         if(p.params.cols[0].value.length > 1) {
-          $('.dateMonthValue').text(p.params.cols[0].value[0]);
+          // console.log(p.params.cols[0].value);
+          $('.dateMonthValue').html(p.params.cols[0].value);
         } else {
-          $('.dateMonthValue').text(p.params.cols[0].value);
+          $('.dateMonthValue').html(p.params.cols[0].value);
         }
         $('.historicalNetValue').html('').append($(Tool.renderTpl(HistoricalNetTpl, list)));
       },

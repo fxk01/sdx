@@ -43,8 +43,8 @@ export default class StockRight extends widget {
       });
     });
 
-    $$('.framework7-root').on('click', '.questionHref, .retestQuestion', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}` });
-    $$('.framework7-root').on('click', '.questionHref2, .retestQuestion2', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?tab3=active&val=${_val}` });
+    $$('.framework7-root').on('click', '.questionHref, .retestQuestion', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}&xz=${$$(this).attr('data-xz')}` });
+    $$('.framework7-root').on('click', '.questionHref2, .retestQuestion2', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?tab3=active&val=${_val}&xz=${$$(this).attr('data-xz')}` });
     $$('.framework7-root').on('click', '.sdx-stock-prXx', function() { sessionStorage.setItem('chanPinId', $$(this).attr('data-chanpinid')); window.location.href = `${Constant.Href_Route}stockDetail.html?tab2=${$$(this).attr('data-val')}&code=${$$(this).attr('data-code')}` });
     $$('.framework7-root').on('click', '.hrefYgCp', function() { window.location.href = `${Constant.Href_Route}stockPurchasedCp.html?tab3=${$$(this).attr('data-val')}` });
     $$('.framework7-root').on('click', '.hrefJyJl', function() { window.location.href = `${Constant.Href_Route}stockRecord.html?tab3=${$$(this).attr('data-val')}` });

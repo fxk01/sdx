@@ -54,8 +54,8 @@ export default class Fund extends widget {
         }
       });
     });
-    $$('.framework7-root').on('click', '.questionHref, .retestQuestion', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}` });
-    $$('.framework7-root').on('click', '.questionHref2, .retestQuestion2', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?tab3=active&val=${_val}` });
+    $$('.framework7-root').on('click', '.questionHref, .retestQuestion', function() {let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}&xz=${$$(this).attr('data-xz')}` });
+    $$('.framework7-root').on('click', '.questionHref2, .retestQuestion2', function() { let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}questionnaire.html?tab3=active&val=${_val}&xz=${$$(this).attr('data-xz')}` });
     $$('.framework7-root').on('click', '.hrefYgCp', () => { window.location.href = `${Constant.Href_Route}purchasedProducts.html`; });
     $$('.framework7-root').on('click', '.hrefJyJl', () => { window.location.href = `${Constant.Href_Route}record.html`; });
     $$('.framework7-root').on('click', '.hrefJbXx', () => { window.location.href = `${Constant.Href_Route}userInformation.html`; });
@@ -214,7 +214,8 @@ export default class Fund extends widget {
         }
         highCharts.chart('containerTrend', {
           chart: {
-            type: 'areaspline',
+            // type: 'area',
+            plotBackgroundColor: '#ffe2d6',
           },
           title: {
             text: ' '
@@ -222,7 +223,6 @@ export default class Fund extends widget {
           credits: {
             enabled: false
           },
-          colors: ['#d16363'],
           legend: {
             layout: 'vertical',
             align: 'left',
@@ -261,6 +261,7 @@ export default class Fund extends widget {
             name: '资金',
             data: _arrData,
             turboThreshold: 0,
+            color: '#ff1919',
           }]
         });
         resolve('b');

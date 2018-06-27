@@ -24,6 +24,12 @@ export default class Questionnaire extends widget {
     let _questionnaireTpl = Tool.renderTpl(questionnaireTpl);
     $('.questionnaire-page').append($(_questionnaireTpl));
 
+    if(Tool.parseURL('xz') === 'xz') {
+      $$('.dwTopicList').css({
+        'height': 'auto',
+        'overflow-y': 'initial',
+      });
+    }
     this.postTopicListDownload();
     $('.framework7-root').on('click', '.questionHrefFund', () => { const parameter = `?tab3=${Tool.parseURL('tab3') === undefined ? '' : Tool.parseURL('tab3')}`; this.fundStockHref(parameter); });
   }

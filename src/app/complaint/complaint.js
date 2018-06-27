@@ -29,6 +29,17 @@ export default class Complaint extends widget {
    投诉
    */
   comTouSu() {
+    let options = {
+      onHide: function () {
+      },
+      duration: 2000
+    };
+    const comText = $('#comPlaText').val();
+    if(comText === '') {
+      let toast = myApp.toast('', `<div>留言不能为空！</div>`, options);
+      toast.show();
+      return false;
+    }
     complaintStore.postTouSuJianYi({
       data: {
         action: 'TouSuJianYi',
@@ -38,12 +49,6 @@ export default class Complaint extends widget {
         cId: sessionStorage.getItem('cid'),
       }
     }, (res) => {
-      let options = {
-        onHide: function () {
-        },
-        duration: 2000
-      };
-
       if(res.result === 'OK') {
         let toast = myApp.toast('', `<div>感谢您的建议</div>`, options);
         toast.show();
