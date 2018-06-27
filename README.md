@@ -4,8 +4,12 @@
 <img src="http://sdx.hefupb.com/dist/images/sdx_fund.gif">
 <img src="http://sdx.hefupb.com/dist/images/questionnaire.gif">
 
-# framework7-webpack-demo
+# framework7-webpack-demo && 使用方式
+输入适当性选择适当性管理评估数据库公司
 
+输入股权选择测试股权类test
+
+账号2017092001密码111111或者123456
 > A demo project for using Framework7 with Webpack3.0 via Babel!
 
 [Online Demo](http://sdx.hefupb.com/dist/#!/page/main.html)
