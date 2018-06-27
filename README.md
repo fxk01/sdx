@@ -1,6 +1,8 @@
 # 部分H5APP效果图展示
 
-
+<img src="http://sdx.hefupb.com/dist/images/sdx_home2.gif">
+<img src="http://sdx.hefupb.com/dist/images/fund.gif">
+<img src="http://sdx.hefupb.com/dist/images/questionnaire.gif">
 
 # framework7-webpack-demo
 
@@ -29,7 +31,3 @@ npm run build
 ### LICENSE
 
 MIT [@likaiming](https://github.com/fxk01/)
-
-
-
-<img src="http://sdx.hefupb.com/dist/images/sdx_home.gif">
