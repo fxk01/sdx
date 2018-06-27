@@ -2,6 +2,7 @@
 
 <img src="http://sdx.hefupb.com/dist/images/sdx_home.gif">
 <img src="http://sdx.hefupb.com/dist/images/sdx_fund2.gif">
+<img src="http://sdx.hefupb.com/dist/images/questionnaire.gif">
 
 # framework7-webpack-demo
 
