@@ -8,7 +8,7 @@
 
 ### 商铺列表页
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/msite.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/msite.gif" width="365" height="619"/>
+<img src="http://sdx.hefupb.com/dist/images/sdx_home2.gif" width="365" height="619"/> <img src="http://sdx.hefupb.com/dist/images/sdx_fund.gif" width="365" height="619"/>
 
 
 ### 商铺筛选页
