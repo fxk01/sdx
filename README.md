@@ -2,7 +2,6 @@
 
 <img src="http://sdx.hefupb.com/dist/images/sdx_home2.gif" width="365" height="619"/> <img src="http://sdx.hefupb.com/dist/images/questionnaire.gif" width="365" height="619">
 
-<img src="http://sdx.hefupb.com/dist/images/questionnaire.gif" width="365" height="619">
                                                             
 ### framework7-webpack-demo && 使用方式
 输入适当性选择适当性管理评估数据库公司
