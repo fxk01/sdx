@@ -286,9 +286,7 @@ export default class Fund extends widget {
         }
         let echoFundProductsTpl = Tool.renderTpl(fundProducts, res);
         $('.tab1BlockItem').html('').append($(echoFundProductsTpl));
-        setTimeout(function () {
-          resolve('c');
-        }, 3000);
+        resolve('c');
       })
     })
   }
