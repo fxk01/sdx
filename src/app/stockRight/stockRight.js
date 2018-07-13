@@ -113,7 +113,7 @@ export default class StockRight extends widget {
    */
   fundHomeData() {
     Promise.all([this.postRiskTolerance(), this.postAssetProfile()]).then(([ret1, ret2]) => {
-      if(ret2 === 'c') {
+      if(ret2 === 'b') {
         myApp.pullToRefreshDone();
       }
     });
@@ -172,9 +172,9 @@ export default class StockRight extends widget {
         for(let i = 0; i < json.chanpin.length; i++) {
           json.chanpin[i]['create_date'] = this.formatDate(new Date(json.chanpin[i]['create_date']));
         }
+        resolve('b');
         let echoHomeStockProductTpl = Tool.renderTpl(homeStockProduct, json);
         $('.tab1BlockItem').html('').append($(echoHomeStockProductTpl));
-        resolve('c');
       })
     })
   }

@@ -88,7 +88,7 @@ export default class Record extends widget {
         dataFormGr1.append('size', files.size);
 
         $$.ajax({
-          url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=1&identification_type=${_type}`,
+          url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=${$('input[name="id_card"]').val()}&type=1&identification_type=${_type}`,
           type: 'post',
           data: dataFormGr1,
           async: false,
@@ -116,7 +116,7 @@ export default class Record extends widget {
         dataFormGr2.append("size", file.size);
 
         $$.ajax({
-          url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=1&identification_type=${_type}`,
+          url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=${$('input[name="id_card"]').val()}&type=1&identification_type=${_type}`,
           type: 'post',
           data: dataFormGr2,
           async: false,
@@ -312,7 +312,7 @@ export default class Record extends widget {
       data.append('lastModifiedDate', files[0].lastModifiedDate);
       data.append('size', files[0].size);
       $$.ajax({
-        url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=2&identification_type=${window.zCzmGr}`,
+        url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=${$('input[name="id_card"]').val()}&type=2&identification_type=${window.zCzmGr}`,
         type: 'POST',
         data: data,
         async: false,
@@ -357,7 +357,7 @@ export default class Record extends widget {
     data.append('lastModifiedDate', files[0].lastModifiedDate);
     data.append('size', files[0].size);
     $$.ajax({
-      url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=1&identification_type=1`,
+      url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=${$('input[name="id_card"]').val()}&type=1&identification_type=1`,
       type: 'POST',
       data: data,
       async: false,
@@ -386,7 +386,7 @@ export default class Record extends widget {
         action: 'UserZcZczm',
         method: 'selectUserZcZczmByIdCard',
         cid: sessionStorage.getItem('cid'),
-        id_card: '21321gghgh',
+        id_card: $('input[name="id_card"]').val(),
       }
     }, (res) => {
       let json = res['userZcZczmList'];
@@ -422,7 +422,7 @@ export default class Record extends widget {
     data.append('lastModifiedDate', files[0].lastModifiedDate);
     data.append('size', files[0].size);
     $$.ajax({
-      url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=21321gghgh&type=1&identification_type=2`,
+      url: Constant.SERVER_URL + `upload?action=uploadFile&cid=${sessionStorage.getItem('cid')}&id_card=${$('input[name="id_card"]').val()}&type=1&identification_type=2`,
       type: 'POST',
       data: data,
       async: false,
@@ -1533,6 +1533,7 @@ export default class Record extends widget {
       toast.show();
       return false;
     }
+    myApp.showIndicator();
     regStore.postPin({
       data: {
         action: 'pin',
@@ -1545,6 +1546,7 @@ export default class Record extends widget {
       } else {
         this.countDown();
       }
+      myApp.hideIndicator();
     })
   }
   /*

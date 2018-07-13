@@ -24,9 +24,36 @@ export default class Login extends widget {
   init(page) {
     $('.view').attr('data-page', 'login');
     let pageLeg = $('.login-page').length;
+    console.log(pageLeg);
     if(pageLeg === 0) {
-      $('#root').html('');
+      // $('#root').html('');
       window.location.reload();
+      // myApp.modal({
+      //   title: '风险提示',
+      //   text: Login.defaultHtml.tem,
+      //   buttons: [
+      //     {
+      //       text: '已知悉，继续浏览',
+      //       onClick: function() {
+      //         myApp.loginScreen();
+      //       }
+      //     },
+      //   ],
+      // });
+    }
+    if(pageLeg === 1) {
+      myApp.modal({
+        title: '风险提示',
+        text: Login.defaultHtml.tem,
+        buttons: [
+          {
+            text: '已知悉，继续浏览',
+            onClick: function() {
+              myApp.loginScreen();
+            }
+          },
+        ],
+      });
     }
     this.apTpl();
     if(!sessionStorage.getItem('cid') && page.query.cid === undefined) {
@@ -37,18 +64,6 @@ export default class Login extends widget {
     }
     let _loginTpl = Tool.renderTpl(loginTpl);
     $('.login-page').html('').append($(_loginTpl));
-    myApp.modal({
-      title: '风险提示',
-      text: Login.defaultHtml.tem,
-      buttons: [
-        {
-          text: '已知悉，继续浏览',
-          onClick: function() {
-            myApp.loginScreen();
-          }
-        },
-      ],
-    });
     $('.modal').addClass('modal-login');
     this.screen = $('.login-screen');
     this.screen.on('click', '.sdx-link-login', () => { this.loginHome(); });
