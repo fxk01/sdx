@@ -506,6 +506,9 @@ export default class FundDetail extends widget {
         chanpinCode: Tool.parseURL('code'),
       }
     }, (res) => {
+      if(res.chanPinYaoSuList.length === 0) {
+        $('.stockLeg0').show();
+      }
       let echoFundProductElemTpl = Tool.renderTpl(fundProductElemTpl, res);
       $('.productElement').html('').append($(echoFundProductElemTpl));
     })
