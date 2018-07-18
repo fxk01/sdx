@@ -42,7 +42,16 @@ export default class PurchasedProducts extends widget {
     }, (res) => {
       if(res.chanpin.length === 0) {
         $('.stockLeg0').show();
-        return;
+      }
+      for(let i = 0; i < res['chanpin'].length; i++) {
+        res['chanpin'][i]['chicang_profit'] = this.formatNumber(res['chanpin'][i]['chicang_profit'], 2);
+        res['chanpin'][i]['chicang_profit_ratio'] = this.formatNumber(res['chanpin'][i]['chicang_profit_ratio'], 2) + '%';
+        res['chanpin'][i]['return_rate'] = this.formatNumber(res['chanpin'][i]['return_rate'], 2);
+        res['chanpin'][i]['profit'] = this.formatNumber(res['chanpin'][i]['profit'], 2);
+        res['chanpin'][i]['shares'] = this.formatNumber(res['chanpin'][i]['shares'], 2);
+        res['chanpin'][i]['capital'] = this.formatNumber(res['chanpin'][i]['capital'], 2);
+        res['chanpin'][i]['unit_net_worth_now'] = this.formatUnitNetWorth(res['chanpin'][i]['unit_net_worth_now']);
+        res['chanpin'][i]['total_unit_net_worth'] = this.formatUnitNetWorth(res['chanpin'][i]['total_unit_net_worth']);
       }
       let echoFundProductsTpl = Tool.renderTpl(fundProducts, res);
       $('.chased').html('').append($(echoFundProductsTpl));

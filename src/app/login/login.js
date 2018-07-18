@@ -24,7 +24,7 @@ export default class Login extends widget {
   init(page) {
     $('.view').attr('data-page', 'login');
     let pageLeg = $('.login-page').length;
-    console.log(pageLeg);
+    // console.log(pageLeg);
     if(pageLeg === 0) {
       // $('#root').html('');
       window.location.reload();

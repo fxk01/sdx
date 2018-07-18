@@ -61,6 +61,7 @@ export default class Fund extends widget {
     $$('.framework7-root').on('click', '.hrefJbXx', () => { window.location.href = `${Constant.Href_Route}userInformation.html`; });
     $$('.framework7-root').on('click', '.hrefXgMm', () => { window.location.href = `${Constant.Href_Route}modifyPassword.html`; });
     $$('.framework7-root').on('click', '.hrefTsJy', () => { window.location.href = `${Constant.Href_Route}complaint.html`; });
+    $$('.framework7-root').on('click', '.hrefZxZm', () => { window.location.href = `${Constant.Href_Route}certificate.html`; });
     $$('.framework7-root').on('click', '.hrefLoginOut', () => { self.loginOut(); });
     $$('.framework7-root').on('click', '.toolbar-inner .tab-link', function() {
       let stateObject = {};
@@ -283,6 +284,16 @@ export default class Fund extends widget {
       }, (res) => {
         if(res.chanpin.length === 0) {
           $('.stockLeg0').show();
+        }
+        for(let i = 0; i < res['chanpin'].length; i++) {
+          res['chanpin'][i]['chicang_profit'] = this.formatNumber(res['chanpin'][i]['chicang_profit'], 2);
+          res['chanpin'][i]['chicang_profit_ratio'] = this.formatNumber(res['chanpin'][i]['chicang_profit_ratio'], 2) + '%';
+          res['chanpin'][i]['return_rate'] = this.formatNumber(res['chanpin'][i]['return_rate'], 2);
+          res['chanpin'][i]['profit'] = this.formatNumber(res['chanpin'][i]['profit'], 2);
+          res['chanpin'][i]['shares'] = this.formatNumber(res['chanpin'][i]['shares'], 2);
+          res['chanpin'][i]['capital'] = this.formatNumber(res['chanpin'][i]['capital'], 2);
+          res['chanpin'][i]['unit_net_worth_now'] = this.formatUnitNetWorth(res['chanpin'][i]['unit_net_worth_now']);
+          res['chanpin'][i]['total_unit_net_worth'] = this.formatUnitNetWorth(res['chanpin'][i]['total_unit_net_worth']);
         }
         let echoFundProductsTpl = Tool.renderTpl(fundProducts, res);
         $('.tab1BlockItem').html('').append($(echoFundProductsTpl));
