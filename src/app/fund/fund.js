@@ -149,7 +149,7 @@ export default class Fund extends widget {
           insertAnswerBetweenDaysDom.text('-');
         } else {
           assessmentResultDom.text(res['assessment']);
-          gradeDom.text(sessionStorage.getItem('qScore'));
+          gradeDom.text(sessionStorage.getItem('qScore') + '分，');
           insertAnswerDateDom.text(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
           insertAnswerBetweenDaysDom.text(sessionStorage.getItem('betweenDays') + '天');
         }

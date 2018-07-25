@@ -52,14 +52,22 @@ export default class Questionnaire extends widget {
     }, (res) => {
       let json  = res;
       window.topic = json.topiclist.length;
-      json.answer = json.answer.replace(/\w+[-]/g, '').split(';');
-      for(let i = 0; i < json.topiclist.length; i++) {
-        json.topiclist[i].gradeFs = parseInt(json.answer[i]);
+      if(json.answer !== null) {
+        json.answer = json.answer.replace(/\w+[-]/g, '').split(';');
+        for(let i = 0; i < json.topiclist.length; i++) {
+          json.topiclist[i].gradeFs = parseInt(json.answer[i]);
+        }
       }
       let _questionDwTpl = Tool.renderTpl(questionDwTpl, json);
       $('.dwTopicList').html('').append($(_questionDwTpl));
 
-      $('.sdx-queDw-fs').html(sessionStorage.getItem('qScore'));
+      if(sessionStorage.getItem('qScore') === '-1') {
+        $('.sdx-queDw-fs').html('未测评').css({
+          'font-size': '1rem',
+        });
+      } else {
+        $('.sdx-queDw-fs').html(sessionStorage.getItem('qScore'));
+      }
       $('.sdx-queDw-fslx').html(sessionStorage.getItem('riskTolerance'));
 
       if(Tool.parseURL('val') === 'cxCs') {
