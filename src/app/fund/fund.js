@@ -144,7 +144,9 @@ export default class Fund extends widget {
       }, (res) => {
         if(sessionStorage.getItem('qScore') === '-1') {
           assessmentResultDom.text('未测评');
-          gradeDom.text('未测评。');
+          gradeDom.text('未测评。').css({
+            'font-weight': 'bold'
+          });
           insertAnswerDateDom.text('-');
           insertAnswerBetweenDaysDom.text('-');
         } else {
@@ -317,12 +319,16 @@ export default class Fund extends widget {
           idCard: sessionStorage.getItem('idCard'),
         }
       }, (res) => {
-        let json = res;
-        for(let i = 0; i < json['chanpin_list'].length; i++) {
-          json['chanpin_list'][i].found = ((json['chanpin_list'][i].total_unit_net_worth - 1) * 100).toFixed(1);
+        if(res['error_code'] === 1 && res.result === 'NG') {
+          $('.noTestFund').show();
+        } else {
+          let json = res;
+          for(let i = 0; i < json['chanpin_list'].length; i++) {
+            json['chanpin_list'][i].found = ((json['chanpin_list'][i].total_unit_net_worth - 1) * 100).toFixed(1);
+          }
+          let echoFundInfoListTpl = Tool.renderTpl(fundInfoList, json);
+          $('.fundTab2Accordion').html('').append($(echoFundInfoListTpl));
         }
-        let echoFundInfoListTpl = Tool.renderTpl(fundInfoList, json);
-        $('.fundTab2Accordion').html('').append($(echoFundInfoListTpl));
         resolve(true);
       });
     });

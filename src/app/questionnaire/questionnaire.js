@@ -73,6 +73,13 @@ export default class Questionnaire extends widget {
       if(Tool.parseURL('val') === 'cxCs') {
         $$('.framework7-root').on('click', '.onRadio', function() { let that = $$(this); self.retestQuestion(that); });
         $$('.framework7-root').on('click', '.xyb', function() { self.retestQuestionRetest(); });
+      } else {
+        $('.onRadio').css({
+          border: '2px solid #888888',
+        });
+        $('.onSelect').css({
+          background: '#888888'
+        });
       }
     })
   }
