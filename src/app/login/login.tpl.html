@@ -4,7 +4,9 @@
       <div class="page">
         <div class="page-content login-screen-content">
           <div class="pd1013">
-            <form id="registerForm">
+
+
+            <form id="registerForm" style="display: none;">
               <div class="list-block sdx-login-pd103">
                 <div class="login-screen-title sdx-login-title">个人用户请填写证件号，机构用户请填写机构证件号，产品用户请填写产品备案编码。</div>
                 <ul>
@@ -46,7 +48,12 @@
               <div class="list-block">
                 <ul>
                   <li>
-                    <a href="javascript:" class="btn btn--activate item-link list-button sdx-link-login" id="btnActivation">
+                    <!--<a href="javascript:" class="btn btn&#45;&#45;activate item-link list-button sdx-link-login" id="btnActivation">-->
+                    <!--<span class="btn__icon"></span>-->
+                    <!--<span class="btn__text" data-wait="正在登陆..">登录</span>-->
+                    <!--</a>-->
+
+                    <a href="javascript:" class="btn btn--activate item-link list-button sdx-link-login">
                       <span class="btn__icon"></span>
                       <span class="btn__text" data-wait="正在登陆..">登录</span>
                     </a>
@@ -54,6 +61,40 @@
                 </ul>
               </div>
             </form>
+
+
+            <form id="registerFormYzm">
+              <div class="list-block sdx-login-pd103">
+                <div class="login-screen-title sdx-login-title">个人用户请填写证件号，机构用户请填写机构证件号，产品用户请填写产品备案编码。</div>
+                <ul>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <!--<div class="item-title label">-->
+                        <!--<img src="../../assets/images/card.png">-->
+                      <!--</div>-->
+                      <div class="item-input">
+                        <input type="text" name="loginYzm" placeholder="请输入验证码" maxlength="6">
+                        <input id="btnSendCode1" type="button" class="btn btn-default" value="重新发送" onclick="sendMessage1()">
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <a href="javascript:" class="btn btn--activate item-link list-button sdx-link-loginYzm" id="btnActivation">
+                      <span class="btn__icon"></span>
+                      <span class="btn__text" data-wait="正在登陆..">登录</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </form>
+
+
+
           </div>
         </div>
       </div>

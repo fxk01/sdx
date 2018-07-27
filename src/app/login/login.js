@@ -147,37 +147,35 @@ export default class Login extends widget {
       btnActivation.removeClass('btn--activate');
       btnActivation.addClass('btn--waiting');
     }
-    setTimeout(() => {
-      LoginStore.postUserLogin({
-        data: {
-          action: 'UserLogin',
-          cid: sessionStorage.getItem('cid'),
-          company_type: sessionStorage.getItem('company_type'),
-          username: vaLi.name,
-          password: vaLi.passWd,
+    LoginStore.postUserLogin({
+      data: {
+        action: 'UserLogin',
+        cid: sessionStorage.getItem('cid'),
+        company_type: sessionStorage.getItem('company_type'),
+        username: vaLi.name,
+        password: vaLi.passWd,
+      }
+    }, (res) => {
+      if(res['result'] === 'NumNG') {
+        myApp.alert('账号或密码错误！', '提示');
+      } else if(res.result === 'InterNG') {
+        myApp.alert('网络故障。', '提示');
+      }else if(res.result === 'RoleNG') {
+        myApp.alert('该用户目前暂无任何角色，无法登录。', '提示');
+      } else {
+        for(let key in res) {
+          if(key !== 'result') {
+            sessionStorage.setItem(key, res[key]);
+          }
         }
-      }, (res) => {
-        if(res['result'] === 'NumNG') {
-          myApp.alert('账号或密码错误！', '提示');
-        } else if(res.result === 'InterNG') {
-          myApp.alert('网络故障。', '提示');
-        }else if(res.result === 'RoleNG') {
-          myApp.alert('该用户目前暂无任何角色，无法登录。', '提示');
+        if(sessionStorage.getItem('company_type') === '1') {
+          window.location.href = `${Constant.Href_Route}fund.html`
         } else {
-          for(let key in res) {
-            if(key !== 'result') {
-              sessionStorage.setItem(key, res[key]);
-            }
-          }
-          if(sessionStorage.getItem('company_type') === '1') {
-            window.location.href = `${Constant.Href_Route}fund.html`
-          } else {
-            window.location.href = `${Constant.Href_Route}stockRight.html`
-          }
+          window.location.href = `${Constant.Href_Route}stockRight.html`
         }
-        btnActivation.removeClass('btn--waiting');
-        btnActivation.addClass('btn--activate');
-      });
-    }, 1500);
+      }
+      btnActivation.removeClass('btn--waiting');
+      btnActivation.addClass('btn--activate');
+    });
   }
 };
