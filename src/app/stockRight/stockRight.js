@@ -138,14 +138,16 @@ export default class StockRight extends widget {
       }, (res) => {
         if(sessionStorage.getItem('qScore') === '-1') {
           assessmentResultDom.text('未测评');
-          gradeDom.text('未测评。');
-          insertAnswerDateDom.text('-');
-          insertAnswerBetweenDaysDom.text('-');
+          gradeDom.text('未测评。').css({
+            'font-weight': 'bold'
+          });
+          insertAnswerDateDom.html('-');
+          insertAnswerBetweenDaysDom.html('-');
         } else {
           assessmentResultDom.text(res['assessment']);
-          gradeDom.text(sessionStorage.getItem('qScore'));
-          insertAnswerDateDom.text(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
-          insertAnswerBetweenDaysDom.text(sessionStorage.getItem('betweenDays') + '天');
+          gradeDom.text(sessionStorage.getItem('qScore') + '分，');
+          insertAnswerDateDom.html(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
+          insertAnswerBetweenDaysDom.html(sessionStorage.getItem('betweenDays') + '天');
         }
         sessionStorage.setItem('riskTolerance', res.assessment);
         resolve('a');

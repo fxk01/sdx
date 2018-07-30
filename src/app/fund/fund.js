@@ -147,13 +147,13 @@ export default class Fund extends widget {
           gradeDom.text('未测评。').css({
             'font-weight': 'bold'
           });
-          insertAnswerDateDom.text('-');
-          insertAnswerBetweenDaysDom.text('-');
+          insertAnswerDateDom.html('-');
+          insertAnswerBetweenDaysDom.html('-');
         } else {
           assessmentResultDom.text(res['assessment']);
           gradeDom.text(sessionStorage.getItem('qScore') + '分，');
-          insertAnswerDateDom.text(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
-          insertAnswerBetweenDaysDom.text(sessionStorage.getItem('betweenDays') + '天');
+          insertAnswerDateDom.html(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
+          insertAnswerBetweenDaysDom.html(sessionStorage.getItem('betweenDays') + '天');
         }
         sessionStorage.setItem('riskTolerance', res.assessment);
         resolve('a');

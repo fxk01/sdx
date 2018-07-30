@@ -139,6 +139,7 @@ export default class Questionnaire extends widget {
         myApp.alert(`<div><p style="font-size: 14px;">您的风险评估结果为：<span>${res.assessment}</span></p><p>您的风险问卷调查得分为<span>${res.grade}</span>分。</p></div>`, '提示', function() {
           const parameter = `?tab3=${Tool.parseURL('tab3') === undefined ? '' : Tool.parseURL('tab3')}`; self.fundStockHref(parameter);
         });
+        sessionStorage.setItem('betweenDays', res.betweenDays);
         sessionStorage.setItem('qScore', res.grade);
         sessionStorage.setItem('riskTolerance', res.assessment);
         this.postTopicListDownload();
