@@ -32,5 +32,19 @@ export default {
       userType: '',
     };
     request(params, 'POST', callback);
-  }
+  },
+  postPinYzm(params, callback) {
+    params.path = 'data';
+    params.assign = {
+      result: false,
+    };
+    request(params, 'POST', callback);
+  },
+  postPinCheck(params, callback) {
+    params.path = 'data';
+    params.assign = {
+      result: false,
+    };
+    request(params, 'POST', callback);
+  },
 };
