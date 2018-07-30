@@ -140,6 +140,7 @@ export default class Questionnaire extends widget {
           const parameter = `?tab3=${Tool.parseURL('tab3') === undefined ? '' : Tool.parseURL('tab3')}`; self.fundStockHref(parameter);
         });
         sessionStorage.setItem('betweenDays', res.betweenDays);
+        sessionStorage.setItem('qTime', res.qTime.substring(0, 11).replace(/\//g, '.'));
         sessionStorage.setItem('qScore', res.grade);
         sessionStorage.setItem('riskTolerance', res.assessment);
         this.postTopicListDownload();
