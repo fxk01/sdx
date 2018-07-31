@@ -79,6 +79,10 @@ export default class Fund extends widget {
         history.pushState(stateObject, title, newUrl);
       }
     });
+    $$('.framework7-root').on('click', '#noTestFund', function() {
+      let _val = $$(this).attr('data-val');
+      window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}&xz=${$$(this).attr('data-xz')}`
+    });
   }
   apTpl() {
     let _idCard = sessionStorage.getItem('idCard');

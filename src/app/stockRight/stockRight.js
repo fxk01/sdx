@@ -69,6 +69,10 @@ export default class StockRight extends widget {
         history.pushState(stateObject, title, newUrl);
       }
     });
+    $$('.framework7-root').on('click', '#noTestFund', function() {
+      let _val = $$(this).attr('data-val');
+      window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}&xz=${$$(this).attr('data-xz')}`
+    });
   }
   apTpl() {
     let _idCard = sessionStorage.getItem('idCard');
@@ -197,11 +201,13 @@ export default class StockRight extends widget {
         }
       }, (res) => {
         let json = res;
-        for(let i = 0; i < json.chanpin_list.length; i++) {
-          json.chanpin_list[i]['createDate'] = this.formatDate(new Date(json.chanpin_list[i]['createDate']));
+        if(json.result !== 'NG') {
+          for(let i = 0; i < json.chanpin_list.length; i++) {
+            json.chanpin_list[i]['createDate'] = this.formatDate(new Date(json.chanpin_list[i]['createDate']));
+          }
+          let echoHomeStockProductTpl = Tool.renderTpl(homeStockProduct, json);
+          $('.fundTab2Accordion').html('').append($(echoHomeStockProductTpl));
         }
-        let echoHomeStockProductTpl = Tool.renderTpl(homeStockProduct, json);
-        $('.fundTab2Accordion').html('').append($(echoHomeStockProductTpl));
         resolve(true);
       })
     });
