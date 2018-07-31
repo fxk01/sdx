@@ -151,7 +151,11 @@ export default class StockRight extends widget {
           assessmentResultDom.text(res['assessment']);
           gradeDom.text(sessionStorage.getItem('qScore') + '分，');
           insertAnswerDateDom.html(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
-          insertAnswerBetweenDaysDom.html(sessionStorage.getItem('betweenDays') + '天');
+          if(sessionStorage.getItem('betweenDays') < 0) {
+            insertAnswerBetweenDaysDom.html('已过期，请重新测试');
+          } else {
+            insertAnswerBetweenDaysDom.html(sessionStorage.getItem('betweenDays') + '天');
+          }
         }
         sessionStorage.setItem('riskTolerance', res.assessment);
         resolve('a');
