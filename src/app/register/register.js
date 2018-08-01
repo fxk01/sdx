@@ -919,26 +919,14 @@ export default class Record extends widget {
         display: '职务不能为空',
         rules: 'required'
       }, {
-        name: 'B_gr_zj',
-        display: '座机不能为空',
-        rules: 'required'
-      }, {
         name: 'B_gr_phone',
         display: '手机不能为空',
-        rules: 'required'
-      }, {
-        name: 'B_gr_yb',
-        display: '邮编不能为空',
         rules: 'required'
       }, {
         name: 'B_gr_email',
         display: '电子邮箱不能为空',
         rules: 'required'
-      }, {
-        name: 'B_gr_dz',
-        display: '住址不能为空',
-        rules: 'required'
-      }], function(obj) {
+      },], function(obj) {
         const sfyblcxjl_GrDom = $('.sfyblcxjl_Gr');
         const sfwsjsyr_GrDom = $('.sfwsjsyr_Gr');
         const sfczsjkzgx_GrDom = $('.sfczsjkzgx_Gr');
