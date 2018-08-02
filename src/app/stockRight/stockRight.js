@@ -152,8 +152,11 @@ export default class StockRight extends widget {
           gradeDom.text(sessionStorage.getItem('qScore') + '分，');
           insertAnswerDateDom.html(sessionStorage.getItem('qTime').substring(0, 11).replace(/\//g, '.'));
           insertAnswerBetweenDaysDom.html(sessionStorage.getItem('betweenDays') + '天');
+          if(sessionStorage.getItem('betweenDays') < 0) {
+            insertAnswerBetweenDaysDom.html('已到期');
+          }
           if(sessionStorage.getItem('betweenDays') < 0 && sessionStorage.getItem('sfwzytzz') !== '1') {
-            window.myApp.alert('<span class="bcztdq2">为了您正常访问基金产品信息，请重新测评风险承受能力。</span>', '<div><img src="../../../src/assets/images/gq.png" style="margin-left: -0.26666667rem;"></div><span class="bcztdq">您的风险调查问卷结果已到期!</span>', function() {
+            window.myApp.alert('<span class="bcztdq2">为了您正常访问基金产品信息，请重新测评风险承受能力。</span>', '<div><img src="images/gq.png" style="margin-left: -0.26666667rem;"></div><span class="bcztdq">您的风险调查问卷结果已到期!</span>', function() {
               window.location.href = `${Constant.Href_Route}questionnaire.html?val=cxCs&xz=`
             });
           }
