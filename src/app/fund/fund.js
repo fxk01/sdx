@@ -332,7 +332,7 @@ export default class Fund extends widget {
         }
       }, (res) => {
         if(res['error_code'] === 1 && res.result === 'NG') {
-          $('.noTestFund').show();
+          $('#noTestFund').show();
         } else {
           let json = res;
           for(let i = 0; i < json['chanpin_list'].length; i++) {

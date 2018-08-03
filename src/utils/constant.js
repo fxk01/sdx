@@ -7,7 +7,7 @@ export default {
   // `http://${window.location.host}/`,
   // 'http://192.168.50.237:8081/',
   // 'http://sdx.hefupb.com/',
-  // SERVER_URL: 'http://sdx.hefupb.com/',
+  // SERVER_URL: 'http://192.168.50.237:8081/',
   // Href_Route: '/#!/page/',
   SERVER_URL: `http://${window.location.host}/`,
   Href_Route: '/dist/#!/page/',
