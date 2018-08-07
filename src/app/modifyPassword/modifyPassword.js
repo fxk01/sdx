@@ -37,7 +37,7 @@ export default class ModifyPassword extends widget {
     let newPass = $('.newPass').val();
     let newPass2 = $('.newPass2').val();
     let options = {
-      duration: 2000,
+      duration: 4500,
     };
     if(initialPass.length < 6) {
       let toast = myApp.toast('', `<div>原密码不能小于6位！</div>`, options);

@@ -32,7 +32,7 @@ export default class Complaint extends widget {
     let options = {
       onHide: function () {
       },
-      duration: 2000
+      duration: 4500
     };
     const comText = $('#comPlaText').val();
     if(comText === '') {
