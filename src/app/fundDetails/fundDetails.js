@@ -72,6 +72,8 @@ export default class FundDetail extends widget {
         let getTime = new Date(json['lishijingzhi'][j].date).getTime();
         json['lishijingzhi'][j].format = new Date(getTime).getFullYear() + '年' +  (new Date(getTime).getMonth() + 1) + '月';
         json['lishijingzhi'][j].year = new Date(getTime).getFullYear();
+        json['lishijingzhi'][j].unit_net_worth = json['lishijingzhi'][j].unit_net_worth.toFixed(4);
+        json['lishijingzhi'][j].total_unit_net_worth = json['lishijingzhi'][j].total_unit_net_worth.toFixed(4);
         dateArrLsJz.push(new Date(getTime).getFullYear());
       }
       let formatArr = this.removeArrValue(dateArr);
@@ -120,6 +122,12 @@ export default class FundDetail extends widget {
       dateSFM = /\d{4}[/]\d{1,2}[/]\d{1,2}/g.exec(jz[i].date);
       _categories.push(dateSFM[0]);
     }
+    let numArray = addUpArr.map((value)=>{
+      return parseFloat(value);
+    });
+    let companyArray = companyJzArr.map((value)=>{
+      return parseFloat(value);
+    });
     highCharts.chart('containerJzZs', {
       chart: {
         type: 'spline'
@@ -196,13 +204,13 @@ export default class FundDetail extends widget {
       series: [{
         name: '单位净值',
         name2: '累计净值',
-        data: companyJzArr,
-        data2: addUpArr,
+        data: companyArray,
+        data2: numArray,
       }, {
         name: '累计净值',
         name2: '单位净值',
-        data: addUpArr,
-        data2: companyJzArr,
+        data: numArray,
+        data2: companyArray,
       }],
       navigation: {
         menuItemStyle: {
@@ -375,7 +383,7 @@ export default class FundDetail extends widget {
         monthStr: new Date(getTime).getMonth() + 1,
         month: [new Date(getTime).getMonth() + 1],
         ..._hisZz[i],
-        forDate: _hisZz[i].date.substring(5, 10).replace(/\//g, '.'),
+        forDate: _hisZz[i].date.substring(0, 10).replace(/\//g, '/'),
       });
     }
 

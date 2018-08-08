@@ -28,6 +28,10 @@ import {
 } from './page';
 import Main from './main/main';
 import Utils from '../utils/tool';
+import Cookie from '../../src/components/cookie';
+import LoginStore from '../../src/store/login_store';
+import Constant from '../utils/constant';
+
 
 export default {
   init() {
@@ -55,7 +59,48 @@ export default {
       url: window.location.href,
     });
   },
+  cookieLogin() {
+    LoginStore.postUserLogin({
+      data: {
+        action: 'UserLogin',
+        cid: sessionStorage.getItem('cid'),
+        company_type: sessionStorage.getItem('company_type'),
+        username: new Cookie('name').getCookie(),
+        password: new Cookie('pas').getCookie(),
+      }
+    }, (res) => {
+      if(res['result'] === 'NumNG') {
+        myApp.alert('账号或密码错误！', '提示');
+      } else if(res.result === 'InterNG') {
+        myApp.alert('网络故障。', '提示');
+      }else if(res.result === 'RoleNG') {
+        myApp.alert('该用户目前暂无任何角色，无法登录。', '提示');
+      } else {
+        for(let key in res) {
+          if(key !== 'result') {
+            sessionStorage.setItem(key, res[key]);
+          }
+        }
+        if(sessionStorage.getItem('phone') !== '') {
+          $$('#registerForm').fadeOut('slow', function () {
+            $$('#registerFormYzm').fadeIn();
+          });
+        } else {
+          if(sessionStorage.getItem('company_type') === '1') {
+            window.location.href = `${Constant.Href_Route}fund.html`
+          } else {
+            window.location.href = `${Constant.Href_Route}stockRight.html`
+          }
+        }
+      }
+    });
+  },
   pageBeforeInit(page) {
+    if(page.name === 'main' || page.name === 'login') {
+      if(document.cookie.indexOf('name') === 0) {
+        this.cookieLogin();
+      }
+    }
     window.registerUserType = '';
     if(sessionStorage.getItem('userType') === '个人') {
       window.registerUserType = 'gr'

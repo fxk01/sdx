@@ -12,6 +12,7 @@ import widget from '../../utils/widget';
 import LoginStore from '../../store/login_store';
 import Constant from '../../utils/constant';
 import $$ from 'jquery';
+import Cookie from '../../../src/components/cookie';
 
 export default class Login extends widget {
   static defaultHtml = {
@@ -223,14 +224,14 @@ export default class Login extends widget {
             $$('#registerFormYzm').fadeIn();
           });
         } else {
-          this.btnHrefHome();
+          this.btnHrefHome(vaLi.name, vaLi.passWd);
         }
       }
       // btnActivation.removeClass('btn--waiting');
       // btnActivation.addClass('btn--activate');
     });
   }
-  btnHrefHome() {
+  btnHrefHome(name, passWd) {
     let btnActivation = $('.btnActivation');
     if(!btnActivation.hasClass(('btn--activated'))) {
       btnActivation.removeClass('btn--activate');
@@ -244,6 +245,10 @@ export default class Login extends widget {
       }
       btnActivation.removeClass('btn--waiting');
       btnActivation.addClass('btn--activate');
+      let cookieName = new Cookie('name');
+      let cookiePassWd = new Cookie('pas');
+      cookieName.setCookie(name, 3);
+      cookiePassWd.setCookie(passWd, 3);
     }, 1200);
   }
 };

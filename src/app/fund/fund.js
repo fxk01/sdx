@@ -17,6 +17,7 @@ import fundAsset from '../../components/fund-asset/fund-asset.html';
 import highCharts from 'highcharts';
 import Constant from '../../utils/constant';
 import $$ from 'jquery';
+import Cookie from '../../../src/components/cookie';
 
 export default class Fund extends widget {
   constructor() {
@@ -116,6 +117,8 @@ export default class Fund extends widget {
     sessionStorage.removeItem('qTime');
     sessionStorage.removeItem('qScore');
     sessionStorage.removeItem('userType');
+    new Cookie('name').delCookie();
+    new Cookie('pas').delCookie();
     window.location.href = `${Constant.Href_Route}login.html`;
   }
   /*
