@@ -32,7 +32,6 @@ import Cookie from '../../src/components/cookie';
 import LoginStore from '../../src/store/login_store';
 import Constant from '../utils/constant';
 
-
 export default {
   init() {
     let that = this;
@@ -97,7 +96,7 @@ export default {
   },
   pageBeforeInit(page) {
     if(page.name === 'main' || page.name === 'login') {
-      if(document.cookie.indexOf('name') === 0) {
+      if(document.cookie.indexOf('name') >= 0) {
         this.cookieLogin();
       }
     }
