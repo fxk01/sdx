@@ -63,8 +63,8 @@ export default {
     LoginStore.postUserLogin({
       data: {
         action: 'UserLogin',
-        cid: sessionStorage.getItem('cid'),
-        company_type: sessionStorage.getItem('company_type'),
+        cid: sessionStorage.getItem('cid') || new Cookie('cid').getCookie(),
+        company_type: sessionStorage.getItem('company_type') || new Cookie('company_type').getCookie(),
         username: new Cookie('name').getCookie(),
         password: new Cookie('pas').getCookie(),
       }
@@ -86,7 +86,7 @@ export default {
             $$('#registerFormYzm').fadeIn();
           });
         } else {
-          if(sessionStorage.getItem('company_type') === '1') {
+          if(sessionStorage.getItem('company_type') === '1' || new Cookie('company_type').getCookie()) {
             window.location.href = `${Constant.Href_Route}fund.html`
           } else {
             window.location.href = `${Constant.Href_Route}stockRight.html`

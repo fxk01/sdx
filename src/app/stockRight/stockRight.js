@@ -14,6 +14,7 @@ import $$ from 'jquery';
 import stockRightStore from '../../store/stockRight_store';
 import homeStockProduct from '../../components/stock-product/stock-product.html';
 import '../../components/stock-product/stock-product.less';
+import Cookie from '../../../src/components/cookie';
 
 export default class StockRight extends widget {
   init(page) {
@@ -110,6 +111,8 @@ export default class StockRight extends widget {
     sessionStorage.removeItem('qTime');
     sessionStorage.removeItem('qScore');
     sessionStorage.removeItem('userType');
+    new Cookie('name').delCookie();
+    new Cookie('pas').delCookie();
     window.location.href = `${Constant.Href_Route}login.html`;
   }
   /*

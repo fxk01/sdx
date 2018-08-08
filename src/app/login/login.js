@@ -224,14 +224,14 @@ export default class Login extends widget {
             $$('#registerFormYzm').fadeIn();
           });
         } else {
-          this.btnHrefHome(vaLi.name, vaLi.passWd);
+          this.btnHrefHome(vaLi.name, vaLi.passWd, res);
         }
       }
       // btnActivation.removeClass('btn--waiting');
       // btnActivation.addClass('btn--activate');
     });
   }
-  btnHrefHome(name, passWd) {
+  btnHrefHome(name, passWd, res) {
     let btnActivation = $('.btnActivation');
     if(!btnActivation.hasClass(('btn--activated'))) {
       btnActivation.removeClass('btn--activate');
@@ -247,8 +247,12 @@ export default class Login extends widget {
       btnActivation.addClass('btn--activate');
       let cookieName = new Cookie('name');
       let cookiePassWd = new Cookie('pas');
+      let cookieCid = new Cookie('cid');
+      let cookieCompanyType = new Cookie('company_type');
       cookieName.setCookie(name, 3);
       cookiePassWd.setCookie(passWd, 3);
+      cookieCid.setCookie(res.cid, 3);
+      cookieCompanyType.setCookie(res['companyType'], 3);
     }, 1200);
   }
 };
