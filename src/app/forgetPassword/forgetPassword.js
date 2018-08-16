@@ -80,7 +80,7 @@ export default class ForgetPassword extends widget {
    */
   validOne() {
     let options = {
-      duration: 2000,
+      duration: 10000,
     };
     let validator = new Validator('example_one', [
       {
@@ -164,7 +164,7 @@ export default class ForgetPassword extends widget {
    */
   postYzm() {
     let options = {
-      duration: 2000,
+      duration: 10000,
     };
     let phoneVal = $('input[name="phone"]').val();
     if(phoneVal.length !== 11) {

@@ -80,16 +80,10 @@ export default {
             sessionStorage.setItem(key, res[key]);
           }
         }
-        if(sessionStorage.getItem('phone') !== '') {
-          $$('#registerForm').fadeOut('slow', function () {
-            $$('#registerFormYzm').fadeIn();
-          });
+        if(sessionStorage.getItem('company_type') === '1' || new Cookie('company_type').getCookie()) {
+          window.location.href = `${Constant.Href_Route}fund.html`
         } else {
-          if(sessionStorage.getItem('company_type') === '1' || new Cookie('company_type').getCookie()) {
-            window.location.href = `${Constant.Href_Route}fund.html`
-          } else {
-            window.location.href = `${Constant.Href_Route}stockRight.html`
-          }
+          window.location.href = `${Constant.Href_Route}stockRight.html`
         }
       }
     });

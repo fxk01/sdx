@@ -65,7 +65,7 @@ export default class UserInformation extends widget {
   validatorInfo() {
     let self = this;
     let options = {
-      duration: 2000,
+      duration: 10000,
     };
     let validator;
     if(window.registerUserType === 'gr') {

@@ -85,7 +85,7 @@ export default class Login extends widget {
       }
     }, (res) => {
       if(res.result === 'OK') {
-        this.btnHrefHome();
+        this.btnHrefHome(this.name, this.passWd, this.res);
       } else {
         let toast = myApp.toast('', `<div>验证码不正确！</div>`, options);
         toast.show();
@@ -219,8 +219,11 @@ export default class Login extends widget {
             sessionStorage.setItem(key, res[key]);
           }
         }
+        this.name = vaLi.name;
+        this.passWd = vaLi.passWd;
+        this.res = res;
         if(sessionStorage.getItem('phone') !== '') {
-          $$('#registerForm').fadeOut('slow', function () {
+          $$('#registerForm').fadeOut('slow', function() {
             $$('#registerFormYzm').fadeIn();
           });
         } else {
