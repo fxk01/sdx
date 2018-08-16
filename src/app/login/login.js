@@ -244,11 +244,6 @@ export default class Login extends widget {
       btnActivation.addClass('btn--waiting');
     }
     setTimeout(() => {
-      if(sessionStorage.getItem('company_type') === '1') {
-        window.location.href = `${Constant.Href_Route}fund.html`
-      } else {
-        window.location.href = `${Constant.Href_Route}stockRight.html`
-      }
       btnActivation.removeClass('btn--waiting');
       btnActivation.addClass('btn--activate');
       let cookieName = new Cookie('name');
@@ -259,6 +254,12 @@ export default class Login extends widget {
       cookiePassWd.setCookie(passWd, 3);
       cookieCid.setCookie(res.cid, 3);
       cookieCompanyType.setCookie(res['companyType'], 3);
+
+      if(sessionStorage.getItem('company_type') === '1') {
+        window.location.href = `${Constant.Href_Route}fund.html`
+      } else {
+        window.location.href = `${Constant.Href_Route}stockRight.html`
+      }
     }, 1200);
   }
 };
