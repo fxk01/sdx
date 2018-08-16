@@ -28,9 +28,6 @@ import {
 } from './page';
 import Main from './main/main';
 import Utils from '../utils/tool';
-import Cookie from '../../src/components/cookie';
-import LoginStore from '../../src/store/login_store';
-import Constant from '../utils/constant';
 
 export default {
   init() {
