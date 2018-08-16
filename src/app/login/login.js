@@ -40,6 +40,9 @@ export default class Login extends widget {
             text: '已知悉，继续浏览',
             onClick: function() {
               myApp.loginScreen();
+              if(document.cookie.indexOf('name') >= 0) {
+                $(`input[name='username']`).val(new Cookie('name').getCookie());
+              }
             }
           },
         ],
