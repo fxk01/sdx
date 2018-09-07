@@ -150,53 +150,73 @@ export default class Login extends widget {
    */
   loginHome() {
     // let btnActivation = $('#btnActivation');
-    function validator(target, validator, errorMsg) {
-      let options = {
-        onHide: function () {
-        },
-        duration: 2000
-      };
-      return new Proxy(target, {
-        _validator: validator,
-        set(target, key, value, proxy) {
-          let errMsg = errorMsg;
-          if (value === '') {
-            let toast = myApp.toast('', `<div>${errMsg[key]}不能为空！</div>`, options);
-            toast.show();
-            throw new TypeError(`${errMsg[key]}不能为空！`);
-          }
-          let va = this._validator[key];
-          if (!va(value)) {
-            return Reflect.set(target, key, value, proxy)
-          } else {
-            let toast = myApp.toast('', `<div>${errMsg[key]}格式不正确</div>`, options);
-            toast.show();
-            throw new TypeError(`${errMsg[key]}格式不正确`);
-          }
-        }
-      })
+    let options = {
+      onHide: function () {
+      },
+      duration: 2000
+    };
+
+    // function validator(target, validator, errorMsg) {
+    //   let options = {
+    //     onHide: function () {
+    //     },
+    //     duration: 2000
+    //   };
+    //   return new Proxy(target, {
+    //     _validator: validator,
+    //     set(target, key, value, proxy) {
+    //       let errMsg = errorMsg;
+    //       if (value === '') {
+    //         alert(111);
+    //         let toast = myApp.toast('', `<div>${errMsg[key]}不能为空！</div>`, options);
+    //         toast.show();
+    //         // throw new TypeError(`${errMsg[key]}不能为空！`);
+    //       }
+    //       let va = this._validator[key];
+    //       if (!va(value)) {
+    //         return Reflect.set(target, key, value, proxy)
+    //       } else {
+    //         alert(222);
+    //         let toast = myApp.toast('', `<div>${errMsg[key]}格式不正确</div>`, options);
+    //         toast.show();
+    //         // throw new TypeError(`${errMsg[key]}格式不正确`);
+    //       }
+    //     }
+    //   })
+    // }
+    // const validators = {
+    //   name(value) {
+    //     return value.length > 30
+    //   },
+    //   passWd(value) {
+    //     return value.length > 30
+    //   },
+    // };
+    // const errorMsg = {
+    //   name: '证件号码',
+    //   passWd: '登录密码',
+    // };
+    // const vaLi = validator({}, validators, errorMsg);
+    // let validatorNext = function* () {
+    //   yield vaLi.name = $(`input[name='username']`).val();
+    //   yield vaLi.passWd = $(`input[name='password']`).val();
+    // };
+    // let _validator = validatorNext();
+    // _validator.next();
+    // !vaLi.name || _validator.next();
+    // !vaLi.passWd || _validator.next();
+
+    if($(`input[name='username']`).val() === '') {
+      let toast = myApp.toast('', `<div>证件号码不能为空！</div>`, options);
+      toast.show();
+      return;
     }
-    const validators = {
-      name(value) {
-        return value.length > 30
-      },
-      passWd(value) {
-        return value.length > 30
-      },
-    };
-    const errorMsg = {
-      name: '证件号码',
-      passWd: '登录密码',
-    };
-    const vaLi = validator({}, validators, errorMsg);
-    let validatorNext = function* () {
-      yield vaLi.name = $(`input[name='username']`).val();
-      yield vaLi.passWd = $(`input[name='password']`).val();
-    };
-    let _validator = validatorNext();
-    _validator.next();
-    !vaLi.name || _validator.next();
-    !vaLi.passWd || _validator.next();
+    if($(`input[name='password']`).val() === '') {
+      let toast = myApp.toast('', `<div>登陆密码不能为空！</div>`, options);
+      toast.show();
+      return;
+    }
+
     // if(!btnActivation.hasClass(('btn--activated'))) {
     //   btnActivation.removeClass('btn--activate');
     //   btnActivation.addClass('btn--waiting');
@@ -206,8 +226,8 @@ export default class Login extends widget {
         action: 'UserLogin',
         cid: sessionStorage.getItem('cid'),
         company_type: sessionStorage.getItem('company_type'),
-        username: vaLi.name,
-        password: vaLi.passWd,
+        username: $(`input[name='username']`).val(),
+        password: $(`input[name='password']`).val(),
       }
     }, (res) => {
       if(res['result'] === 'NumNG') {
@@ -222,15 +242,15 @@ export default class Login extends widget {
             sessionStorage.setItem(key, res[key]);
           }
         }
-        this.name = vaLi.name;
-        this.passWd = vaLi.passWd;
+        this.name = $(`input[name='username']`).val();
+        this.passWd = $(`input[name='password']`).val();
         this.res = res;
         if(sessionStorage.getItem('phone') !== '') {
           $$('#registerForm').fadeOut('slow', function() {
             $$('#registerFormYzm').fadeIn();
           });
         } else {
-          this.btnHrefHome(vaLi.name, vaLi.passWd, res);
+          this.btnHrefHome($(`input[name='username']`).val(), $(`input[name='password']`).val(), res);
         }
       }
       // btnActivation.removeClass('btn--waiting');
