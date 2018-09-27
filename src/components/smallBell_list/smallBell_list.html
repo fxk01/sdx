@@ -3,7 +3,7 @@
   {{#each prodMsgList}}
   <li class="swipeout">
     <div class="swipeout-content item-content">
-      <div class="item-media">{{title}}</div>
+      <div class="item-media media-title">{{@index+1}}，{{productName}}({{productCode}})发布了最新产品公告，请注意查看！</div>
     </div>
     <div class="swipeout-actions-right">
       <a href="#" class="action1 {{#js_if 'this.updateTime === null'}}bg-red{{/js_if}}" data-id="{{id}}">标记已读</a>
