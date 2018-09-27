@@ -15,6 +15,7 @@ import stockRightStore from '../../store/stockRight_store';
 import homeStockProduct from '../../components/stock-product/stock-product.html';
 import '../../components/stock-product/stock-product.less';
 import Cookie from '../../../src/components/cookie';
+import FundStore from '../../store/fund_store';
 
 export default class StockRight extends widget {
   init(page) {
@@ -34,7 +35,20 @@ export default class StockRight extends widget {
     this.apTpl();
     this.fundHomeData();
     this.onlineInvest();
-
+    FundStore.messageGetProduct({
+      data: {
+        action: 'Message',
+        method: 'getProductMessage',
+        cid: sessionStorage.getItem('cid'),
+        idCard: sessionStorage.getItem('idCard'),
+      }
+    }, (res) => {
+      if(res.msgSize > 0) {
+        $$('.sysMsg').show().html(res.msgSize);
+      } else {
+        $$('.sysMsg').hide();
+      }
+    });
     $('.pullFundHome').on('refresh', () => { this.fundHomeData(); });
     $('.pullFund').on('refresh', () => {
       this.onlineInvest().then(function(str) {
@@ -73,6 +87,12 @@ export default class StockRight extends widget {
     $$('.framework7-root').on('click', '#noTestFund', function() {
       let _val = $$(this).attr('data-val');
       window.location.href = `${Constant.Href_Route}questionnaire.html?val=${_val}&xz=${$$(this).attr('data-xz')}`
+    });
+    $$('.framework7-root').on('click', '.fund-ld', () => {
+      let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}smallBell.html?val=${_val}&xz=${$$(this).attr('data-xz')}`
+    });
+    $$('.framework7-root').on('click', '.fund-ld2', () => {
+      let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}smallBell.html?tab3=active&val=${_val}&xz=${$$(this).attr('data-xz')}`
     });
   }
   apTpl() {

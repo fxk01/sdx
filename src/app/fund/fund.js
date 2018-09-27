@@ -44,6 +44,22 @@ export default class Fund extends widget {
 
     this.fundHomeData();
     this.fundListContent();
+
+    FundStore.messageGetProduct({
+      data: {
+        action: 'Message',
+        method: 'getProductMessage',
+        cid: sessionStorage.getItem('cid'),
+        idCard: sessionStorage.getItem('idCard'),
+      }
+    }, (res) => {
+      if(res.msgSize > 0) {
+        $$('.sysMsg').show().html(res.msgSize);
+      } else {
+        $$('.sysMsg').hide();
+      }
+    });
+
     $('.showHdAssets').on('click', (e) => { this.showAssets(e); });
     $('.showFundGoods').on('click', (e) => { this.showGoods(e); });
     $$('.framework7-root').on('click', '.infoListGoods .accordion-item', function() { let itemSelf = $(this); self.openData(itemSelf); });
@@ -64,6 +80,12 @@ export default class Fund extends widget {
     $$('.framework7-root').on('click', '.hrefTsJy', () => { window.location.href = `${Constant.Href_Route}complaint.html`; });
     $$('.framework7-root').on('click', '.hrefZxZm', () => { window.location.href = `${Constant.Href_Route}certificate.html`; });
     $$('.framework7-root').on('click', '.hrefLoginOut', () => { self.loginOut(); });
+    $$('.framework7-root').on('click', '.fund-ld', () => {
+      let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}smallBell.html?val=${_val}&xz=${$$(this).attr('data-xz')}`
+    });
+    $$('.framework7-root').on('click', '.fund-ld2', () => {
+      let _val = $$(this).attr('data-val'); window.location.href = `${Constant.Href_Route}smallBell.html?tab3=active&val=${_val}&xz=${$$(this).attr('data-xz')}`
+    });
     $$('.framework7-root').on('click', '.toolbar-inner .tab-link', function() {
       let stateObject = {};
       let title = '';

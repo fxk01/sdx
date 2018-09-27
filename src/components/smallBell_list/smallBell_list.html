@@ -1,0 +1,17 @@
+{{#if "result == OK"}}
+<ul>
+  {{#each prodMsgList}}
+  <li class="swipeout">
+    <div class="swipeout-content item-content">
+      <div class="item-media">{{title}}</div>
+    </div>
+    <div class="swipeout-actions-right">
+      <a href="#" class="action1 {{#js_if 'this.updateTime === null'}}bg-red{{/js_if}}" data-id="{{id}}">标记已读</a>
+      <a href="#" class="swipeout-delete" data-id="{{id}}" data-confirm="是否要删除吗?" data-confirm-title="提示?">删除</a>
+    </div>
+  </li>
+  {{/each}}
+</ul>
+{{else}}
+<span>暂无数据！</span>
+{{/if}}

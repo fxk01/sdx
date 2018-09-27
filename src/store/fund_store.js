@@ -46,5 +46,13 @@ export default {
       chanpin_list: [],
     };
     request(params, 'POST', callback);
+  },
+  messageGetProduct(params, callback) {
+    params.path = 'data';
+    params.assign = {
+      result: false,
+      prodMsgList: [],
+    };
+    request(params, 'POST', callback);
   }
 };

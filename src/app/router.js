@@ -25,6 +25,7 @@ import {
   StockPurchasedCp,
   StockRecord,
   Certificate,
+  SmallBell,
 } from './page';
 import Main from './main/main';
 import Utils from '../utils/tool';
@@ -129,6 +130,9 @@ export default {
         break;
       case 'certificate':
         new Certificate().init(page);
+        break;
+      case 'smallBell':
+        new SmallBell().init(page);
         break;
       default:
         break;
