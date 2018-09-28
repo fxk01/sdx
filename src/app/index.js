@@ -19,6 +19,8 @@ let app = {
       material: false,
       pushState: true,
       swipeBackPage: false,
+      modalButtonCancel: '取消',
+      modalButtonOk: '确定',
       onAjaxStart: function (xhr) {
         myApp.showIndicator();
       },

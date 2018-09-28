@@ -10,6 +10,7 @@ import widget from '../../utils/widget';
 import ggListTpl from '../../components/fund-ggList/fund-ggList.html';
 import fundBulletinStore from '../../store/fund_bulletin';
 import Constant from '../../utils/constant';
+import stockDetailStore from '../../store/stockDetails_store';
 
 export default class FundBulletin extends widget {
   init() {
@@ -19,9 +20,22 @@ export default class FundBulletin extends widget {
     if(pageLeg === 0) {
       window.location.reload();
     }
-
     let _fundBulletinTpl = Tool.renderTpl(fundBulletinTpl);
     $('.fundBulletin-page').html('').append($(_fundBulletinTpl));
+    stockDetailStore.postChanpinFenggeyaoqiu({
+      data: {
+        action: 'ChanpinFenggeyaoqiu',
+        cid: sessionStorage.getItem('cid'),
+        chanpinCode: decodeURI(Tool.parseURL('code')),
+        tongxingzhen: sessionStorage.getItem('idCard'),
+      }
+    }, (res) => {
+      if(res.result === 'OK') {
+        sessionStorage.setItem('rgFlag', res.is_rgFlag);
+      } else {
+        alert('接口报错!');
+      }
+    });
     this.noticeList();
 
     $('.fundHrefBulReg').on('click', () => { self.fundStockDetail(`?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`); });

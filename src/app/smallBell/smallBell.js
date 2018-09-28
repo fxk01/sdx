@@ -43,6 +43,13 @@ export default class SmallBell extends widget {
     $$('.framework7-root').on('click', '.modal-button-bold', function() {
       self.deleteMsg($$(this));
     });
+    $$('.framework7-root').on('click', '.hrefFundBulletin', function() {
+      if(sessionStorage.getItem('companyType') === 1) {
+        window.location.href = `${Constant.Href_Route}fundBulletin.html?code=${$$(this).attr('data-code')}&bell=small`
+      } else {
+        window.location.href = `${Constant.Href_Route}fundBulletin.html?tab2=undefined&code=${$$(this).attr('data-code')}&bell=small`
+      }
+    });
   }
   apTpl() {
     let _fundTpl = Tool.renderTpl(fundTpl);
@@ -79,9 +86,7 @@ export default class SmallBell extends widget {
       }
     }, (res) => {
       if(res.result === 'OK') {
-        self.css({
-          background: '#c7c7cc'
-        });
+        self.removeClass('bg-red');
       }
     })
   }
