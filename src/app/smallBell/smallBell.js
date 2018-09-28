@@ -44,11 +44,27 @@ export default class SmallBell extends widget {
       self.deleteMsg($$(this));
     });
     $$('.framework7-root').on('click', '.hrefFundBulletin', function() {
-      if(sessionStorage.getItem('companyType') === 1) {
-        window.location.href = `${Constant.Href_Route}fundBulletin.html?code=${$$(this).attr('data-code')}&bell=small`
-      } else {
-        window.location.href = `${Constant.Href_Route}fundBulletin.html?tab2=undefined&code=${$$(this).attr('data-code')}&bell=small`
+      let tab3 = '';
+      if(Tool.parseURL('tab3') !== undefined) {
+        tab3 = `tab3=${Tool.parseURL('tab3')}&`;
       }
+      smallBellStore.postUpdateProductMsg({
+        data: {
+          action: "Message",
+          method: 'updateProductMessage',
+          messageId: $$(this).attr('data-id'),
+        }
+      }, (res) => {
+        if(res.result === 'OK') {
+
+          console.log(Tool.parseURL('tab3'))
+          if(sessionStorage.getItem('companyType') === 1) {
+            window.location.href = `${Constant.Href_Route}fundBulletin.html?${tab3}code=${$$(this).attr('data-code')}&bell=small`
+          } else {
+            window.location.href = `${Constant.Href_Route}fundBulletin.html?${tab3}code=${$$(this).attr('data-code')}&bell=small`
+          }
+        }
+      })
     });
   }
   apTpl() {

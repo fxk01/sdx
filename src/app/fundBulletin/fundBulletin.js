@@ -37,9 +37,27 @@ export default class FundBulletin extends widget {
       }
     });
     this.noticeList();
+    let tab3 = '';
+    if(Tool.parseURL('tab3') !== undefined) {
+      tab3 = `?tab3=${Tool.parseURL('tab3')}&`;
+    } else {
+      tab3 = `?`;
+    }
 
-    $('.fundHrefBulReg').on('click', () => { self.fundStockDetail(`?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`); });
-    $('.framework7-root').on('click', '.fundNoticeHref', function() { window.location.href = `${Constant.Href_Route}fundNoticeDetails.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}&id=${$(this).attr('data-id')}` });
+    $('.fundHrefBulReg').on('click', () => {
+      if(Tool.parseURL('bell') === 'small') {
+        window.location.href = `${Constant.Href_Route}smallBell.html${tab3}`
+      } else {
+        self.fundStockDetail(`?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`);
+      }
+    });
+    $('.framework7-root').on('click', '.fundNoticeHref', function() {
+      if(Tool.parseURL('bell') === 'small') {
+        window.location.href = `${Constant.Href_Route}fundNoticeDetails.html${tab3}bell=${Tool.parseURL('bell')}&code=${Tool.parseURL('code')}&id=${$(this).attr('data-id')}`
+      } else {
+        window.location.href = `${Constant.Href_Route}fundNoticeDetails.html?tab2=${Tool.parseURL('tab2')}&bell=${Tool.parseURL('bell')}&code=${Tool.parseURL('code')}&id=${$(this).attr('data-id')}`
+      }
+    });
   }
   /*
    获取公告列表

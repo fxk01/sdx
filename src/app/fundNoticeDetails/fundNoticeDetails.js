@@ -24,8 +24,20 @@ export default class FundNoticeDetails extends widget {
     });
     $('.fundNoticeDetails-page').append($(_fundNoticeDetailsTpl));
     this.postGgDetails();
+    let tab3 = '';
+    if(Tool.parseURL('tab3') !== undefined) {
+      tab3 = `?tab3=${Tool.parseURL('tab3')}&`;
+    } else {
+      tab3 = `?`;
+    }
 
-    $('.framework7-root').on('click', '.fundBulReg', () => { window.location.href = `${Constant.Href_Route}fundBulletin.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`; });
+    $('.framework7-root').on('click', '.fundBulReg', () => {
+      if(Tool.parseURL('bell') === 'small') {
+        window.location.href = `${Constant.Href_Route}fundBulletin.html${tab3}code=${Tool.parseURL('code')}&bell=${Tool.parseURL('bell')}`;
+      } else {
+        window.location.href = `${Constant.Href_Route}fundBulletin.html?tab2=${Tool.parseURL('tab2')}&code=${Tool.parseURL('code')}`;
+      }
+    });
   }
   /*
    获取产品公告详情
