@@ -250,10 +250,10 @@ export default class Login extends widget {
       let cookiePassWd = new Cookie('pas');
       let cookieCid = new Cookie('cid');
       let cookieCompanyType = new Cookie('company_type');
-      cookieName.setCookie(name, 3);
-      cookiePassWd.setCookie(passWd, 3);
-      cookieCid.setCookie(res.cid, 3);
-      cookieCompanyType.setCookie(res['companyType'], 3);
+      cookieName.setCookie(name, 365);
+      cookiePassWd.setCookie(passWd, 365);
+      cookieCid.setCookie(res.cid, 365);
+      cookieCompanyType.setCookie(res['companyType'], 365);
 
       if(sessionStorage.getItem('company_type') === '1') {
         window.location.href = `${Constant.Href_Route}fund.html`
